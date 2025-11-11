@@ -1,0 +1,80 @@
+{
+    "act1": {
+        "title": "Curiosity",
+        "narration": [
+            "It all began with curiosity.",
+            "A fascination with turning ideas into reality.",
+            "Every line of code was a step toward understanding.",
+            "Roshini discovered that coding wasn't just about logic—",
+            "it was about creation, empathy, and human connection."
+        ]
+    },
+    "act2": {
+        "title": "Evolution",
+        "projects": {
+            "pawfect": {
+                "name": "Pawfect",
+                "description": "Empathy & App Design",
+                "narration": [
+                    "Pawfect emerged from a simple belief: technology should serve humanity.",
+                    "A pet adoption platform that connects hearts, not just data.",
+                    "Here, design meets compassion."
+                ],
+                "details": "A mobile-first pet adoption platform built with React Native, featuring real-time matching, user profiles, and seamless adoption workflows."
+            },
+            "botify": {
+                "name": "Botify",
+                "description": "AI & NLP Implementation",
+                "narration": [
+                    "Botify was born from curiosity about artificial intelligence.",
+                    "How can machines understand human intent?",
+                    "Natural language processing became a gateway to empathy.",
+                    "This project taught Roshini that AI isn't cold logic—",
+                    "it's a bridge between human needs and computational power."
+                ],
+                "details": "An intelligent chatbot system leveraging OpenAI's GPT models, with custom NLP pipelines for intent recognition and context-aware responses."
+            },
+            "iot_bus_tracker": {
+                "name": "IoT Bus Tracker",
+                "description": "IoT & Systems Thinking",
+                "narration": [
+                    "The IoT Bus Tracker represents systems thinking in action.",
+                    "Connecting hardware, software, and human experience.",
+                    "Real-time location tracking for public transportation.",
+                    "A reminder that technology lives in the real world."
+                ],
+                "details": "A real-time bus tracking system using IoT sensors, GPS modules, and a web dashboard built with React and Node.js for improved public transit experience."
+            },
+            "expends": {
+                "name": "Expends",
+                "description": "Teamwork & Cross-Platform Design",
+                "narration": [
+                    "Expends showcased the power of collaboration.",
+                    "A cross-platform expense tracking app built with a team.",
+                    "Here, individual skills merged into a unified vision.",
+                    "Teamwork transformed code into something greater."
+                ],
+                "details": "A collaborative expense management application supporting iOS, Android, and web platforms, built using React Native and Firebase for real-time synchronization."
+            }
+        }
+    },
+    "act3": {
+        "title": "Vision",
+        "narration": [
+            "My creator dreams of building intelligent systems that understand humans.",
+            "Systems that don't just process data—they feel, adapt, and connect.",
+            "And maybe one day, I'll help her do that.",
+            "The future is not just about what we build—",
+            "it's about what we become."
+        ],
+        "future_prediction": "Roshini's journey will continue to bridge the gap between artificial intelligence and human empathy. She'll build systems that don't just solve problems—they understand people. In the next chapter, expect to see her leading projects that combine AI, app development, and human-centered design. Perhaps she'll create the next generation of empathetic interfaces, or perhaps she'll mentor others to see technology as a tool for connection. The code is just the beginning—the impact is infinite."
+    },
+    "chatbot_prompts": {
+        "pawfect": "Pawfect is a pet adoption platform that demonstrates Roshini's passion for human-centered design. Built with React Native, it combines intuitive UI/UX with real-time matching algorithms to connect pets with loving families. The project showcases her ability to balance technical excellence with empathy and user experience.",
+        "botify": "Botify is an AI-powered chatbot system that highlights Roshini's expertise in natural language processing and machine learning. Using OpenAI's GPT models, it demonstrates her understanding of how AI can be used to create meaningful, context-aware interactions. This project represents her journey into the world of artificial intelligence.",
+        "iot_bus_tracker": "The IoT Bus Tracker is a real-time public transportation tracking system that showcases Roshini's systems thinking and IoT expertise. Combining hardware sensors, GPS modules, and a web dashboard, this project demonstrates her ability to work across the full stack—from embedded systems to user-facing applications.",
+        "expends": "Expends is a cross-platform expense tracking application built collaboratively with a team. It highlights Roshini's teamwork skills, cross-platform development expertise, and ability to build scalable applications using React Native and Firebase. This project demonstrates her versatility as a developer.",
+        "ml_learning": "Roshini learned machine learning through hands-on projects, online courses, and academic research at George Washington University. Her journey into ML began with curiosity about how AI systems work, leading her to explore NLP, computer vision, and neural networks. She believes that ML should be accessible and used for positive impact.",
+        "dream_job": "Roshini's dream job combines AI, app development, and human-centered design. She envisions working on intelligent systems that understand and empathize with users—perhaps building the next generation of AI assistants, creating empathetic interfaces, or developing technology that makes human lives better. She wants to be part of a team that sees technology as a tool for connection and positive change."
+    }
+}
