@@ -28,7 +28,7 @@ const Layout = () => {
       <div style={{ minHeight: '100vh' }}>
         <Outlet key={pageKey} />
       </div>
-      {location.pathname !== '/' && <Footer />}
+      <Footer />
       <Chatbot />
     </div>
   );

@@ -1,45 +1,93 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github, Smartphone, Bot, Wifi, Users, ArrowRight, Sparkles } from 'lucide-react';
-import dialogue from '../data/dialogue.json';
+import { ExternalLink, Github, Smartphone, Bot, Wifi, Users, ArrowRight, Sparkles, Brain, TrendingUp, GraduationCap, Shield } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
     {
-      id: 'pawfect',
-      name: 'Pawfect',
-      description: 'Empathy & App Design',
-      details: dialogue.act2.projects.pawfect.details,
-      narration: dialogue.act2.projects.pawfect.narration,
+      id: 'prommuni_roommate_finder',
+      name: 'Prommuni - Roommate Finder',
+      description: 'Live on Stores',
+      details: 'Built a cross-platform roommate-finder app in Flutter using MVVM + GetX architecture for scalability and maintainability. Implemented Firebase authentication, session storage, and real-time chat for 500+ test users, ensuring secure and low-latency communication. Integrated Mapbox SDK with geolocation and dynamic radius search, improving roommate matching accuracy by 40%. ',
+      narration: ['Live on App Store and Google Play Store'],
       icon: Smartphone,
-      tech: ['React Native', 'Real-time Matching', 'User Profiles', 'Adoption Workflows'],
+      tech: ['Flutter', 'GetX', 'Supabase', 'Mapbox', 'iOS', 'Android', 'Real-time Chat', 'Geolocation', 'Firebase', 'GitHub Actions', 'CI/CD'],
+      role: 'Software Developer Intern',
+      period: 'Oct 2025 – Present',
+      appStoreLink: 'https://apps.apple.com/us/app/prommuni/id6747644654Prommuni',
+      playStoreLink: 'https://play.google.com/store/apps/details?id=com.prommuni.app&pcampaignid=web_share',
     },
     {
-      id: 'botify',
-      name: 'Botify',
-      description: 'AI & NLP Implementation',
-      details: dialogue.act2.projects.botify.details,
-      narration: dialogue.act2.projects.botify.narration,
+      id: 'lora_historical_narratives',
+      name: 'LoRA Fine-tuning for Historical Narratives',
+      description: 'LLM Adaptation & Creative Storytelling',
+      details: 'Implemented LoRA (Low-Rank Adaptation) to adapt a pre-trained Large Language Model (LLM) for generating engaging historical narratives. Fine-tuned an open-source LLM (Mistral-7B) on a custom dataset of historical events from Wikipedia or similar sources, enabling the model to narrate events as interactive stories with creative twists like "what-if" alternatives or underrepresented perspectives.',
+      narration: ['Developed an innovative approach to historical storytelling using advanced LLM fine-tuning techniques.'],
+      icon: Brain,
+      tech: ['Mistral-7B', 'LoRA', 'Python', 'LLM Fine-tuning', 'Wikipedia Dataset', 'Historical Narratives'],
+    },
+    {
+      id: 'amazon_retail_forecasting',
+      name: 'Amazon Retail Sales Forecasting',
+      description: 'LLM Fine-tuning & Historical Narratives',
+      details: 'Fine-tuned pre-trained LLMs (Mistral-7B) using LoRA, enabling creative historical narratives with "what-if" scenarios. Curated and preprocessed a domain-specific historical dataset from Wikipedia for storytelling fine-tuning. Applied low-rank adaptation to efficiently fine-tune large models with minimal computational resources. Generated context-aware, interactive narratives using prompt engineering, embeddings, and evaluation of coherence and creativity.',
+      narration: ['Led a team to develop innovative AI-powered historical narrative generation using advanced LLM fine-tuning techniques.'],
+      icon: Brain,
+      tech: ['Mistral-7B', 'LoRA', 'Python', 'LLM Fine-tuning', 'Embeddings', 'Prompt Engineering'],
+      role: 'Team Lead',
+      period: 'Jan 2025 – Apr 2025',
+    },
+    {
+      id: 'botify_medica',
+      name: 'Botify – AI-Powered Chatbot Assistant',
+      description: 'AI Chatbot for Healthcare (Medica Internship)',
+      details: 'Developed Botify, a prototype AI chatbot for Medica\'s website, assisting members, providers, and visitors with conversational support. Built responsive frontend UI with HTML, CSS, JavaScript, including a floating chat icon for seamless user access. Implemented backend with Flask, integrating Mistral 7B Instruct LLM and FAISS search for context-aware responses. Processed website data using BeautifulSoup and Sentence Transformers, enabling accurate embeddings and fast, relevant answer retrieval.',
+      narration: ['Created an intelligent chatbot solution that enhances customer support through AI-powered conversational interfaces.'],
       icon: Bot,
-      tech: ['OpenAI GPT', 'NLP Pipelines', 'Intent Recognition', 'Context-Aware Responses'],
+      tech: ['Flask', 'Mistral 7B', 'FAISS', 'BeautifulSoup', 'Sentence Transformers', 'HTML/CSS/JavaScript'],
+      role: 'Intern',
+      period: 'Jun 2025 – Aug 2025',
+    },
+    {
+      id: 'expends_mobile',
+      name: 'Expends – Expense Tracking App',
+      description: 'Cross-Platform Mobile Application',
+      details: 'Built cross-platform expense tracker using Flutter, GetX, Laravel, MySQL, enabling seamless multi-device functionality. Developed RESTful APIs for real-time expense synchronization, improving data reliability and consistency. Enhanced UI/UX with Rive animations and smooth navigation, boosting user engagement and retention. Implemented dashboards, categorization, and reports, helping users track finances and analyze spending efficiently.',
+      narration: ['Delivered a comprehensive expense tracking solution with beautiful animations and robust backend infrastructure.'],
+      icon: TrendingUp,
+      tech: ['Flutter', 'GetX', 'Laravel', 'MySQL', 'RESTful APIs', 'Rive Animations'],
+      role: 'Team Lead',
+      period: 'Sep 2024 – Nov 2024',
+    },
+    {
+      id: 'university_admit_predictor',
+      name: 'University Admit Eligibility Predictor',
+      description: 'Data Science & Predictive Analytics',
+      details: 'Analyzed large datasets and applied regression algorithms to predict student admission eligibility to universities. Designed and implemented an interactive dashboard for visualizing eligibility scores and key admission factors. Provided stakeholders with a data-driven tool to better understand and compare admission requirements.',
+      narration: ['Developed a predictive analytics solution that helps students and institutions make informed admission decisions.'],
+      icon: GraduationCap,
+      tech: ['Python', 'Regression Algorithms', 'Data Visualization', 'Dashboard', 'Machine Learning'],
+      period: 'Sep 2022 – Nov 2022',
+    },
+    {
+      id: 'face_mask_detection',
+      name: 'Face Mask Detection with OpenCV',
+      description: 'Computer Vision & Deep Learning',
+      details: 'Led the design and development of a real-time mask detection system using OpenCV and deep learning models. Achieved 93% detection accuracy, enabling effective monitoring of compliance with mask mandates. Deployed the solution in university settings, reducing manual monitoring efforts by 60% and improving safety enforcement.',
+      narration: ['Created an AI-powered safety solution that combines computer vision with practical deployment strategies.'],
+      icon: Shield,
+      tech: ['OpenCV', 'Deep Learning', 'Computer Vision', 'Python', 'Real-time Detection'],
+      role: 'Team Lead',
+      period: 'Feb 2022 – Apr 2022',
     },
     {
       id: 'iot_bus_tracker',
       name: 'IoT Bus Tracker',
       description: 'IoT & Systems Thinking',
-      details: dialogue.act2.projects.iot_bus_tracker.details,
-      narration: dialogue.act2.projects.iot_bus_tracker.narration,
+      details: 'Developed a comprehensive IoT solution for real-time bus tracking and monitoring using GPS modules and IoT sensors. Built a responsive web dashboard with React that displays live bus locations, estimated arrival times, and route information. Implemented a Node.js backend server that processes sensor data, calculates optimal routes, and manages real-time communication between buses and the central system. Integrated GPS tracking modules with IoT sensors to monitor bus status, passenger capacity, and environmental conditions. Designed an intuitive user interface that allows passengers to track buses in real-time and receive notifications about delays or route changes.',
+      narration: ['Built an innovative IoT system that connects physical sensors with digital interfaces, revolutionizing public transportation tracking.'],
       icon: Wifi,
-      tech: ['IoT Sensors', 'GPS Modules', 'React', 'Node.js'],
-    },
-    {
-      id: 'expends',
-      name: 'Expends',
-      description: 'Teamwork & Cross-Platform Design',
-      details: dialogue.act2.projects.expends.details,
-      narration: dialogue.act2.projects.expends.narration,
-      icon: Users,
-      tech: ['React Native', 'Firebase', 'iOS', 'Android', 'Web'],
+      tech: ['IoT Sensors', 'GPS Modules', 'React', 'Node.js', 'Real-time Tracking', 'Web Dashboard'],
     },
   ];
 
@@ -75,7 +123,8 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl text-white/80 max-w-2xl mx-auto"
+            className="text-xl max-w-2xl mx-auto"
+            style={{ color: '#6c757d' }}
           >
             A collection of projects that showcase my passion for building intelligent, 
             human-centered technology solutions
@@ -100,6 +149,7 @@ const Projects = () => {
                 style={{
                   borderColor: 'rgba(255, 255, 255, 0.2)',
                   backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  willChange: 'transform',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
@@ -109,7 +159,6 @@ const Projects = () => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
                   e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
                 }}
-                style={{ willChange: 'transform' }}
               >
                 {/* Animated gradient overlay on hover */}
                 <motion.div
@@ -170,14 +219,26 @@ const Projects = () => {
                           {project.name}
                         </span>
                       </motion.h3>
-                      <p className="text-white/70 text-sm mb-2">
-                        {project.description}
+                      <p className="text-sm mb-1">
+                        {project.id === 'prommuni_roommate_finder' ? (
+                          <span style={{ color: '#10b981' }}>{project.description}</span>
+                        ) : (
+                          <span style={{ color: '#6c757d' }}>{project.description}</span>
+                        )}
                       </p>
+                      {(project.role || project.period) && (
+                        <p className="text-xs mb-2" style={{ color: '#6c757d' }}>
+                          {project.role && `${project.role}`}
+                          {project.role && project.period && ' • '}
+                          {project.period && project.period}
+                        </p>
+                      )}
                     </div>
                   </div>
 
                   <motion.p
-                    className="text-white/80 mb-6 leading-relaxed"
+                    className="mb-6 leading-relaxed"
+                    style={{ color: '#6c757d' }}
                     initial={{ opacity: 0.8 }}
                     whileHover={{ opacity: 1 }}
                   >
@@ -216,6 +277,66 @@ const Projects = () => {
                     </div>
                   </div>
 
+                  {/* Store Links for Prommuni */}
+                  {project.id === 'prommuni_roommate_finder' && (project.appStoreLink || project.playStoreLink) && (
+                    <div className="mb-4 flex flex-wrap gap-3">
+                      {project.appStoreLink && (
+                        <motion.a
+                          href={project.appStoreLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
+                          style={{
+                            borderColor: 'rgba(255, 255, 255, 0.3)',
+                            color: '#ffffff',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+                          }}
+                        >
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.96-3.24-1.44-2.24-1.16-4.37-2.26-6.23-3.85C1.26 13.84 0 11.75 0 9.65c0-2.12 1.19-3.95 3-5.35 1.39-1.05 3.05-1.58 4.78-1.58 1.56 0 3.03.56 4.18 1.6 1.15-1.04 2.62-1.6 4.18-1.6 1.73 0 3.39.53 4.78 1.58 1.81 1.4 3 3.23 3 5.35 0 2.1-1.26 4.19-3.4 6.15-1.86 1.59-3.99 2.69-6.23 3.85-1.16.48-2.15.94-3.24 1.44-1.03.48-2.1.55-3.08-.4z"/>
+                          </svg>
+                          <span className="text-sm">App Store</span>
+                        </motion.a>
+                      )}
+                      {project.playStoreLink && (
+                        <motion.a
+                          href={project.playStoreLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
+                          style={{
+                            borderColor: 'rgba(255, 255, 255, 0.3)',
+                            color: '#ffffff',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+                          }}
+                        >
+                          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.05L14.69,12L3.84,21.95C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.94C20.5,11.34 20.67,11.87 20.67,12.44C20.67,13.01 20.5,13.53 20.16,13.94L17.74,16.35L14.69,13.3L17.74,10.25L20.16,10.94M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                          </svg>
+                          <span className="text-sm">Play Store</span>
+                        </motion.a>
+                      )}
+                    </div>
+                  )}
+
                   {/* Project Highlights */}
                   <motion.div
                     className="mt-4 pt-4 border-t"
@@ -224,7 +345,7 @@ const Projects = () => {
                     animate={cardInView ? { opacity: 1 } : {}}
                     transition={{ delay: index * 0.15 + 0.3 }}
                   >
-                    <p className="text-sm text-white/70 italic flex items-start gap-2">
+                    <p className="text-sm italic flex items-start gap-2" style={{ color: '#6c757d' }}>
                       <Sparkles className="w-4 h-4 gradient-icon mt-0.5 flex-shrink-0" style={{ stroke: `url(#iconGradient-${project.id})` }} />
                       {project.narration[0]}
                     </p>
@@ -257,7 +378,7 @@ const Projects = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="mt-16 text-center"
         >
-          <p className="text-white/80 mb-4">
+          <p className="mb-4" style={{ color: '#6c757d' }}>
             Want to see more? Check out my GitHub or let's chat about these projects!
           </p>
         </motion.div>

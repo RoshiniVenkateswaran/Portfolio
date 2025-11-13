@@ -59,10 +59,10 @@ const Home = () => {
 
   // Featured project
   const featuredProject = {
-    name: 'Pawfect',
-    description: 'Empathy & App Design',
-    tagline: 'A mobile app connecting pet lovers with rescue animals through intelligent matching',
-    tech: ['React Native', 'Real-time Matching', 'User Profiles'],
+    name: 'LoRA Fine-tuning for Historical Narratives',
+    description: 'LLM Adaptation & Creative Storytelling',
+    tagline: 'Implemented LoRA (Low-Rank Adaptation) to adapt Mistral-7B for generating engaging historical narratives with creative "what-if" scenarios and underrepresented perspectives.',
+    tech: ['Mistral-7B', 'LoRA', 'Python', 'LLM Fine-tuning', 'Wikipedia Dataset', 'Historical Narratives'],
     link: '/projects'
   };
 
@@ -90,41 +90,44 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col items-start lg:items-start flex-1 max-w-2xl"
             >
-              {/* Role Text */}
+              {/* Arrow Icon and Role Text */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-white space-y-1 mb-8"
+                className="flex items-start gap-4 mb-8"
               >
-                <p className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
-                  Software Developer &
-                </p>
-                <p className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
-                  AI/ML Enthusiast
-                </p>
-              </motion.div>
-
-              {/* Arrow Icon - Pointing Right */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="mb-6"
-              >
-                <svg 
-                  width="36" 
-                  height="36" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-white"
+                {/* Arrow Icon - Pointing Right */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="mt-2"
                 >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                  <svg 
+                    width="36" 
+                    height="36" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-white"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </motion.div>
+
+                {/* Role Text */}
+                <div className="text-white space-y-1">
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
+                    Software Engineer &
+                  </p>
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
+                    AI/ML Enthusiast
+                  </p>
+                </div>
               </motion.div>
 
               {/* About Section - 2 Lines */}
@@ -132,7 +135,8 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="text-white/80 space-y-3 max-w-lg"
+                className="space-y-3 max-w-lg"
+                style={{ color: '#6c757d' }}
               >
                 <p className="text-base md:text-lg lg:text-xl font-light leading-relaxed">
                   Building intelligent interfaces and systems that bridge the gap between technology and human needs.
@@ -222,7 +226,8 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={exploreInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto"
+                className="text-xl md:text-2xl max-w-2xl mx-auto"
+                style={{ color: '#6c757d' }}
               >
                 Discover my projects, experience, skills, and learn more about who I am
               </motion.p>
@@ -246,10 +251,10 @@ const Home = () => {
                     >
                       <div
                         className="relative bg-white/10 backdrop-blur-sm border rounded-xl p-6 transition-all shadow-lg hover:shadow-xl overflow-hidden h-full"
-                        style={{
+                style={{
                           borderColor: 'rgba(255, 255, 255, 0.2)',
-                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                        }}
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
                           e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)';
@@ -275,10 +280,10 @@ const Home = () => {
                           <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-white transition-colors">
                             {card.title}
                           </h3>
-                          <p className="text-white/70 text-sm mb-4 leading-relaxed">
+                          <p className="text-sm mb-4 leading-relaxed" style={{ color: '#6c757d' }}>
                             {card.description}
                           </p>
-                          <div className="flex items-center gap-2 text-white/80 group-hover:text-white transition-colors">
+                          <div className="flex items-center gap-2 group-hover:text-white transition-colors" style={{ color: '#6c757d' }}>
                             <span className="text-sm font-medium">Explore</span>
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </div>
@@ -335,7 +340,7 @@ const Home = () => {
               <Link to={featuredProject.link} className="block group">
                 <div
                   className="relative bg-white/10 backdrop-blur-sm border rounded-2xl p-8 md:p-12 transition-all shadow-lg hover:shadow-xl overflow-hidden"
-                  style={{
+                    style={{
                     borderColor: 'rgba(255, 255, 255, 0.2)',
                     backgroundColor: 'rgba(255, 255, 255, 0.05)',
                   }}
@@ -362,13 +367,13 @@ const Home = () => {
                         >
                           {featuredProject.name}
                         </motion.h3>
-                        <p className="text-white/60 text-sm mb-3">
+                        <p className="text-sm mb-3" style={{ color: '#6c757d' }}>
                           {featuredProject.description}
                         </p>
-                        <p className="text-white/80 text-lg leading-relaxed max-w-2xl">
+                        <p className="text-lg leading-relaxed max-w-2xl" style={{ color: '#6c757d' }}>
                           {featuredProject.tagline}
                         </p>
-                      </div>
+                </div>
                       <motion.div
                         animate={{
                           x: [0, 5, 0],
@@ -382,7 +387,7 @@ const Home = () => {
                       >
                         <ArrowRight className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
                       </motion.div>
-                    </div>
+                </div>
                     
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-3 mt-6">
@@ -393,7 +398,7 @@ const Home = () => {
                           animate={featuredInView ? { opacity: 1, scale: 1 } : {}}
                           transition={{ delay: 0.5 + techIndex * 0.1 }}
                           className="px-4 py-2 border rounded-full text-sm font-medium"
-                          style={{
+                    style={{
                             backgroundColor: 'rgba(255, 255, 255, 0.1)',
                             borderColor: 'rgba(255, 255, 255, 0.2)',
                             color: '#FFFFFF',

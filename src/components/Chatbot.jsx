@@ -9,7 +9,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "Hi there! I'm here to help you learn about Roshini. Feel free to ask me about her projects, experience, skills, or anything else you'd like to know. Try asking 'Tell me about Pawfect' or 'What are her skills?'",
+      content: "Hi there! I'm here to help you learn about Roshini Venkateswaran's portfolio. You can ask me about her projects (LoRA Fine-tuning, Amazon Retail Forecasting, Botify, Expends, IoT Bus Tracker, etc.), work experience, skills, education, certifications, or anything else. Try asking 'Tell me about her projects' or 'What is her work experience?'",
     },
   ]);
   const [input, setInput] = useState('');
@@ -101,7 +101,7 @@ const Chatbot = () => {
                   </defs>
                 </svg>
                 <Bot className="w-5 h-5" style={{ stroke: 'url(#chatbotHeaderGradient)', fill: 'none' }} />
-                <h3 className="font-bold gradient-text">Roshini_0x</h3>
+                <h3 className="font-bold gradient-text">Roshini's Assistant</h3>
               </div>
               <div className="flex items-center gap-2">
                 <button

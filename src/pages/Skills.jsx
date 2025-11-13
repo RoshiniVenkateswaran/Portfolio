@@ -7,22 +7,22 @@ const Skills = () => {
     {
       icon: Code,
       title: 'Programming Languages',
-      skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'HTML/CSS'],
+      skills: ['Java', 'Python', 'Dart', 'JavaScript', 'C/C++', 'HTML/CSS'],
     },
     {
       icon: Smartphone,
       title: 'Mobile Development',
-      skills: ['React Native', 'iOS Development', 'Android Development', 'Cross-Platform'],
+      skills: ['Flutter', 'React Native', 'iOS Development', 'Android Development', 'Xcode', 'Android Studio', 'Cross-Platform'],
     },
     {
       icon: Brain,
       title: 'AI/ML',
-      skills: ['OpenAI GPT', 'Natural Language Processing', 'Machine Learning', 'Neural Networks'],
+      skills: ['OpenAI GPT', 'Natural Language Processing', 'Machine Learning', 'Neural Networks', 'TensorFlow', 'Keras', 'Scikit-learn', 'Pandas', 'NumPy'],
     },
     {
       icon: Database,
       title: 'Backend & Databases',
-      skills: ['Node.js', 'Firebase', 'REST APIs', 'Database Design', 'Cloud Services'],
+      skills: ['SQL', 'MySQL', 'MongoDB', 'Node.js', 'Firebase', 'REST APIs', 'Database Design', 'Cloud Services'],
     },
     {
       icon: Palette,
@@ -68,7 +68,8 @@ const Skills = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl text-white/80 max-w-2xl mx-auto"
+            className="text-xl max-w-2xl mx-auto"
+            style={{ color: '#6c757d' }}
           >
             Technical expertise and soft skills that drive my work
           </motion.p>
@@ -88,10 +89,12 @@ const Skills = () => {
                 animate={categoryInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.08, duration: 0.4, ease: "easeOut" }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="group relative bg-white/10 backdrop-blur-sm border rounded-xl p-6 transition-all shadow-lg hover:shadow-xl overflow-hidden"
+                className="group relative bg-white/10 backdrop-blur-sm border rounded-xl p-6 shadow-lg hover:shadow-xl overflow-hidden"
                 style={{
                   borderColor: 'rgba(255, 255, 255, 0.2)',
                   backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  willChange: 'transform',
+                  transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
@@ -101,7 +104,6 @@ const Skills = () => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
                   e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
                 }}
-                style={{ willChange: 'transform' }}
               >
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
@@ -174,7 +176,7 @@ const Skills = () => {
           className="mt-16 text-center"
         >
                 <div className="border rounded-lg p-6 max-w-3xl mx-auto" style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)', borderColor: 'rgba(255, 255, 255, 0.2)' }}>
-                  <p className="text-white/80 leading-relaxed">
+                  <p className="leading-relaxed" style={{ color: '#6c757d' }}>
               I'm always learning and expanding my skill set. Currently focusing on advanced AI/ML techniques, 
               scalable system design, and creating more intuitive user experiences. 
               I believe in the power of continuous learning and staying current with industry trends.
