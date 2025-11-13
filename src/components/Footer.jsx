@@ -24,7 +24,7 @@ const MediumLogo = ({ className }) => (
 const Footer = () => {
   const links = [
     {
-      href: 'https://linkedin.com/in/roshini-venkateswaran',
+      href: 'https://linkedin.com/in/roshini-venkat',
       label: 'LinkedIn',
       LogoComponent: LinkedInLogo,
     },

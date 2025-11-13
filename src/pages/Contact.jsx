@@ -40,8 +40,8 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: 'linkedin.com/in/roshini-venkateswaran',
-      link: 'https://www.linkedin.com/in/roshini-venkat/',
+      value: 'linkedin.com/in/roshini-venkat',
+      link: 'https://linkedin.com/in/roshini-venkat',
       isLogo: true,
       LogoComponent: LinkedInLogo,
     },
