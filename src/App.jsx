@@ -7,10 +7,9 @@ import Experience from './pages/Experience';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import Story from './pages/Story';
+import NotFound from './pages/NotFound';
 
 function App() {
-  console.log('App component rendering');
-  
   return (
     <Router>
       <Routes>
@@ -24,6 +23,8 @@ function App() {
         </Route>
         {/* Story page is standalone for full-screen cinematic experience */}
         <Route path="story" element={<Story />} />
+        {/* 404 page for invalid routes */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

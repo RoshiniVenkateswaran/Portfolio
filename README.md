@@ -3,7 +3,7 @@
 ## 🧠 Overview
 A modern, professional portfolio website showcasing the work and experience of **Roshini Venkateswaran**, a Software Engineer & AI/ML Enthusiast pursuing her MS in Computer Science at George Washington University.
 
-This portfolio features a sleek dark theme with smooth animations, interactive components, and an AI-powered chatbot assistant to help visitors learn about Roshini's projects, experience, and skills.
+This portfolio features a sleek dark theme with smooth animations and interactive components showcasing Roshini's projects, experience, and skills.
 
 ## 🚀 Getting Started
 
@@ -24,15 +24,7 @@ cd Portfolio
 npm install
 ```
 
-3. Set up environment variables (optional):
-Create a `.env` file in the root directory:
-```env
-VITE_OPENAI_API_KEY=your_openai_api_key_here
-```
-
-**Note:** The chatbot will work with fallback responses even without an API key, but for full AI functionality, you'll need an OpenAI API key.
-
-4. Start the development server:
+3. Start the development server:
 ```bash
 npm run dev
 ```
@@ -56,7 +48,6 @@ npm run preview
 ```
 src/
  ├── components/
- │   ├── Chatbot.jsx          # AI chatbot assistant interface
  │   ├── Navigation.jsx       # Navigation bar with scroll effects
  │   ├── Footer.jsx           # Footer with social links
  │   ├── Layout.jsx           # Main layout wrapper
@@ -69,7 +60,7 @@ src/
  │   ├── Skills.jsx           # Technical skills display
  │   └── Contact.jsx          # Contact information
  ├── utils/
- │   └── api.js               # Chatbot API logic
+ │   └── [Utility functions]
  ├── App.jsx
  ├── main.jsx
  └── index.css
@@ -79,7 +70,6 @@ src/
 
 - **Modern Dark Theme** – Sleek dark background (#1a1a1a) with glassmorphism effects
 - **Smooth Animations** – Scroll-based animations using Framer Motion
-- **AI Chatbot Assistant** – Powered by OpenAI API (with intelligent fallback responses)
 - **Responsive Design** – Fully optimized for desktop, tablet, and mobile devices
 - **Interactive Navigation** – Blurred navigation bar that activates on scroll
 - **Project Showcase** – Detailed project cards with tech stacks and links
@@ -93,7 +83,6 @@ src/
 - **Frontend**: React 18.2.0, Vite
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
-- **Chatbot**: OpenAI API (GPT-3.5-turbo) with fallback responses
 - **Routing**: React Router DOM
 - **Icons**: Lucide React
 
@@ -134,19 +123,8 @@ src/
 ### Contact
 - Contact information
 - Social media links (LinkedIn, GitHub, Medium)
-- Resume download functionality
+- Resume view functionality
 - Email contact
-
-## 🤖 Chatbot Features
-
-The AI chatbot assistant ("Roshini's Assistant") can answer questions about:
-- Roshini's projects (LoRA Fine-tuning, Amazon Retail Forecasting, Botify, Expends, IoT Bus Tracker, etc.)
-- Work experience (Prommuni, Medica, Advantage Capital, Etuper Technologies)
-- Skills and technologies
-- Education and certifications
-- Location and availability
-
-The chatbot uses intelligent keyword matching for quick responses and falls back to OpenAI API for more complex queries.
 
 ## 🎨 Design Language
 
@@ -165,16 +143,12 @@ To customize the portfolio:
 2. **Projects**: Edit the `projects` array in `src/pages/Projects.jsx`
 3. **Experience**: Update the `experiences` array in `src/pages/Experience.jsx`
 4. **Skills**: Modify the `skillCategories` array in `src/pages/Skills.jsx`
-5. **Chatbot**: Edit the `systemContext` and responses in `src/utils/api.js`
-6. **Colors**: Update Tailwind classes or inline styles throughout components
+5. **Colors**: Update Tailwind classes or inline styles throughout components
 
 ## 🔧 Configuration
 
 ### Tailwind CSS
 Custom theme colors and configurations are defined in `tailwind.config.js`.
-
-### OpenAI API
-The chatbot uses OpenAI's GPT-3.5-turbo model. To use a different model, edit `src/utils/api.js`.
 
 ## 👩‍💻 About Roshini
 

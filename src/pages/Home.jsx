@@ -59,10 +59,10 @@ const Home = () => {
 
   // Featured project
   const featuredProject = {
-    name: 'LoRA Fine-tuning for Historical Narratives',
-    description: 'LLM Adaptation & Creative Storytelling',
-    tagline: 'Implemented LoRA (Low-Rank Adaptation) to adapt Mistral-7B for generating engaging historical narratives with creative "what-if" scenarios and underrepresented perspectives.',
-    tech: ['Mistral-7B', 'LoRA', 'Python', 'LLM Fine-tuning', 'Wikipedia Dataset', 'Historical Narratives'],
+    name: 'Swapy - AI-Powered Campus Barter System',
+    description: '2nd Place Winner @ HACKnyu',
+    tagline: 'Built an AI-powered campus barter system that understands items, values them fairly, and unlocks multi-hop trades. Won 2nd place at HACKnyu Fall 2025 in the Sustainability category.',
+    tech: ['Next.js 14', 'Google Gemini 2.0', 'Firebase', 'TypeScript', 'Graph Algorithms', 'AI/ML'],
     link: '/projects'
   };
 

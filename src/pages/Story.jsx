@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import StoryScenes from '../components/StoryScenes';
-import Chatbot from '../components/Chatbot';
 import Footer from '../components/Footer';
 import ScrollNarrator from '../components/ScrollNarrator';
 
@@ -26,7 +25,6 @@ const Story = () => {
     <div className="relative min-h-screen bg-dark">
       <ScrollNarrator scrollProgress={scrollProgress} />
       <StoryScenes />
-      <Chatbot />
       <Footer />
     </div>
   );

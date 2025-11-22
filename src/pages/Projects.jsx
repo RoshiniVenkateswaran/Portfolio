@@ -1,14 +1,27 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github, Smartphone, Bot, Wifi, Users, ArrowRight, Sparkles, Brain, TrendingUp, GraduationCap, Shield } from 'lucide-react';
+import { ExternalLink, Github, Smartphone, Bot, Wifi, Users, ArrowRight, Sparkles, Brain, TrendingUp, GraduationCap, Shield, Trophy } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
     {
+      id: 'swapy_hacknyu',
+      name: 'Swapy - AI-Powered Campus Barter System',
+      description: '2nd Place Winner @ HACKnyu',
+      details: 'Built an AI-powered campus barter system that understands items, values them fairly, and unlocks multi-hop trades. Implemented Google Gemini 2.0 Flash for deep semantic analysis of items, extracting subcategory, materials, condition, and brand attributes. Developed a hybrid AI + deterministic valuation engine that generates fair, consistent prices. Created a graph-based matching system using DFS cycle detection to enable complex 3-way and 4-way trades that were previously impossible. Built real-time trends intelligence dashboard with 6-score metrics (demand, supply, scarcity, velocity, popularity, saturation) powered by AI semantic understanding.',
+      narration: ['Won 2nd place at HACKnyu Fall 2025 in the Sustainability category. Built a complete AI-driven value network that turns unused campus goods into a smart, circular, cashless economy.'],
+      icon: Trophy,
+      tech: ['Next.js 14', 'Google Gemini 2.0', 'Firebase', 'TypeScript', 'Graph Algorithms', 'AI/ML', 'OpenRouter', 'Computer Vision'],
+      role: 'Team Member',
+      period: 'Nov 2025',
+      link: 'https://lnkd.in/gMP_i8Vu',
+      githubLink: 'https://github.com/RoshiniVenkateswaran/swapy',
+    },
+    {
       id: 'prommuni_roommate_finder',
       name: 'Prommuni - Roommate Finder',
       description: 'Live on Stores',
-      details: 'Built a cross-platform roommate-finder app in Flutter using MVVM + GetX architecture for scalability and maintainability. Implemented Firebase authentication, session storage, and real-time chat for 500+ test users, ensuring secure and low-latency communication. Integrated Mapbox SDK with geolocation and dynamic radius search, improving roommate matching accuracy by 40%. ',
+      details: 'Built a cross-platform roommate-finder app in Flutter using MVVM + GetX architecture to ensure scalability, maintainability, and clean state management. Implemented Firebase authentication, session storage, and real-time chat, ensuring secure, low-latency communication for 500+ test users. Integrated Mapbox SDK with geolocation, dynamic radius search, and location pinning, improving roommate matching accuracy by 40%. Implemented reusable UI components and modular APIs, reducing code duplication by 30% and standardizing development practices. Optimized API calls, caching, and rendering pipelines, reducing map load time by 30% and boosting app responsiveness.',
       narration: ['Live on App Store and Google Play Store'],
       icon: Smartphone,
       tech: ['Flutter', 'GetX', 'Supabase', 'Mapbox', 'iOS', 'Android', 'Real-time Chat', 'Geolocation', 'Firebase', 'GitHub Actions', 'CI/CD'],
@@ -25,6 +38,7 @@ const Projects = () => {
       narration: ['Developed an innovative approach to historical storytelling using advanced LLM fine-tuning techniques.'],
       icon: Brain,
       tech: ['Mistral-7B', 'LoRA', 'Python', 'LLM Fine-tuning', 'Wikipedia Dataset', 'Historical Narratives'],
+      githubLink: 'https://github.com/Keerthirajan58/Historical-Event-Narrator',
     },
     {
       id: 'amazon_retail_forecasting',
@@ -36,6 +50,7 @@ const Projects = () => {
       tech: ['Python', 'XGBoost', 'Machine Learning', 'Data Preprocessing', 'Feature Engineering', 'Predictive Analytics'],
       role: 'Team Lead',
       period: 'Jan 2025 – Apr 2025',
+      githubLink: 'https://github.com/prithvisaran3/Amazon-Sales-Forecasting',
     },
     {
       id: 'botify_medica',
@@ -58,6 +73,7 @@ const Projects = () => {
       tech: ['Flutter', 'GetX', 'Laravel', 'MySQL', 'RESTful APIs', 'Rive Animations'],
       role: 'Team Lead',
       period: 'Sep 2024 – Nov 2024',
+      githubLink: 'https://github.com/RoshiniVenkateswaran/CSCI6221_ExSpends_Frontend',
     },
     {
       id: 'university_admit_predictor',
@@ -68,6 +84,7 @@ const Projects = () => {
       icon: GraduationCap,
       tech: ['Python', 'Regression Algorithms', 'Data Visualization', 'Dashboard', 'Machine Learning'],
       period: 'Sep 2022 – Nov 2022',
+      githubLink: 'https://github.com/RoshiniVenkateswaran/IBM-Project-19392-1659697170',
     },
     {
       id: 'face_mask_detection',
@@ -84,10 +101,10 @@ const Projects = () => {
       id: 'iot_bus_tracker',
       name: 'IoT Bus Tracker',
       description: 'IoT & Systems Thinking',
-      details: 'Developed a comprehensive IoT solution for real-time bus tracking and monitoring using GPS modules and IoT sensors. Built a responsive web dashboard with React that displays live bus locations, estimated arrival times, and route information. Implemented a Node.js backend server that processes sensor data, calculates optimal routes, and manages real-time communication between buses and the central system. Integrated GPS tracking modules with IoT sensors to monitor bus status, passenger capacity, and environmental conditions. Designed an intuitive user interface that allows passengers to track buses in real-time and receive notifications about delays or route changes.',
+      details: 'Developed a comprehensive IoT solution for real-time bus tracking and monitoring using GPS modules and IoT sensors. Built a responsive web dashboard with HTML and CSS that displays live bus locations, estimated arrival times, and route information. Implemented basic backend processing to handle sensor data, calculate optimal routes, and manage real-time communication between buses and the central system. Integrated GPS tracking modules with IoT sensors to monitor bus status, passenger capacity, and environmental conditions. Designed an intuitive user interface that allows passengers to track buses in real-time and receive notifications about delays or route changes.',
       narration: ['Built an innovative IoT system that connects physical sensors with digital interfaces, revolutionizing public transportation tracking.'],
       icon: Wifi,
-      tech: ['IoT Sensors', 'GPS Modules', 'React', 'Node.js', 'Real-time Tracking', 'Web Dashboard'],
+      tech: ['IoT Sensors', 'GPS Modules', 'HTML', 'CSS', 'Real-time Tracking', 'Web Dashboard'],
     },
   ];
 
@@ -220,7 +237,7 @@ const Projects = () => {
                         </span>
                       </motion.h3>
                       <p className="text-sm mb-1">
-                        {project.id === 'prommuni_roommate_finder' ? (
+                        {project.id === 'prommuni_roommate_finder' || project.id === 'swapy_hacknyu' ? (
                           <span style={{ color: '#10b981' }}>{project.description}</span>
                         ) : (
                           <span style={{ color: '#6c757d' }}>{project.description}</span>
@@ -337,6 +354,91 @@ const Projects = () => {
                     </div>
                   )}
 
+                  {/* Devpost and GitHub Links for Swapy */}
+                  {project.id === 'swapy_hacknyu' && (project.link || project.githubLink) && (
+                    <div className="mb-4 flex flex-wrap gap-3">
+                      {project.link && (
+                        <motion.a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
+                          style={{
+                            borderColor: 'rgba(255, 255, 255, 0.3)',
+                            color: '#ffffff',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+                          }}
+                        >
+                          <ExternalLink className="w-5 h-5" />
+                          <span className="text-sm">View on Devpost</span>
+                        </motion.a>
+                      )}
+                      {project.githubLink && (
+                        <motion.a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
+                          style={{
+                            borderColor: 'rgba(255, 255, 255, 0.3)',
+                            color: '#ffffff',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                            e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+                          }}
+                        >
+                          <Github className="w-5 h-5" />
+                          <span className="text-sm">View on GitHub</span>
+                        </motion.a>
+                      )}
+                    </div>
+                  )}
+
+                  {/* GitHub Link for All Other Projects */}
+                  {project.id !== 'swapy_hacknyu' && project.githubLink && (
+                    <div className="mb-4 flex flex-wrap gap-3">
+                      <motion.a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
+                        style={{
+                          borderColor: 'rgba(255, 255, 255, 0.3)',
+                          color: '#ffffff',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                          e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                          e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+                        }}
+                      >
+                        <Github className="w-5 h-5" />
+                        <span className="text-sm">View on GitHub</span>
+                      </motion.a>
+                    </div>
+                  )}
+
                   {/* Project Highlights */}
                   <motion.div
                     className="mt-4 pt-4 border-t"
@@ -371,17 +473,6 @@ const Projects = () => {
           })}
         </div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-16 text-center"
-        >
-          <p className="mb-4" style={{ color: '#6c757d' }}>
-            Want to see more? Check out my GitHub or let's chat about these projects!
-          </p>
-        </motion.div>
       </div>
     </motion.div>
   );

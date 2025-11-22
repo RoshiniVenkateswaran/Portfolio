@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Mail, Linkedin, Github, FileText, Send, Sparkles, MessageCircle } from 'lucide-react';
+import { Mail, Linkedin, Github, FileText, Send, MessageCircle, Eye } from 'lucide-react';
 
 // LinkedIn Logo SVG Component
 const LinkedInLogo = ({ className }) => (
@@ -17,15 +17,10 @@ const GitHubLogo = ({ className }) => (
 );
 
 const Contact = () => {
-  const handleResumeDownload = (e) => {
+  const handleResumeView = (e) => {
     e.preventDefault();
-    // Create a temporary anchor element to trigger download
-    const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Roshini_Venkateswaran_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Open resume in a new tab
+    window.open('/resume.pdf', '_blank');
   };
 
   const contactMethods = [
@@ -54,13 +49,14 @@ const Contact = () => {
       LogoComponent: GitHubLogo,
     },
     {
-      icon: FileText,
+      icon: Eye,
       label: 'Resume',
-      value: 'Download Resume',
-      link: '#',
+      value: 'View Resume',
+      link: '/resume.pdf',
       isLogo: false,
-      onClick: handleResumeDownload,
+      onClick: handleResumeView,
       showIcon: true,
+      target: '_blank',
     },
   ];
 
@@ -117,8 +113,8 @@ const Contact = () => {
                 ref={methodRef}
                 href={method.link}
                 onClick={method.onClick}
-                target={method.link.startsWith('http') ? '_blank' : '_self'}
-                rel={method.link.startsWith('http') ? 'noopener noreferrer' : ''}
+                target={method.target || (method.link.startsWith('http') ? '_blank' : '_self')}
+                rel={method.target === '_blank' || method.link.startsWith('http') ? 'noopener noreferrer' : ''}
                 initial={{ opacity: 0, y: 30 }}
                 animate={methodInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.08, duration: 0.4, ease: "easeOut" }}
@@ -269,18 +265,7 @@ const Contact = () => {
                   transition={{ duration: 0.3 }}
                 />
               </motion.a>
-              {' '}or use the chatbot to start a conversation!
             </p>
-            <motion.div
-              className="flex items-center gap-2 text-white text-sm rounded-lg p-3"
-              style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.2)',
-              }}
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.3)" }}
-            >
-              <Sparkles className="w-4 h-4 text-white" />
-              <span>Try the chatbot in the bottom right corner for instant responses!</span>
-            </motion.div>
           </div>
         </motion.div>
 

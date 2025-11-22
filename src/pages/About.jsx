@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Heart, Coffee, Book, Camera, Sparkles, GraduationCap, Quote, ChevronLeft, ChevronRight, MapPin, FileText, Download } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
+import { Heart, Coffee, Book, Camera, Sparkles, GraduationCap, Quote, ChevronLeft, ChevronRight, MapPin, FileText, Download, Trophy, Briefcase } from 'lucide-react';
 const About = () => {
   // Resume download handler
   const handleResumeDownload = (e) => {
@@ -96,13 +96,76 @@ const About = () => {
     }
   };
 
+  // Testimonials data
+  const testimonials = [
+    {
+      quote: "Roshini was a joy to work with throughout her internship at Medica. Her ability to pick up on new things and leverage her technical knowledge made her a valuable and productive team member.",
+      name: "Philipp Spanowsky",
+      title: "UiPath System Engineer at Medica",
+      image: "/images/philipp.jpeg",
+      initials: "PS"
+    },
+    {
+      quote: "Roshini Venkateswaran is a highly dedicated and talented individual with strong technical, leadership, and teamwork skills. Her curiosity, perseverance, and passion for learning make her stand out, and I'm confident she'll bring the same excellence and commitment to everything she pursues.",
+      name: "Vinodh Kumar S",
+      title: "Professor and Academic Head",
+      image: "/images/vinod kumar.jpeg",
+      initials: "VK"
+    },
+    {
+      quote: "Roshini brings a great mix of speed, clarity, and attention to detail to mobile development. She learns fast, communicates well, and consistently turns ideas into smooth, usable features. Her initiative and follow-through make her a valuable part of any mobile team.",
+      name: "Bradley Mascarenhas",
+      title: "Founder of Prommuni | Consultant @ Deloitte",
+      image: "/images/bradley.png",
+      initials: "BM"
+    }
+  ];
+
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  const [testimonialCardsPerPage, setTestimonialCardsPerPage] = useState(2);
+
+  // Responsive cards per page for testimonials
+  useEffect(() => {
+    const updateCardsPerPage = () => {
+      if (window.innerWidth >= 768) {
+        setTestimonialCardsPerPage(2); // Desktop: 2 cards
+      } else {
+        setTestimonialCardsPerPage(1); // Mobile: 1 card
+      }
+    };
+    updateCardsPerPage();
+    window.addEventListener('resize', updateCardsPerPage);
+    return () => window.removeEventListener('resize', updateCardsPerPage);
+  }, []);
+
+  // Reset index when cards per page changes
+  useEffect(() => {
+    const maxIdx = Math.max(0, testimonials.length - testimonialCardsPerPage);
+    if (currentTestimonialIndex > maxIdx) {
+      setCurrentTestimonialIndex(maxIdx);
+    }
+  }, [testimonialCardsPerPage, testimonials.length, currentTestimonialIndex]);
+
+  const testimonialMaxIndex = Math.max(0, testimonials.length - testimonialCardsPerPage);
+  const canGoNextTestimonial = currentTestimonialIndex < testimonialMaxIndex;
+  const canGoPrevTestimonial = currentTestimonialIndex > 0;
+
+  const nextTestimonials = () => {
+    const maxIdx = Math.max(0, testimonials.length - testimonialCardsPerPage);
+    setCurrentTestimonialIndex((prev) => Math.min(prev + 1, maxIdx));
+  };
+
+  const prevTestimonials = () => {
+    setCurrentTestimonialIndex((prev) => Math.max(prev - 1, 0));
+  };
+
 
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
     <motion.div 
-      className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
       style={{ backgroundColor: '#1a1a1a' }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -229,6 +292,36 @@ const About = () => {
                   </motion.div>
                   </div>
                   
+                  {/* Achievement Card */}
+                  <motion.a
+                    href="https://lnkd.in/gMP_i8Vu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    className="px-6 py-4 bg-white/10 border rounded-lg cursor-pointer"
+                    style={{
+                      borderColor: 'rgba(255, 255, 255, 0.2)',
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      transition: 'border-color 0.2s ease, background-color 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                    }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <Trophy className="w-5 h-5 text-white" />
+                      <div>
+                        <p className="text-white font-semibold mb-1">Achievement</p>
+                        <p className="text-sm" style={{ color: '#6c757d' }}>2nd Place @ HACKnyu</p>
+                      </div>
+                    </div>
+                  </motion.a>
+                  
                   {/* Download Resume Button */}
                   <motion.button
                     onClick={handleResumeDownload}
@@ -264,17 +357,55 @@ const About = () => {
                   <p className="text-lg leading-relaxed mb-4" style={{ color: '#6c757d' }}>
                     Over the years, I've developed products across industries - from an AI-powered chatbot at Medica to a cross-platform roommate finder app at Prommuni and a real-time expense tracker in Flutter. My journey began with a curiosity for how systems think and evolved into crafting scalable, data-driven solutions using Python, Java, Flutter, AWS, and TensorFlow.
                   </p>
-                  <p className="text-lg leading-relaxed mb-4" style={{ color: '#6c757d' }}>
-                    Beyond code, I'm driven by collaboration, creativity, and impact - whether optimizing automation pipelines, leading tech teams, or integrating NLP models that make everyday tasks smarter.
-                  </p>
                   <p className="text-lg leading-relaxed" style={{ color: '#6c757d' }}>
                     When I'm not developing or experimenting with AI, you'll find me on the badminton court, painting, or sipping coffee.
                   </p>
                 </div>
               </div>
+              
             </div>
           </div>
 
+          {/* What I'm Looking For Section - Subtle */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="mt-8"
+          >
+            <p className="text-sm mb-3" style={{ color: '#9ca3af' }}>
+              Open to opportunities in:
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {['Software Developer', 'ML Engineer', 'Mobile App Developer', 'Flutter Developer'].map((role, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="px-3 py-1.5 bg-white/5 border rounded-full text-xs"
+                  style={{
+                    borderColor: 'rgba(255, 255, 255, 0.1)',
+                    color: '#d1d5db',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                    e.currentTarget.style.color = '#d1d5db';
+                  }}
+                >
+                  {role}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
         </motion.section>
 
@@ -364,10 +495,10 @@ const About = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={certInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: index * 0.1, duration: 0.4 }}
-                        whileHover={{ y: -5, scale: 1.02 }}
-                        className="flex-shrink-0 bg-white/10 border rounded-xl overflow-hidden cursor-pointer group"
+                        className="flex-shrink-0 bg-white/10 border rounded-xl overflow-hidden cursor-pointer group flex flex-col"
                 style={{
                           width: `calc((100% - ${(cardsPerPage - 1) * 24}px) / ${cardsPerPage})`,
+                          minHeight: '280px',
                           borderColor: 'rgba(255, 255, 255, 0.2)',
                           backgroundColor: 'rgba(255, 255, 255, 0.05)',
                           transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
@@ -381,7 +512,7 @@ const About = () => {
                           e.currentTarget.style.boxShadow = 'none';
                         }}
                       >
-                        <div className="aspect-[4/3] bg-white/5 flex items-center justify-center overflow-hidden relative min-h-[200px]">
+                        <div className="aspect-[4/3] bg-white/5 flex items-center justify-center overflow-hidden relative flex-1">
                           <img
                             src={encodeImagePath(cert.image)}
                             alt={cert.title}
@@ -432,7 +563,7 @@ const About = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 1.2, duration: 0.6 }}
-            className="text-4xl font-bold text-white mb-8 flex items-center gap-2"
+            className="text-4xl font-bold text-white mb-8 flex items-center justify-center gap-2"
           >
             <svg className="absolute w-0 h-0">
               <defs>
@@ -446,95 +577,117 @@ const About = () => {
             <Quote className="w-6 h-6 gradient-icon" style={{ stroke: 'url(#testimonialsIconGradient)' }} />
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Testimonial 1 */}
-            {(() => {
-              const testimonialRef = useRef(null);
-              const testimonialInView = useInView(testimonialRef, { once: true, margin: "-50px" });
-              
-              return (
-                <motion.div
-                  ref={testimonialRef}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={testimonialInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.9, duration: 0.4 }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="bg-white/10 border rounded-xl p-6 flex flex-col h-full"
+          {testimonials.length > 0 ? (
+            <div className="relative">
+              {/* Navigation Buttons */}
+              {testimonials.length > testimonialCardsPerPage && (
+                <>
+                  <motion.button
+                    onClick={prevTestimonials}
+                    disabled={!canGoPrevTestimonial}
+                    whileHover={canGoPrevTestimonial ? { scale: 1.1 } : {}}
+                    whileTap={canGoPrevTestimonial ? { scale: 0.9 } : {}}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{
+                      borderColor: 'rgba(255, 255, 255, 0.2)',
+                    }}
+                  >
+                    <ChevronLeft 
+                      className="w-6 h-6 text-white" 
+                      style={{ 
+                        opacity: canGoPrevTestimonial ? 1 : 0.5 
+                      }}
+                    />
+                  </motion.button>
+                  <motion.button
+                    onClick={nextTestimonials}
+                    disabled={!canGoNextTestimonial}
+                    whileHover={canGoNextTestimonial ? { scale: 1.1 } : {}}
+                    whileTap={canGoNextTestimonial ? { scale: 0.9 } : {}}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                    e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}
-                >
-                  <Quote className="w-8 h-8 text-white/30 mb-4 flex-shrink-0" />
-                  <p className="italic mb-4 leading-relaxed flex-grow" style={{ color: '#6c757d' }}>
-                    "Roshini was a joy to work with throughout her internship at Medica. Her ability to pick up on new things and leverage her technical knowledge made her a valuable and productive team member."
-                  </p>
-                  <div className="flex items-center gap-3 mt-auto">
-                    <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-semibold" style={{ color: '#6c757d' }}>PS</span>
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-white font-semibold text-sm">Philipp Spanowsky</p>
-                      <p className="text-xs" style={{ color: '#6c757d' }}>UiPath System Engineer at Medica</p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })()}
+                      borderColor: 'rgba(255, 255, 255, 0.2)',
+                    }}
+                  >
+                    <ChevronRight 
+                      className="w-6 h-6 text-white" 
+                      style={{ 
+                        opacity: canGoNextTestimonial ? 1 : 0.5 
+                      }}
+                    />
+                  </motion.button>
+                </>
+              )}
 
-            {/* Testimonial 2 */}
-            {(() => {
-              const testimonialRef = useRef(null);
-              const testimonialInView = useInView(testimonialRef, { once: true, margin: "-50px" });
-                
-                return (
-                  <motion.div
-                  ref={testimonialRef}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={testimonialInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 1.0, duration: 0.4 }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="bg-white/10 border rounded-xl p-6 flex flex-col h-full"
-                style={{
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                    e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)';
-                    }}
-                    onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                    e.currentTarget.style.boxShadow = 'none';
+              {/* Testimonials Carousel */}
+              <div className="overflow-hidden relative">
+                <motion.div
+                  className="flex gap-6"
+                  animate={{
+                    x: `-${currentTestimonialIndex * (100 / testimonialCardsPerPage)}%`,
                   }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  <Quote className="w-8 h-8 text-white/30 mb-4 flex-shrink-0" />
-                  <p className="italic mb-4 leading-relaxed flex-grow" style={{ color: '#6c757d' }}>
-                    "Roshini Venkateswaran is a highly dedicated and talented individual with strong technical, leadership, and teamwork skills. Her curiosity, perseverance, and passion for learning make her stand out, and I'm confident she'll bring the same excellence and commitment to everything she pursues."
-                  </p>
-                  <div className="flex items-center gap-3 mt-auto">
-                    <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-semibold" style={{ color: '#6c757d' }}>VK</span>
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-white font-semibold text-sm">Vinodh Kumar S</p>
-                      <p className="text-xs" style={{ color: '#6c757d' }}>Professor and Academic Head</p>
-                    </div>
-                  </div>
-                  </motion.div>
-                );
-            })()}
+                  {testimonials.map((testimonial, index) => {
+                    const testimonialRef = useRef(null);
+                    const testimonialInView = useInView(testimonialRef, { once: true, margin: "-50px" });
+                    
+                    return (
+                      <motion.div
+                        key={index}
+                        ref={testimonialRef}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={testimonialInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ delay: index * 0.1, duration: 0.4 }}
+                        className="flex-shrink-0 bg-white/10 border rounded-xl p-6 flex flex-col"
+                style={{
+                          width: `calc((100% - ${(testimonialCardsPerPage - 1) * 24}px) / ${testimonialCardsPerPage})`,
+                          minHeight: '280px',
+                          borderColor: 'rgba(255, 255, 255, 0.2)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                          transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }}
+                      >
+                        <Quote className="w-8 h-8 text-white/30 mb-4 flex-shrink-0" />
+                        <p className="italic mb-4 leading-relaxed flex-grow text-base" style={{ color: '#6c757d' }}>
+                          "{testimonial.quote}"
+                        </p>
+                        <div className="flex items-center gap-3 mt-auto">
+                          <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                            <img 
+                              src={testimonial.image.includes('vinod') ? encodeURI(testimonial.image) : testimonial.image}
+                              alt={testimonial.name}
+                              className="w-full h-full object-cover rounded-full"
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                                e.target.parentElement.innerHTML = `<span class="text-xs font-semibold" style="color: #6c757d;">${testimonial.initials}</span>`;
+                              }}
+                            />
+                          </div>
+                          <div className="min-w-0">
+                            <p className="text-white font-semibold text-lg">{testimonial.name}</p>
+                            <p className="text-sm" style={{ color: '#6c757d' }}>{testimonial.title}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-white/60">Add your testimonials to display them here</p>
           </div>
+          )}
         </motion.section>
 
       </div>

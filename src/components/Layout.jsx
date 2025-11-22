@@ -2,7 +2,6 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
 import Navigation from './Navigation';
-import Chatbot from './Chatbot';
 import Footer from './Footer';
 import ScrollProgress from './ScrollProgress';
 
@@ -29,7 +28,6 @@ const Layout = () => {
         <Outlet key={pageKey} />
       </div>
       <Footer />
-      <Chatbot />
     </div>
   );
 };
