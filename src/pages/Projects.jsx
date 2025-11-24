@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { ExternalLink, Github, Smartphone, Bot, Wifi, Users, ArrowRight, Sparkles, Brain, TrendingUp, GraduationCap, Shield, Trophy } from 'lucide-react';
+import { ExternalLink, Github, Smartphone, Bot, Wifi, Users, ArrowRight, Sparkles, Brain, TrendingUp, GraduationCap, Shield, Trophy, Monitor } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -27,7 +27,7 @@ const Projects = () => {
       tech: ['Flutter', 'GetX', 'Supabase', 'Mapbox', 'iOS', 'Android', 'Real-time Chat', 'Geolocation', 'Firebase', 'GitHub Actions', 'CI/CD'],
       role: 'Software Developer Intern',
       period: 'Oct 2025 – Present',
-      appStoreLink: 'https://apps.apple.com/us/app/prommuni/id6747644654Prommuni',
+      appStoreLink: 'https://apps.apple.com/us/app/prommuni/id6747644654',
       playStoreLink: 'https://play.google.com/store/apps/details?id=com.prommuni.app&pcampaignid=web_share',
     },
     {
@@ -62,6 +62,7 @@ const Projects = () => {
       tech: ['Flask', 'Mistral 7B', 'FAISS', 'BeautifulSoup', 'Sentence Transformers', 'HTML/CSS/JavaScript'],
       role: 'Intern',
       period: 'Jun 2025 – Aug 2025',
+      githubLink: 'https://github.com/RoshiniVenkateswaran/Botify_Medica_Chatbot',
     },
     {
       id: 'expends_mobile',
@@ -105,6 +106,16 @@ const Projects = () => {
       narration: ['Built an innovative IoT system that connects physical sensors with digital interfaces, revolutionizing public transportation tracking.'],
       icon: Wifi,
       tech: ['IoT Sensors', 'GPS Modules', 'HTML', 'CSS', 'Real-time Tracking', 'Web Dashboard'],
+    },
+    {
+      id: 'portfolio_website',
+      name: 'Portfolio Website',
+      description: 'Modern React Portfolio',
+      details: 'Built a modern, professional portfolio website showcasing projects, experience, and skills with a sleek dark theme and smooth animations. Implemented responsive design with React 18, Vite, and Tailwind CSS, ensuring optimal viewing across all devices. Created interactive components using Framer Motion for scroll-based animations and glassmorphism effects. Developed a multi-page application with React Router, featuring project showcases, experience timeline, skills display, and contact information. Optimized performance with efficient rendering and smooth transitions.',
+      narration: ['A showcase of modern web development practices, combining beautiful design with smooth user experience.'],
+      icon: Monitor,
+      tech: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'React Router', 'JavaScript'],
+      githubLink: 'https://github.com/RoshiniVenkateswaran/Portfolio',
     },
   ];
 

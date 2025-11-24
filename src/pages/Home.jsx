@@ -130,6 +130,18 @@ const Home = () => {
                 </div>
               </motion.div>
 
+              {/* Availability */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="mb-6"
+              >
+                <p className="text-base md:text-lg" style={{ color: '#10b981' }}>
+                  Available from May 2026
+                </p>
+              </motion.div>
+
               {/* About Section - 2 Lines */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
