@@ -30,14 +30,19 @@ export default function HomeContent() {
   })
   
   // Calculate name scroll distance based on screen width for better mobile experience
-  // For mobile: scroll more to ensure full name visibility, minimum 650px
+  // For mobile: scroll more to ensure full name visibility
   const mobileScrollDistance = useMemo(() => {
     if (!isMobile) return -1950
-    if (screenWidth === 0) return -650
-    return -Math.max(screenWidth * 0.85, 650)
+    if (screenWidth === 0) return -800
+    // Calculate based on name width - need to scroll enough to show full name
+    // Name is approximately 2.5x screen width on mobile, so we need to scroll more
+    // Start from a position that shows more of the name initially
+    return -Math.max(screenWidth * 1.5, 800)
   }, [isMobile, screenWidth])
   
-  const nameX = useTransform(scrollYProgress, [0, 1], [0, mobileScrollDistance])
+  // For mobile, start the name slightly to the left so more is visible initially
+  const nameStartPosition = isMobile ? -Math.max(screenWidth * 0.3, 100) : 0
+  const nameX = useTransform(scrollYProgress, [0, 1], [nameStartPosition, mobileScrollDistance])
 
   const exploreInView = useInView(exploreRef, { once: true, margin: "-100px" })
   const featuredInView = useInView(featuredRef, { once: true, margin: "-100px" })
@@ -95,7 +100,7 @@ export default function HomeContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="max-w-7xl mx-auto w-full relative" style={{ minHeight: isMobile ? 'calc(100vh - 3rem)' : 'calc(100vh - 5rem)' }}>
+        <div className="max-w-7xl mx-auto w-full relative" style={{ minHeight: isMobile ? 'calc(100vh - 2rem)' : 'calc(100vh - 5rem)' }}>
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 pt-16 lg:pt-20 mb-20 sm:mb-24 lg:mb-32">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -191,7 +196,7 @@ export default function HomeContent() {
             ref={nameContainerRef}
             className="absolute left-0 py-2 sm:py-4 lg:py-8"
             style={{
-              bottom: isMobile ? '4rem' : '-3rem',
+              bottom: isMobile ? '3rem' : '-3rem',
               width: '100vw',
               overflow: 'visible',
               pointerEvents: 'none',
@@ -204,12 +209,12 @@ export default function HomeContent() {
               className="text-white whitespace-nowrap"
               style={{
                 x: nameX,
-                fontSize: isMobile ? 'clamp(2rem, 14vw, 5rem)' : 'clamp(2rem, 18vw, 13rem)',
+                fontSize: isMobile ? 'clamp(2.5rem, 16vw, 6rem)' : 'clamp(2rem, 18vw, 13rem)',
                 lineHeight: '0.9',
                 fontWeight: '700',
-                letterSpacing: isMobile ? '-0.01em' : '-0.04em',
-                paddingLeft: isMobile ? '1.5rem' : '0',
-                paddingRight: isMobile ? '1.5rem' : '4vw',
+                letterSpacing: isMobile ? '0em' : '-0.04em',
+                paddingLeft: isMobile ? '1rem' : '0',
+                paddingRight: isMobile ? '1rem' : '4vw',
                 display: 'inline-block',
                 willChange: 'transform',
               }}

@@ -11,6 +11,11 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
+  // Ensure menu is closed on mount and route changes
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
@@ -154,12 +159,13 @@ export default function Navigation() {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed left-0 top-20 bottom-0 w-56 bg-[#1a1a1a]/95 backdrop-blur-md z-50 md:hidden shadow-2xl overflow-y-auto"
+            className="fixed left-0 top-20 bottom-0 w-64 bg-[#1a1a1a] z-50 md:hidden shadow-2xl overflow-y-auto"
             style={{
               borderRight: '1px solid rgba(255, 255, 255, 0.1)',
+              maxWidth: '80vw',
             }}
           >
-            <div className="px-3 py-4 space-y-1">
+            <div className="px-4 py-6 space-y-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
