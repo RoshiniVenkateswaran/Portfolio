@@ -41,7 +41,12 @@ export default function HomeContent() {
   }, [isMobile, screenWidth])
   
   // For mobile, start the name slightly to the left so more is visible initially
-  const nameStartPosition = isMobile ? -Math.max(screenWidth * 0.3, 100) : 0
+  const nameStartPosition = useMemo(() => {
+    if (!isMobile) return 0
+    if (screenWidth === 0) return 0
+    return -Math.max(screenWidth * 0.3, 100)
+  }, [isMobile, screenWidth])
+  
   const nameX = useTransform(scrollYProgress, [0, 1], [nameStartPosition, mobileScrollDistance])
 
   const exploreInView = useInView(exploreRef, { once: true, margin: "-100px" })
@@ -96,12 +101,12 @@ export default function HomeContent() {
           backgroundColor: '#1a1a1a',
           overflow: 'hidden',
         }}
-        initial={{ opacity: 0 }}
+        initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
         <div className="max-w-7xl mx-auto w-full relative" style={{ minHeight: isMobile ? 'calc(100vh - 2rem)' : 'calc(100vh - 5rem)' }}>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 pt-16 lg:pt-20 mb-20 sm:mb-24 lg:mb-32">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 pt-8 sm:pt-12 md:pt-16 lg:pt-20 mb-12 sm:mb-16 md:mb-20 lg:mb-32">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -112,7 +117,7 @@ export default function HomeContent() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex items-start gap-4 mb-8"
+                className="flex items-start gap-3 sm:gap-4 mb-6 sm:mb-8"
               >
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -136,10 +141,10 @@ export default function HomeContent() {
                 </motion.div>
 
                 <div className="text-white space-y-1">
-                  <p className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
+                  <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
                     Software Engineer &
                   </p>
-                  <p className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
+                  <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
                     AI/ML Enthusiast
                   </p>
                 </div>
@@ -149,9 +154,9 @@ export default function HomeContent() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="mb-6"
+                className="mb-4 sm:mb-6"
               >
-                <p className="text-base md:text-lg" style={{ color: '#10b981' }}>
+                <p className="text-sm sm:text-base md:text-lg" style={{ color: '#10b981' }}>
                   Available from May 2026
                 </p>
               </motion.div>
@@ -160,13 +165,13 @@ export default function HomeContent() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="space-y-3 max-w-lg"
+                className="space-y-2 sm:space-y-3 max-w-lg"
                 style={{ color: '#6c757d' }}
               >
-                <p className="text-base md:text-lg lg:text-xl font-light leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed">
                   Building intelligent interfaces and systems that bridge the gap between technology and human needs.
                 </p>
-                <p className="text-base md:text-lg lg:text-xl font-light leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed">
                   Passionate about creating impactful solutions through code, design, and innovation.
                 </p>
               </motion.div>
@@ -176,12 +181,12 @@ export default function HomeContent() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-              className="relative flex-shrink-0"
+              className="relative flex-shrink-0 w-full sm:w-auto flex justify-center lg:justify-end"
             >
               <img
                 src="/images/Picture-removebg-preview.png"
                 alt="Roshini Venkateswaran"
-                className="w-64 h-80 md:w-80 md:h-96 lg:w-96 lg:h-[500px] object-cover object-center"
+                className="w-48 h-60 sm:w-64 sm:h-80 md:w-80 md:h-96 lg:w-96 lg:h-[500px] object-cover object-center"
                 style={{
                   filter: 'brightness(1) contrast(1.05) saturate(1)',
                   imageRendering: 'high-quality',
@@ -228,20 +233,20 @@ export default function HomeContent() {
         </div>
       </motion.section>
 
-      <section ref={exploreRef} className="bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <section ref={exploreRef} className="bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 relative z-10">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={exploreInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="space-y-12"
+            className="space-y-8 sm:space-y-12"
           >
             <div className="text-center">
               <motion.h2
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={exploreInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6"
               >
                 Explore My Work
               </motion.h2>
@@ -249,14 +254,14 @@ export default function HomeContent() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={exploreInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-xl md:text-2xl max-w-2xl mx-auto"
+                className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto px-4"
                 style={{ color: '#6c757d' }}
               >
                 Discover my projects, experience, skills, and learn more about who I am
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12 md:mt-16">
               {exploreCards.map((card, index) => {
                 const CardIcon = card.icon
                 return (
@@ -319,20 +324,20 @@ export default function HomeContent() {
         </div>
       </section>
 
-      <section ref={featuredRef} className="bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <section ref={featuredRef} className="bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 relative z-10">
         <div className="max-w-6xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={featuredInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
           >
             <div className="text-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={featuredInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="flex items-center justify-center gap-2 mb-4"
+                className="flex items-center justify-center gap-2 mb-4 sm:mb-6"
               >
                 <svg className="absolute w-0 h-0">
                   <defs>
@@ -342,8 +347,8 @@ export default function HomeContent() {
                     </linearGradient>
                   </defs>
                 </svg>
-                <Sparkles className="w-6 h-6 gradient-icon" style={{ stroke: 'url(#featuredIconGradient)' }} />
-                <h2 className="text-3xl md:text-4xl font-bold text-white">
+                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 gradient-icon" style={{ stroke: 'url(#featuredIconGradient)' }} />
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                   Featured Project
                 </h2>
               </motion.div>
@@ -357,7 +362,7 @@ export default function HomeContent() {
             >
               <Link href={featuredProject.link} className="block group">
                 <div
-                  className="relative bg-white/10 backdrop-blur-sm border rounded-2xl p-8 md:p-12 transition-all shadow-lg hover:shadow-xl overflow-hidden"
+                  className="relative bg-white/10 backdrop-blur-sm border rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 transition-all shadow-lg hover:shadow-xl overflow-hidden"
                   style={{
                     borderColor: 'rgba(255, 255, 255, 0.2)',
                     backgroundColor: 'rgba(255, 255, 255, 0.05)',
@@ -376,18 +381,18 @@ export default function HomeContent() {
                   />
                   
                   <div className="relative z-10">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-6">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 sm:gap-6 mb-4 sm:mb-6">
                       <div>
                         <motion.h3
-                          className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-white transition-colors"
+                          className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-white transition-colors"
                           whileHover={{ x: 5 }}
                         >
                           {featuredProject.name}
                         </motion.h3>
-                        <p className="text-sm mb-3" style={{ color: '#6c757d' }}>
+                        <p className="text-xs sm:text-sm mb-2 sm:mb-3" style={{ color: '#6c757d' }}>
                           {featuredProject.description}
                         </p>
-                        <p className="text-lg leading-relaxed max-w-2xl" style={{ color: '#6c757d' }}>
+                        <p className="text-base sm:text-lg leading-relaxed max-w-2xl" style={{ color: '#6c757d' }}>
                           {featuredProject.tagline}
                         </p>
                       </div>
