@@ -1,42 +1,36 @@
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { FolderKanban, Briefcase, Code, User, ArrowRight, Sparkles } from 'lucide-react';
+'use client'
 
-const Home = () => {
-  const containerRef = useRef(null);
-  const nameContainerRef = useRef(null);
-  const exploreRef = useRef(null);
-  const featuredRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
+import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import { useRef, useState, useEffect } from 'react'
+import Link from 'next/link'
+import { FolderKanban, Briefcase, Code, User, ArrowRight, Sparkles } from 'lucide-react'
+
+export default function HomeContent() {
+  const containerRef = useRef(null)
+  const nameContainerRef = useRef(null)
+  const exploreRef = useRef(null)
+  const featuredRef = useRef(null)
+  const [isMobile, setIsMobile] = useState(false)
   
-  // Check if mobile on mount and resize
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
   
-  // Track scroll progress relative to the hero section
-  // When hero section starts entering viewport to when it exits
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
-  });
+  })
   
-  // Transform scroll progress to horizontal movement
-  // Scroll down (progress increases from 0 to 1) → move left (negative x in vw)
-  // Scroll up (progress decreases from 1 to 0) → move right (back to 0)
-  // Movement range for name animation - responsive based on screen size
-  const nameX = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -800 : -1950]);
+  const nameX = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -800 : -1950])
 
-  const exploreInView = useInView(exploreRef, { once: true, margin: "-100px" });
-  const featuredInView = useInView(featuredRef, { once: true, margin: "-100px" });
+  const exploreInView = useInView(exploreRef, { once: true, margin: "-100px" })
+  const featuredInView = useInView(featuredRef, { once: true, margin: "-100px" })
 
-  // Explore cards data
   const exploreCards = [
     {
       icon: FolderKanban,
@@ -66,20 +60,18 @@ const Home = () => {
       link: '/about',
       color: 'from-orange-500/20 to-red-500/20'
     },
-  ];
+  ]
 
-  // Featured project
   const featuredProject = {
     name: 'Swapy - AI-Powered Campus Barter System',
     description: '2nd Place Winner @ HACKnyu',
     tagline: 'Built an AI-powered campus barter system that understands items, values them fairly, and unlocks multi-hop trades. Won 2nd place at HACKnyu Fall 2025 in the Sustainability category.',
     tech: ['Next.js 14', 'Google Gemini 2.0', 'Firebase', 'TypeScript', 'Graph Algorithms', 'AI/ML'],
     link: '/projects'
-  };
+  }
 
   return (
     <div className="relative" style={{ overflowX: 'hidden' }}>
-      {/* Hero Section - Fabian Creativo Style */}
       <motion.section 
         ref={containerRef}
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 relative z-10" 
@@ -93,23 +85,19 @@ const Home = () => {
         transition={{ duration: 0.3 }}
       >
         <div className="max-w-7xl mx-auto w-full relative" style={{ minHeight: isMobile ? 'calc(100vh - 3rem)' : 'calc(100vh - 5rem)' }}>
-          {/* Text on Left, Photo on Right */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 pt-16 lg:pt-20 mb-20 sm:mb-24 lg:mb-32">
-            {/* Text Content on Left */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col items-start lg:items-start flex-1 max-w-2xl"
             >
-              {/* Arrow Icon and Role Text */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="flex items-start gap-4 mb-8"
               >
-                {/* Arrow Icon - Pointing Right */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -131,7 +119,6 @@ const Home = () => {
                   </svg>
                 </motion.div>
 
-                {/* Role Text */}
                 <div className="text-white space-y-1">
                   <p className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
                     Software Engineer &
@@ -142,7 +129,6 @@ const Home = () => {
                 </div>
               </motion.div>
 
-              {/* Availability */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -154,7 +140,6 @@ const Home = () => {
                 </p>
               </motion.div>
 
-              {/* About Section - 2 Lines */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -171,7 +156,6 @@ const Home = () => {
               </motion.div>
             </motion.div>
 
-            {/* Photo on Right */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -192,7 +176,6 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Name at Bottom of Grey Container - Scroll-based Movement */}
           <div 
             ref={nameContainerRef}
             className="absolute left-0 py-2 sm:py-4 lg:py-8"
@@ -227,7 +210,6 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* Explore Section */}
       <section ref={exploreRef} className="bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="max-w-7xl mx-auto w-full">
           <motion.div
@@ -236,7 +218,6 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="space-y-12"
           >
-            {/* Header */}
             <div className="text-center">
               <motion.h2
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -257,10 +238,9 @@ const Home = () => {
               </motion.p>
             </div>
 
-            {/* Explore Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
               {exploreCards.map((card, index) => {
-                const CardIcon = card.icon;
+                const CardIcon = card.icon
                 return (
                   <motion.div
                     key={card.title}
@@ -270,25 +250,24 @@ const Home = () => {
                     whileHover={{ y: -8, scale: 1.02 }}
                   >
                     <Link
-                      to={card.link}
+                      href={card.link}
                       className="group block h-full"
                     >
                       <div
                         className="relative bg-white/10 backdrop-blur-sm border rounded-xl p-6 transition-all shadow-lg hover:shadow-xl overflow-hidden h-full"
-                style={{
+                        style={{
                           borderColor: 'rgba(255, 255, 255, 0.2)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                }}
+                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                        }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)';
+                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)'
+                          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)'
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                          e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
+                          e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
                         }}
                       >
-                        {/* Gradient overlay on hover */}
                         <motion.div
                           className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br ${card.color}`}
                         />
@@ -315,14 +294,13 @@ const Home = () => {
                       </div>
                     </Link>
                   </motion.div>
-                );
+                )
               })}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Featured Project Section */}
       <section ref={featuredRef} className="bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="max-w-6xl mx-auto w-full">
           <motion.div
@@ -331,7 +309,6 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            {/* Header */}
             <div className="text-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -354,30 +331,28 @@ const Home = () => {
               </motion.div>
             </div>
 
-            {/* Featured Project Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={featuredInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
               whileHover={{ y: -5, scale: 1.01 }}
             >
-              <Link to={featuredProject.link} className="block group">
+              <Link href={featuredProject.link} className="block group">
                 <div
                   className="relative bg-white/10 backdrop-blur-sm border rounded-2xl p-8 md:p-12 transition-all shadow-lg hover:shadow-xl overflow-hidden"
-                    style={{
+                  style={{
                     borderColor: 'rgba(255, 255, 255, 0.2)',
                     backgroundColor: 'rgba(255, 255, 255, 0.05)',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                    e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.5)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)'
+                    e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                    e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
+                    e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
                   }}
                 >
-                  {/* Gradient overlay */}
                   <motion.div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-500/10 to-purple-500/10"
                   />
@@ -397,7 +372,7 @@ const Home = () => {
                         <p className="text-lg leading-relaxed max-w-2xl" style={{ color: '#6c757d' }}>
                           {featuredProject.tagline}
                         </p>
-                </div>
+                      </div>
                       <motion.div
                         animate={{
                           x: [0, 5, 0],
@@ -411,9 +386,8 @@ const Home = () => {
                       >
                         <ArrowRight className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
                       </motion.div>
-                </div>
+                    </div>
                     
-                    {/* Tech Stack */}
                     <div className="flex flex-wrap gap-3 mt-6">
                       {featuredProject.tech.map((tech, techIndex) => (
                         <motion.span
@@ -422,7 +396,7 @@ const Home = () => {
                           animate={featuredInView ? { opacity: 1, scale: 1 } : {}}
                           transition={{ delay: 0.5 + techIndex * 0.1 }}
                           className="px-4 py-2 border rounded-full text-sm font-medium"
-                    style={{
+                          style={{
                             backgroundColor: 'rgba(255, 255, 255, 0.1)',
                             borderColor: 'rgba(255, 255, 255, 0.2)',
                             color: '#FFFFFF',
@@ -440,7 +414,6 @@ const Home = () => {
         </div>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
