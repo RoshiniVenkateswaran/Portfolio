@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { FolderKanban, Briefcase, Code, User, ArrowRight, Sparkles } from 'lucide-react'
 
@@ -11,10 +11,13 @@ export default function HomeContent() {
   const exploreRef = useRef(null)
   const featuredRef = useRef(null)
   const [isMobile, setIsMobile] = useState(false)
+  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
   
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+      const width = window.innerWidth
+      setIsMobile(width < 768)
+      setScreenWidth(width)
     }
     checkMobile()
     window.addEventListener('resize', checkMobile)
@@ -26,7 +29,15 @@ export default function HomeContent() {
     offset: ["start start", "end start"]
   })
   
-  const nameX = useTransform(scrollYProgress, [0, 1], [0, isMobile ? -800 : -1950])
+  // Calculate name scroll distance based on screen width for better mobile experience
+  // For mobile: scroll more to ensure full name visibility, minimum 650px
+  const mobileScrollDistance = useMemo(() => {
+    if (!isMobile) return -1950
+    if (screenWidth === 0) return -650
+    return -Math.max(screenWidth * 0.85, 650)
+  }, [isMobile, screenWidth])
+  
+  const nameX = useTransform(scrollYProgress, [0, 1], [0, mobileScrollDistance])
 
   const exploreInView = useInView(exploreRef, { once: true, margin: "-100px" })
   const featuredInView = useInView(featuredRef, { once: true, margin: "-100px" })
@@ -180,25 +191,27 @@ export default function HomeContent() {
             ref={nameContainerRef}
             className="absolute left-0 py-2 sm:py-4 lg:py-8"
             style={{
-              bottom: isMobile ? '-2rem' : '-3rem',
+              bottom: isMobile ? '2rem' : '-3rem',
               width: '100vw',
               overflow: 'visible',
               pointerEvents: 'none',
               zIndex: 10,
               marginLeft: 'calc(-50vw + 50%)',
+              left: 0,
             }}
           >
             <motion.div
               className="text-white whitespace-nowrap"
               style={{
                 x: nameX,
-                fontSize: isMobile ? 'clamp(1.5rem, 12vw, 4rem)' : 'clamp(2rem, 18vw, 13rem)',
+                fontSize: isMobile ? 'clamp(2rem, 14vw, 5rem)' : 'clamp(2rem, 18vw, 13rem)',
                 lineHeight: '0.9',
                 fontWeight: '700',
-                letterSpacing: isMobile ? '-0.02em' : '-0.04em',
-                paddingLeft: isMobile ? '1rem' : '0',
-                paddingRight: isMobile ? '2rem' : '4vw',
+                letterSpacing: isMobile ? '-0.01em' : '-0.04em',
+                paddingLeft: isMobile ? '1.5rem' : '0',
+                paddingRight: isMobile ? '1.5rem' : '4vw',
                 display: 'inline-block',
+                willChange: 'transform',
               }}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
