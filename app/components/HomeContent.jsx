@@ -191,11 +191,11 @@ export default function HomeContent() {
             ref={nameContainerRef}
             className="absolute left-0 py-2 sm:py-4 lg:py-8"
             style={{
-              bottom: isMobile ? '2rem' : '-3rem',
+              bottom: isMobile ? '4rem' : '-3rem',
               width: '100vw',
               overflow: 'visible',
               pointerEvents: 'none',
-              zIndex: 10,
+              zIndex: 5,
               marginLeft: 'calc(-50vw + 50%)',
               left: 0,
             }}

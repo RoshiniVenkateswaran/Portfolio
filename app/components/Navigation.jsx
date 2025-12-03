@@ -19,6 +19,17 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Close menu when window is resized to desktop size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsOpen(false)
+      }
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/experience', label: 'Experience' },
@@ -117,14 +128,15 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-white z-50 relative"
+            aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation Overlay */}
+      {/* Mobile Navigation Overlay - Only show on mobile and when isOpen is true */}
       {isOpen && (
         <>
           {/* Backdrop */}
@@ -133,7 +145,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black/50 z-40 md:hidden"
+            className="fixed inset-0 bg-black/40 z-40 md:hidden"
             style={{ top: '80px' }}
           />
           {/* Sidebar Menu */}
@@ -142,12 +154,12 @@ export default function Navigation() {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed left-0 top-20 bottom-0 w-64 bg-[#1a1a1a] z-50 md:hidden shadow-2xl overflow-y-auto"
+            className="fixed left-0 top-20 bottom-0 w-56 bg-[#1a1a1a]/95 backdrop-blur-md z-50 md:hidden shadow-2xl overflow-y-auto"
             style={{
               borderRight: '1px solid rgba(255, 255, 255, 0.1)',
             }}
           >
-            <div className="px-4 py-6 space-y-2">
+            <div className="px-3 py-4 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -156,7 +168,7 @@ export default function Navigation() {
                   className={`block px-4 py-3 rounded-lg text-base font-medium transition-all ${
                     isActive(link.path)
                       ? 'text-white bg-white/10'
-                      : 'text-white/70 hover:text-white hover:bg-white/5'
+                      : 'text-white/80 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {link.label}

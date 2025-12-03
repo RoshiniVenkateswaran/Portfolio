@@ -348,6 +348,47 @@ export default function AboutContent() {
                     <Download className="w-5 h-5 text-white" />
                     <span className="text-white font-semibold">Download Resume</span>
                   </motion.button>
+
+                  {/* What I'm Looking For Section - Right below Download Resume */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                    className="mt-0"
+                  >
+                    <p className="text-sm mb-3" style={{ color: '#9ca3af' }}>
+                      Open to opportunities in:
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {['Software Developer', 'ML Engineer', 'Mobile App Developer', 'Flutter Developer'].map((role, index) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          className="px-3 py-1.5 bg-white/5 border rounded-full text-xs"
+                          style={{
+                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            color: '#d1d5db',
+                            transition: 'all 0.3s ease',
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                            e.currentTarget.style.color = '#ffffff';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                            e.currentTarget.style.color = '#d1d5db';
+                          }}
+                        >
+                          {role}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
                 </div>
               </div>
 
@@ -360,55 +401,17 @@ export default function AboutContent() {
                   <p className="text-lg leading-relaxed mb-4" style={{ color: '#6c757d' }}>
                     Over the years, I've developed products across industries - from an AI-powered chatbot at Medica to a cross-platform roommate finder app at Prommuni and a real-time expense tracker in Flutter. My journey began with a curiosity for how systems think and evolved into crafting scalable, data-driven solutions using Python, Java, Flutter, AWS, and TensorFlow.
                   </p>
-                  <p className="text-lg leading-relaxed" style={{ color: '#6c757d' }}>
+                  <p className="text-lg leading-relaxed mb-4" style={{ color: '#6c757d' }}>
                     When I'm not developing or experimenting with AI, you'll find me on the badminton court, painting, or sipping coffee.
+                  </p>
+                  <p className="text-lg leading-relaxed" style={{ color: '#6c757d' }}>
+                    I'm always looking for opportunities to build real products, push my technical limits, and work with teams who like asking "why not?" as much as "how?"
                   </p>
                 </div>
               </div>
               
             </div>
           </div>
-
-          {/* What I'm Looking For Section - Subtle */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="mt-8"
-          >
-            <p className="text-sm mb-3" style={{ color: '#9ca3af' }}>
-              Open to opportunities in:
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {['Software Developer', 'ML Engineer', 'Mobile App Developer', 'Flutter Developer'].map((role, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  className="px-3 py-1.5 bg-white/5 border rounded-full text-xs"
-                  style={{
-                    borderColor: 'rgba(255, 255, 255, 0.1)',
-                    color: '#d1d5db',
-                    transition: 'all 0.3s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                    e.currentTarget.style.color = '#ffffff';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                    e.currentTarget.style.color = '#d1d5db';
-                  }}
-                >
-                  {role}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
 
         </motion.section>
 
