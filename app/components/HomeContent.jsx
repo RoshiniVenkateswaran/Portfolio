@@ -40,13 +40,12 @@ export default function HomeContent() {
     return -Math.max(screenWidth * 1.5, 800)
   }, [isMobile, screenWidth])
   
-  // For mobile, start the name so "Roshini" is fully visible initially
+  // For mobile, start the name from the left edge of the screen
   const nameStartPosition = useMemo(() => {
     if (!isMobile) return 0
     if (screenWidth === 0) return 0
-    // Start slightly to the right so "Roshini" is fully visible from the start
-    // "Roshini" is approximately 6-7 characters, so we need about 100-150px offset
-    return 100
+    // Start from the left edge (0) so the name begins at the start of the screen
+    return 0
   }, [isMobile, screenWidth])
   
   const nameX = useTransform(scrollYProgress, [0, 1], [nameStartPosition, mobileScrollDistance])
@@ -223,7 +222,7 @@ export default function HomeContent() {
                 lineHeight: '0.9',
                 fontWeight: '700',
                 letterSpacing: isMobile ? '0em' : '-0.04em',
-                paddingLeft: isMobile ? '1rem' : '0',
+                paddingLeft: isMobile ? '0' : '0',
                 paddingRight: isMobile ? '2rem' : '4vw',
                 display: 'inline-block',
                 willChange: 'transform',
