@@ -40,11 +40,13 @@ export default function HomeContent() {
     return -Math.max(screenWidth * 1.5, 800)
   }, [isMobile, screenWidth])
   
-  // For mobile, start the name slightly to the left so more is visible initially
+  // For mobile, start the name so "Roshini" is fully visible initially
   const nameStartPosition = useMemo(() => {
     if (!isMobile) return 0
     if (screenWidth === 0) return 0
-    return -Math.max(screenWidth * 0.3, 100)
+    // Start slightly to the right so "Roshini" is fully visible from the start
+    // "Roshini" is approximately 6-7 characters, so we need about 100-150px offset
+    return 100
   }, [isMobile, screenWidth])
   
   const nameX = useTransform(scrollYProgress, [0, 1], [nameStartPosition, mobileScrollDistance])
@@ -92,21 +94,24 @@ export default function HomeContent() {
   }
 
   return (
-    <div className="relative" style={{ overflowX: 'hidden' }}>
+    <div className="relative" style={{ overflowX: 'hidden', position: 'relative' }}>
       <motion.section 
         ref={containerRef}
         className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 relative z-10" 
         style={{ 
-          minHeight: '100vh',
+          position: 'relative',
+          minHeight: isMobile ? 'auto' : '100vh',
+          paddingBottom: isMobile ? '3rem' : '0',
           backgroundColor: '#1a1a1a',
-          overflow: 'hidden',
+          overflow: 'visible',
+          touchAction: 'pan-y',
         }}
         initial={false}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="max-w-7xl mx-auto w-full relative" style={{ minHeight: isMobile ? 'calc(100vh - 2rem)' : 'calc(100vh - 5rem)' }}>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 pt-8 sm:pt-12 md:pt-16 lg:pt-20 mb-12 sm:mb-16 md:mb-20 lg:mb-32">
+        <div className="max-w-7xl mx-auto w-full relative" style={{ minHeight: isMobile ? 'auto' : 'calc(100vh - 5rem)' }}>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 pt-4 sm:pt-12 md:pt-16 lg:pt-20 mb-0">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -201,7 +206,7 @@ export default function HomeContent() {
             ref={nameContainerRef}
             className="absolute left-0 py-2 sm:py-4 lg:py-8"
             style={{
-              bottom: isMobile ? '3rem' : '-3rem',
+              bottom: isMobile ? '-4rem' : '-3rem',
               width: '100vw',
               overflow: 'visible',
               pointerEvents: 'none',
@@ -219,7 +224,7 @@ export default function HomeContent() {
                 fontWeight: '700',
                 letterSpacing: isMobile ? '0em' : '-0.04em',
                 paddingLeft: isMobile ? '1rem' : '0',
-                paddingRight: isMobile ? '1rem' : '4vw',
+                paddingRight: isMobile ? '2rem' : '4vw',
                 display: 'inline-block',
                 willChange: 'transform',
               }}
