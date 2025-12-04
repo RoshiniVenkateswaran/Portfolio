@@ -147,7 +147,7 @@ export default function HomeContent() {
 
                 <div className="text-white space-y-1">
                   <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
-                    Software Engineer &
+                    Software Developer &
                   </p>
                   <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
                     AI/ML Enthusiast
