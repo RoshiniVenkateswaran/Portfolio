@@ -294,13 +294,9 @@ export default function HomeContent() {
                         />
                         
                         <div className="relative z-10">
-                          <motion.div
-                            whileHover={{ rotate: 360, scale: 1.2 }}
-                            transition={{ duration: 0.5 }}
-                            className="mb-4"
-                          >
+                          <div className="mb-4">
                             <CardIcon className="w-10 h-10 text-white" />
-                          </motion.div>
+                          </div>
                           <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-white transition-colors">
                             {card.title}
                           </h3>

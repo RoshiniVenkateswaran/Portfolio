@@ -396,16 +396,13 @@ export default function AboutContent() {
               <div>
                 <div className="bg-white/10 border rounded-lg p-6" style={{ borderColor: 'rgba(255, 255, 255, 0.2)', backgroundColor: 'rgba(255, 255, 255, 0.05)' }}>
                   <p className="text-lg leading-relaxed mb-4" style={{ color: '#6c757d' }}>
-                    Hi, I'm Roshini Venkateswaran, a passionate Software Developer and AI enthusiast currently pursuing my M.S. in Computer Science at The George Washington University. With a foundation in full-stack development and a growing focus on machine learning, automation, and cloud technologies, I love building meaningful digital experiences that blend intelligent systems with clean, user-focused design.
+                    I'm a software engineer focused on building full-stack applications and AI-driven systems. My work involves designing backend services, developing scalable APIs, and integrating machine learning models into real-world products.
                   </p>
                   <p className="text-lg leading-relaxed mb-4" style={{ color: '#6c757d' }}>
-                    Over the years, I've developed products across industries - from an AI-powered chatbot at Medica to a cross-platform roommate finder app at Prommuni and a real-time expense tracker in Flutter. My journey began with a curiosity for how systems think and evolved into crafting scalable, data-driven solutions using Python, Java, Flutter, AWS, and TensorFlow.
-                  </p>
-                  <p className="text-lg leading-relaxed mb-4" style={{ color: '#6c757d' }}>
-                    When I'm not developing or experimenting with AI, you'll find me on the badminton court, painting, or sipping coffee.
+                    I've worked on projects ranging from AI-powered sports analytics platforms to intelligent marketplaces, combining technologies like Python, FastAPI, modern web frameworks, and applied machine learning to create end-to-end systems.
                   </p>
                   <p className="text-lg leading-relaxed" style={{ color: '#6c757d' }}>
-                    I'm always looking for opportunities to build real products, push my technical limits, and work with teams who like asking "why not?" as much as "how?"
+                    I'm particularly interested in building platforms where AI is embedded directly into user workflows, enabling smarter automation and data-driven decision making.
                   </p>
                 </div>
               </div>
