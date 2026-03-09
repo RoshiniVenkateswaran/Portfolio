@@ -1,14 +1,18 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { ExternalLink, Github, Smartphone, Bot, Wifi, Users, ArrowRight, Sparkles, Brain, TrendingUp, GraduationCap, Shield, Trophy, Monitor } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { ExternalLink, Github, Smartphone, Bot, Wifi, Users, ArrowRight, Sparkles, Brain, TrendingUp, GraduationCap, Shield, Trophy, Monitor, ChevronDown } from 'lucide-react'
+
+const INITIAL_PROJECTS = 4
+const LOAD_MORE_COUNT = 4
 
 export default function ProjectsContent() {
+  const [visibleCount, setVisibleCount] = useState(INITIAL_PROJECTS)
   const projects = [
     {
       id: 'swapy_hacknyu',
-      name: 'Swapy - AI-Powered Campus Barter System',
+      name: 'Swapy — AI-Driven Multi-Hop Barter Marketplace',
       description: '2nd Place Winner @ HACKnyu',
       details: 'Built an AI-powered campus barter system that understands items, values them fairly, and unlocks multi-hop trades. Implemented Google Gemini 2.0 Flash for deep semantic analysis of items, extracting subcategory, materials, condition, and brand attributes. Developed a hybrid AI + deterministic valuation engine that generates fair, consistent prices. Created a graph-based matching system using DFS cycle detection to enable complex 3-way and 4-way trades that were previously impossible. Built real-time trends intelligence dashboard with 6-score metrics (demand, supply, scarcity, velocity, popularity, saturation) powered by AI semantic understanding.',
       narration: ['Won 2nd place at HACKnyu Fall 2025 in the Sustainability category. Built a complete AI-driven value network that turns unused campus goods into a smart, circular, cashless economy.'],
@@ -18,6 +22,17 @@ export default function ProjectsContent() {
       period: 'Nov 2025',
       link: 'https://lnkd.in/gMP_i8Vu',
       githubLink: 'https://github.com/RoshiniVenkateswaran/swapy',
+    },
+    {
+      id: 'pitchpulse_hacklytics',
+      name: 'PitchPulse',
+      description: 'Hacklytics 2026: Golden Byte',
+      details: 'AI-driven high-performance management system that helps football managers optimize their squad and prevent injuries. Pulls real match statistics (minutes, appearances, form) from API-Football to calculate baseline readiness scores. Uses the Acute:Chronic Workload Ratio (ACWR) to identify players in the "Danger Zone" at risk of injury. Players perform a 30-second camera-based check-in that derives heart rate, HRV, stress, and emotional state from contactless vitals. Gemini Vision AI analyzes 10-second squat videos for biomechanics and physical risk. Gemini generates one-sentence coaching recommendations and, on match day, suggests the optimal formation and Starting XI. Built with Python/FastAPI, Gemini 2.5 Flash, Supabase, and Flutter with Cloudflare Tunnels for low-latency connectivity.',
+      narration: ['Submitted to Hacklytics 2026: Golden Byte. Unifies match data, workload science, and AI to turn player readiness into actionable insights and optimal lineups.'],
+      icon: Trophy,
+      tech: ['Python', 'FastAPI', 'Gemini 2.5 Flash', 'Flutter', 'Supabase', 'API-Football', 'Cloudflare', 'rPPG', 'ACWR'],
+      period: 'Feb 2026',
+      link: 'https://devpost.com/software/pitchpulse-32pbyx',
     },
     {
       id: 'prommuni_roommate_finder',
@@ -123,6 +138,9 @@ export default function ProjectsContent() {
 
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
+  const visibleProjects = projects.slice(0, visibleCount)
+  const hasMore = visibleCount < projects.length
+  const loadMore = () => setVisibleCount((prev) => Math.min(prev + LOAD_MORE_COUNT, projects.length))
 
   return (
     <motion.div 
@@ -161,7 +179,7 @@ export default function ProjectsContent() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => {
+          {visibleProjects.map((project, index) => {
             const cardRef = useRef(null)
             const cardInView = useInView(cardRef, { once: true, margin: "-50px" })
             const ProjectIcon = project.icon
@@ -247,7 +265,7 @@ export default function ProjectsContent() {
                         </span>
                       </motion.h3>
                       <p className="text-sm mb-1">
-                        {project.id === 'prommuni_roommate_finder' || project.id === 'swapy_hacknyu' ? (
+                        {project.id === 'prommuni_roommate_finder' || project.id === 'swapy_hacknyu' || project.id === 'pitchpulse_hacklytics' ? (
                           <span style={{ color: '#10b981' }}>{project.description}</span>
                         ) : (
                           <span style={{ color: '#6c757d' }}>{project.description}</span>
@@ -362,7 +380,7 @@ export default function ProjectsContent() {
                     </div>
                   )}
 
-                  {project.id === 'swapy_hacknyu' && (project.link || project.githubLink) && (
+                  {(project.id === 'swapy_hacknyu' || project.id === 'pitchpulse_hacklytics') && (project.link || project.githubLink) && (
                     <div className="mb-4 flex flex-wrap gap-3">
                       {project.link && (
                         <motion.a
@@ -476,6 +494,39 @@ export default function ProjectsContent() {
             )
           })}
         </div>
+
+        {hasMore && (
+          <motion.div
+            className="flex justify-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <motion.button
+              type="button"
+              onClick={loadMore}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all border"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                borderColor: 'rgba(255, 255, 255, 0.3)',
+                color: '#ffffff',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)'
+              }}
+            >
+              <ChevronDown className="w-5 h-5" />
+              Load more
+            </motion.button>
+          </motion.div>
+        )}
       </div>
     </motion.div>
   )

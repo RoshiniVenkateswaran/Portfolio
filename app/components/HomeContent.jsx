@@ -85,7 +85,7 @@ export default function HomeContent() {
   ]
 
   const featuredProject = {
-    name: 'Swapy - AI-Powered Campus Barter System',
+    name: 'Swapy — AI-Driven Multi-Hop Barter Marketplace',
     description: '2nd Place Winner @ HACKnyu',
     tagline: 'Built an AI-powered campus barter system that understands items, values them fairly, and unlocks multi-hop trades. Won 2nd place at HACKnyu Fall 2025 in the Sustainability category.',
     tech: ['Next.js 14', 'Google Gemini 2.0', 'Firebase', 'TypeScript', 'Graph Algorithms', 'AI/ML'],
@@ -146,10 +146,7 @@ export default function HomeContent() {
 
                 <div className="text-white space-y-1">
                   <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
-                    Software Developer &
-                  </p>
-                  <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
-                    AI/ML Enthusiast
+                    Full-Stack Software Engineer building AI-driven systems
                   </p>
                 </div>
               </motion.div>
@@ -173,10 +170,7 @@ export default function HomeContent() {
                 style={{ color: '#6c757d' }}
               >
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed">
-                  Building intelligent interfaces and systems that bridge the gap between technology and human needs.
-                </p>
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed">
-                  Passionate about creating impactful solutions through code, design, and innovation.
+                  Full-Stack Software Engineer building AI-driven systems
                 </p>
               </motion.div>
             </motion.div>
