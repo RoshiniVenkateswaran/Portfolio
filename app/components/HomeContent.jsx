@@ -146,7 +146,7 @@ export default function HomeContent() {
 
                 <div className="text-white space-y-1">
                   <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
-                    Full-Stack Software Engineer building AI-driven systems
+                    Full-Stack Software Engineer | AI-Driven Systems
                   </p>
                 </div>
               </motion.div>
@@ -170,7 +170,7 @@ export default function HomeContent() {
                 style={{ color: '#6c757d' }}
               >
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed">
-                  Full-Stack Software Engineer building AI-driven systems
+                  I build full-stack applications and intelligent systems that combine scalable backend services, modern interfaces, and applied AI.
                 </p>
               </motion.div>
             </motion.div>

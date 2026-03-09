@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Mail, Linkedin, Github, FileText, Send, MessageCircle, Eye } from 'lucide-react'
+import { Mail, Linkedin, Github, FileText, Send, Eye } from 'lucide-react'
 
 // LinkedIn Logo SVG Component
 const LinkedInLogo = ({ className }) => (
@@ -220,58 +220,6 @@ export default function ContactContent() {
             );
           })}
         </div>
-
-        {/* Contact Form Placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          whileHover={{ scale: 1.02, y: -5 }}
-          className="group relative bg-white/10 backdrop-blur-sm border rounded-xl p-8 shadow-lg overflow-hidden"
-          style={{
-            borderColor: 'rgba(255, 255, 255, 0.2)',
-            backgroundColor: 'rgba(255, 255, 255, 0.05)',
-          }}
-        >
-          
-          <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-4">
-              <svg className="absolute w-0 h-0">
-                <defs>
-                  <linearGradient id="messageIconGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#FFFFFF" />
-                    <stop offset="100%" stopColor="#FFFFFF" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <MessageCircle className="w-6 h-6 gradient-icon" style={{ stroke: 'url(#messageIconGradient)' }} />
-                    <h2 className="text-2xl font-bold text-white">
-                      Send a Message
-                    </h2>
-                  </div>
-                  <div className="mb-6" style={{ color: '#6c757d' }}>
-                    <div>
-                      Prefer to send an email directly? Feel free to reach out at{' '}
-                      <motion.a
-                        href="mailto:roshiniv@gwu.edu"
-                        className="text-white hover:underline font-semibold relative inline-block"
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        roshiniv@gwu.edu
-                        <motion.div
-                          className="absolute bottom-0 left-0 w-full h-0.5"
-                          style={{
-                            background: '#FFFFFF',
-                          }}
-                          initial={{ scaleX: 0 }}
-                          whileHover={{ scaleX: 1 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      </motion.a>
-                    </div>
-                  </div>
-          </div>
-        </motion.div>
 
         {/* Call to Action */}
         <motion.div
