@@ -85,10 +85,10 @@ export default function HomeContent() {
   ]
 
   const featuredProject = {
-    name: 'Swapy — AI-Driven Multi-Hop Barter Marketplace',
-    description: '2nd Place Winner @ HACKnyu',
-    tagline: 'Built an AI-powered campus barter system that understands items, values them fairly, and unlocks multi-hop trades. Won 2nd place at HACKnyu Fall 2025 in the Sustainability category.',
-    tech: ['Next.js 14', 'Google Gemini 2.0', 'Firebase', 'TypeScript', 'Graph Algorithms', 'AI/ML'],
+    name: 'PitchPulse — AI Sports Injury Prediction Platform',
+    description: 'Hacklytics 2026: Golden Byte',
+    tagline: 'AI-powered system that predicts injury risk and generates tactical recovery plans using computer vision vitals extraction, workload analytics, and a RAG-based decision engine.',
+    tech: ['Python', 'FastAPI', 'Flutter', 'Vector DB', 'Generative AI'],
     link: '/projects'
   }
 
