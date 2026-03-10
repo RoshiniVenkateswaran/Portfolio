@@ -591,8 +591,6 @@ export default function AboutContent() {
                   <motion.button
                     onClick={prevTestimonials}
                     disabled={!canGoPrevTestimonial}
-                    whileHover={canGoPrevTestimonial ? { scale: 1.1 } : {}}
-                    whileTap={canGoPrevTestimonial ? { scale: 0.9 } : {}}
                     className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{
                       borderColor: 'rgba(255, 255, 255, 0.2)',
@@ -608,8 +606,6 @@ export default function AboutContent() {
                   <motion.button
                     onClick={nextTestimonials}
                     disabled={!canGoNextTestimonial}
-                    whileHover={canGoNextTestimonial ? { scale: 1.1 } : {}}
-                    whileTap={canGoNextTestimonial ? { scale: 0.9 } : {}}
                     className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{
                       borderColor: 'rgba(255, 255, 255, 0.2)',
