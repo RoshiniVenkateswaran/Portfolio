@@ -405,7 +405,7 @@ export default function AboutContent() {
                     Alongside this, I enjoy developing AI-driven applications that move beyond experimentation and focus on usability and impact. My projects explore areas such as intelligent marketplaces, AI-powered analytics platforms, and systems that combine modern web development with machine learning.
                   </p>
                   <p className="text-lg leading-relaxed" style={{ color: '#6c757d' }}>
-                    Currently pursuing a Master's in Computer Science at The George Washington University, I'm actively seeking opportunities in software engineering roles where I can contribute to building scalable systems, intelligent applications, and impactful technology products.
+                    I'm actively seeking opportunities in software engineering roles where I can contribute to building scalable systems, intelligent applications, and impactful technology products.
                   </p>
                 </div>
               </div>
