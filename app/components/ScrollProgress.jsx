@@ -17,7 +17,7 @@ const ScrollProgress = memo(() => {
       style={{ 
         scaleX, 
         willChange: 'transform',
-        background: 'linear-gradient(90deg, #111827, #374151)',
+        background: 'var(--accent)',
       }}
     />
   )

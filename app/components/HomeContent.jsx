@@ -101,7 +101,7 @@ export default function HomeContent() {
           position: 'relative',
           minHeight: isMobile ? 'auto' : '100vh',
           paddingBottom: isMobile ? '3rem' : '0',
-          backgroundColor: '#1a1a1a',
+          backgroundColor: 'var(--hero-bg)',
           overflow: 'visible',
           touchAction: 'pan-y',
         }}
@@ -138,13 +138,13 @@ export default function HomeContent() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="text-white"
+                    style={{ color: 'var(--text-primary)' }}
                   >
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </motion.div>
 
-                <div className="text-white space-y-1">
+                <div className="space-y-1" style={{ color: 'var(--text-primary)' }}>
                   <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
                     Full-Stack Software Engineer | AI-Driven Systems
                   </p>
@@ -157,7 +157,7 @@ export default function HomeContent() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="mb-4 sm:mb-6"
               >
-                <p className="text-sm sm:text-base md:text-lg" style={{ color: '#10b981' }}>
+                <p className="text-sm sm:text-base md:text-lg" style={{ color: 'var(--accent)' }}>
                   Available from May 2026
                 </p>
               </motion.div>
@@ -167,7 +167,7 @@ export default function HomeContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="space-y-2 sm:space-y-3 max-w-lg"
-                style={{ color: '#6c757d' }}
+                style={{ color: 'var(--text-secondary)' }}
               >
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed">
                   I build full-stack applications and intelligent systems that combine scalable backend services, modern interfaces, and applied AI.
@@ -209,8 +209,9 @@ export default function HomeContent() {
             }}
           >
             <motion.div
-              className="text-white whitespace-nowrap"
+              className="whitespace-nowrap"
               style={{
+                color: 'var(--text-primary)',
                 x: nameX,
                 fontSize: isMobile ? 'clamp(2.5rem, 16vw, 6rem)' : 'clamp(2rem, 18vw, 13rem)',
                 lineHeight: '0.9',
@@ -231,7 +232,7 @@ export default function HomeContent() {
         </div>
       </motion.section>
 
-      <section ref={exploreRef} className="bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 relative z-10">
+      <section ref={exploreRef} className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 relative z-10" style={{ backgroundColor: 'var(--page-bg)' }}>
         <div className="max-w-7xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -244,7 +245,8 @@ export default function HomeContent() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={exploreInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6"
+                style={{ color: 'var(--text-primary)' }}
               >
                 Explore My Work
               </motion.h2>
@@ -253,7 +255,7 @@ export default function HomeContent() {
                 animate={exploreInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto px-4"
-                style={{ color: '#6c757d' }}
+                style={{ color: 'var(--text-secondary)' }}
               >
                 Discover my projects, experience, skills, and learn more about who I am
               </motion.p>
@@ -275,18 +277,18 @@ export default function HomeContent() {
                       className="group block h-full"
                     >
                       <div
-                        className="relative bg-white/10 backdrop-blur-sm border rounded-xl p-6 transition-all shadow-lg hover:shadow-xl overflow-hidden h-full"
+                        className="relative backdrop-blur-sm border rounded-xl p-6 transition-all shadow-lg hover:shadow-xl overflow-hidden h-full"
                         style={{
-                          borderColor: 'rgba(255, 255, 255, 0.2)',
-                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                          borderColor: 'var(--card-border)',
+                          backgroundColor: 'var(--card-bg)',
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)'
-                          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)'
+                          e.currentTarget.style.borderColor = 'var(--text-muted)'
+                          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.15)'
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
-                          e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+                          e.currentTarget.style.borderColor = 'var(--card-border)'
+                          e.currentTarget.style.boxShadow = 'none'
                         }}
                       >
                         <motion.div
@@ -295,15 +297,15 @@ export default function HomeContent() {
                         
                         <div className="relative z-10">
                           <div className="mb-4">
-                            <CardIcon className="w-10 h-10 text-white" />
+                            <CardIcon className="w-10 h-10" style={{ color: 'var(--text-primary)' }} />
                           </div>
-                          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-white transition-colors">
+                          <h3 className="text-2xl font-bold mb-2 transition-colors" style={{ color: 'var(--text-primary)' }}>
                             {card.title}
                           </h3>
-                          <p className="text-sm mb-4 leading-relaxed" style={{ color: '#6c757d' }}>
+                          <p className="text-sm mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                             {card.description}
                           </p>
-                          <div className="flex items-center gap-2 group-hover:text-white transition-colors" style={{ color: '#6c757d' }}>
+                          <div className="flex items-center gap-2 transition-colors" style={{ color: 'var(--text-secondary)' }}>
                             <span className="text-sm font-medium">Explore</span>
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </div>
@@ -318,7 +320,7 @@ export default function HomeContent() {
         </div>
       </section>
 
-      <section ref={featuredRef} className="bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 relative z-10">
+      <section ref={featuredRef} className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 relative z-10" style={{ backgroundColor: 'var(--page-bg)' }}>
         <div className="max-w-6xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -342,7 +344,7 @@ export default function HomeContent() {
                   </defs>
                 </svg>
                 <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 gradient-icon" style={{ stroke: 'url(#featuredIconGradient)' }} />
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: 'var(--text-primary)' }}>
                   Featured Project
                 </h2>
               </motion.div>
@@ -356,18 +358,18 @@ export default function HomeContent() {
             >
               <Link href={featuredProject.link} className="block group">
                 <div
-                  className="relative bg-white/10 backdrop-blur-sm border rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 transition-all shadow-lg hover:shadow-xl overflow-hidden"
+                  className="relative backdrop-blur-sm border rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 transition-all shadow-lg hover:shadow-xl overflow-hidden"
                   style={{
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    borderColor: 'var(--card-border)',
+                    backgroundColor: 'var(--card-bg)',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)'
-                    e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                    e.currentTarget.style.borderColor = 'var(--text-muted)'
+                    e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.15)'
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
-                    e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+                    e.currentTarget.style.borderColor = 'var(--card-border)'
+                    e.currentTarget.style.boxShadow = 'none'
                   }}
                 >
                   <motion.div
@@ -378,15 +380,16 @@ export default function HomeContent() {
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 sm:gap-6 mb-4 sm:mb-6">
                       <div>
                         <motion.h3
-                          className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-white transition-colors"
+                          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 transition-colors"
+                          style={{ color: 'var(--text-primary)' }}
                           whileHover={{ x: 5 }}
                         >
                           {featuredProject.name}
                         </motion.h3>
-                        <p className="text-xs sm:text-sm mb-2 sm:mb-3" style={{ color: '#6c757d' }}>
+                        <p className="text-xs sm:text-sm mb-2 sm:mb-3" style={{ color: 'var(--text-secondary)' }}>
                           {featuredProject.description}
                         </p>
-                        <p className="text-base sm:text-lg leading-relaxed max-w-2xl" style={{ color: '#6c757d' }}>
+                        <p className="text-base sm:text-lg leading-relaxed max-w-2xl" style={{ color: 'var(--text-secondary)' }}>
                           {featuredProject.tagline}
                         </p>
                       </div>
@@ -401,7 +404,7 @@ export default function HomeContent() {
                         }}
                         className="flex-shrink-0"
                       >
-                        <ArrowRight className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
+                        <ArrowRight className="w-8 h-8 group-hover:scale-110 transition-transform" style={{ color: 'var(--text-primary)' }} />
                       </motion.div>
                     </div>
                     
@@ -414,9 +417,9 @@ export default function HomeContent() {
                           transition={{ delay: 0.5 + techIndex * 0.1 }}
                           className="px-4 py-2 border rounded-full text-sm font-medium"
                           style={{
-                            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                            borderColor: 'rgba(255, 255, 255, 0.2)',
-                            color: '#FFFFFF',
+                            backgroundColor: 'var(--card-bg)',
+                            borderColor: 'var(--card-border)',
+                            color: 'var(--text-primary)',
                           }}
                         >
                           {tech}

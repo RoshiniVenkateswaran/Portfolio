@@ -17,8 +17,8 @@ body {
 }
 
 body {
-  background-color: #FFFFFF !important;
-  color: #111827 !important;
+  background-color: var(--page-bg) !important;
+  color: var(--text-primary) !important;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
   font-weight: 400;
   overflow-x: hidden;
@@ -28,10 +28,47 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Natural scrollbar - thin, rounded, dark-theme friendly */
+/* Theme: dark (default) */
+:root,
+html[data-theme="dark"] {
+  --page-bg: #000000;
+  --hero-bg: #1a1a1a;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --text-primary: #ffffff;
+  --text-secondary: #6c757d;
+  --text-muted: #9ca3af;
+  --nav-bg: transparent;
+  --nav-bg-scrolled: rgba(26, 26, 26, 0.85);
+  --footer-bg: linear-gradient(180deg, #0d0e12 0%, #0f141b 100%);
+  --footer-border: rgba(107, 114, 128, 0.2);
+  --accent: #10b981;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.35);
+}
+
+/* Theme: light */
+html[data-theme="light"] {
+  --page-bg: #f8fafc;
+  --hero-bg: #e2e8f0;
+  --card-bg: rgba(0, 0, 0, 0.04);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --nav-bg: transparent;
+  --nav-bg-scrolled: rgba(248, 250, 252, 0.9);
+  --footer-bg: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+  --footer-border: rgba(0, 0, 0, 0.08);
+  --accent: #059669;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.35);
+}
+
+/* Natural scrollbar - theme-aware */
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -43,16 +80,16 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--scrollbar-thumb);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: var(--scrollbar-thumb-hover);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: rgba(255, 255, 255, 0.45);
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Gradient icon styles */

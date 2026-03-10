@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
+import { useTheme } from '../context/ThemeContext'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
+  const { theme, toggleTheme } = useTheme()
 
   // Ensure menu is closed on mount and route changes
   useEffect(() => {
@@ -59,14 +61,14 @@ export default function Navigation() {
       style={
         scrolled
           ? {
-              backgroundColor: 'rgba(26, 26, 26, 0.85)',
+              backgroundColor: 'var(--nav-bg-scrolled)',
               backdropFilter: 'blur(10px)',
               WebkitBackdropFilter: 'blur(10px)',
               borderBottom: 'none',
               boxShadow: 'none',
             }
           : {
-              backgroundColor: 'transparent',
+              backgroundColor: 'var(--nav-bg)',
               backdropFilter: 'none',
               WebkitBackdropFilter: 'none',
               borderBottom: 'none',
@@ -83,17 +85,17 @@ export default function Navigation() {
             className="flex items-center"
           >
             <Link href="/" className="flex items-center gap-3">
-              <div 
-                className="w-10 h-10 rounded-full border-2 flex items-center justify-center border-white"
+              <div
+                className="w-10 h-10 rounded-full border-2 flex items-center justify-center"
+                style={{ borderColor: 'var(--text-primary)' }}
               >
-                <span 
-                  className="text-xs font-bold text-white"
-                >
+                <span className="text-xs font-bold" style={{ color: 'var(--text-primary)' }}>
                   RV
                 </span>
               </div>
-              <span 
-                className="text-sm font-semibold tracking-wide hidden sm:block text-white"
+              <span
+                className="text-sm font-semibold tracking-wide hidden sm:block"
+                style={{ color: 'var(--text-primary)' }}
               >
                 ROSHINI VENKATESWARAN
               </span>
@@ -101,7 +103,7 @@ export default function Navigation() {
           </motion.div>
 
           {/* Desktop Navigation - Top Right */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-4">
             {navLinks.map((link) => (
               <motion.div
                 key={link.path}
@@ -110,17 +112,17 @@ export default function Navigation() {
               >
                 <Link
                   href={link.path}
-                  className={`relative px-3 py-2 text-sm font-medium transition-all ${
-                    isActive(link.path)
-                      ? 'text-white'
-                      : 'text-white/70 hover:text-white'
-                  }`}
+                  className="relative px-3 py-2 text-sm font-medium transition-all"
+                  style={{
+                    color: isActive(link.path) ? 'var(--text-primary)' : 'var(--text-secondary)',
+                  }}
                 >
                   {link.label}
                   {isActive(link.path) && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute bottom-0 left-0 right-0 h-px bg-white"
+                      className="absolute bottom-0 left-0 right-0 h-px"
+                      style={{ backgroundColor: 'var(--text-primary)' }}
                       initial={false}
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
@@ -128,16 +130,41 @@ export default function Navigation() {
                 </Link>
               </motion.div>
             ))}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="p-2 rounded-lg border transition-colors hover:opacity-80"
+              style={{
+                borderColor: 'var(--card-border)',
+                backgroundColor: 'var(--card-bg)',
+                color: 'var(--text-primary)',
+              }}
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white z-50 relative"
-            aria-label="Toggle menu"
-          >
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="p-2 rounded-lg"
+              style={{ color: 'var(--text-primary)' }}
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 z-50 relative"
+              style={{ color: 'var(--text-primary)' }}
+              aria-label="Toggle menu"
+            >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -159,9 +186,10 @@ export default function Navigation() {
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed left-0 top-20 bottom-0 w-64 bg-[#1a1a1a] z-50 md:hidden shadow-2xl overflow-y-auto"
+            className="fixed left-0 top-20 bottom-0 w-64 z-50 md:hidden shadow-2xl overflow-y-auto"
             style={{
-              borderRight: '1px solid rgba(255, 255, 255, 0.1)',
+              backgroundColor: 'var(--hero-bg)',
+              borderRight: '1px solid var(--card-border)',
               maxWidth: '80vw',
             }}
           >
@@ -171,11 +199,11 @@ export default function Navigation() {
                   key={link.path}
                   href={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-all ${
-                    isActive(link.path)
-                      ? 'text-white bg-white/10'
-                      : 'text-white/80 hover:text-white hover:bg-white/5'
-                  }`}
+                  className="block px-4 py-3 rounded-lg text-base font-medium transition-all"
+                  style={{
+                    color: isActive(link.path) ? 'var(--text-primary)' : 'var(--text-secondary)',
+                    backgroundColor: isActive(link.path) ? 'var(--card-bg)' : 'transparent',
+                  }}
                 >
                   {link.label}
                 </Link>

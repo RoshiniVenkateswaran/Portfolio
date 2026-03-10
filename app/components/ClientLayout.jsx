@@ -1,16 +1,14 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import { ThemeProvider } from '../context/ThemeContext'
 import Navigation from './Navigation'
 import Footer from './Footer'
 import ScrollProgress from './ScrollProgress'
 
 export default function ClientLayout({ children }) {
-  const pathname = usePathname()
-  const isHome = pathname === '/'
-
   return (
-    <div className="min-h-screen font-sans" style={{ backgroundColor: isHome ? '#1a1a1a' : '#FFFFFF' }}>
+    <ThemeProvider>
+      <div className="min-h-screen font-sans" style={{ backgroundColor: 'var(--page-bg)' }}>
       {/* Global SVG Gradient Definitions */}
       <svg className="absolute w-0 h-0" aria-hidden="true">
         <defs>
@@ -26,7 +24,8 @@ export default function ClientLayout({ children }) {
         {children}
       </div>
       <Footer />
-    </div>
+      </div>
+    </ThemeProvider>
   )
 }
 

@@ -46,8 +46,8 @@ export default function Footer() {
     <footer
       className="relative border-t py-6 px-6"
       style={{
-        background: 'linear-gradient(180deg, #0D0E12 0%, #0F141B 100%)',
-        borderColor: 'rgba(107, 114, 128, 0.2)',
+        background: 'var(--footer-bg)',
+        borderColor: 'var(--footer-border)',
       }}
     >
       <div className="max-w-5xl mx-auto relative z-10">
@@ -70,7 +70,11 @@ export default function Footer() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, type: 'spring', stiffness: 200 }}
                 whileHover={{ y: -4, scale: 1.05 }}
-                className="group relative w-11 h-11 rounded-full border border-white/10 text-[#6c757d] flex items-center justify-center transition-all duration-200 hover:text-white hover:border-white/30 hover:bg-white/10"
+                className="group relative w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-200 hover:opacity-80"
+                style={{
+                  borderColor: 'var(--card-border)',
+                  color: 'var(--text-secondary)',
+                }}
                 aria-label={label}
               >
                 <LogoComponent className="w-5 h-5" />
@@ -80,7 +84,7 @@ export default function Footer() {
 
           <motion.p
             className="text-sm md:text-base font-medium"
-            style={{ color: '#6c757d' }}
+            style={{ color: 'var(--text-secondary)' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
