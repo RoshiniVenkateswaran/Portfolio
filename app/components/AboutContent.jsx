@@ -396,13 +396,16 @@ export default function AboutContent() {
               <div>
                 <div className="bg-white/10 border rounded-lg p-6" style={{ borderColor: 'rgba(255, 255, 255, 0.2)', backgroundColor: 'rgba(255, 255, 255, 0.05)' }}>
                   <p className="text-lg leading-relaxed mb-4" style={{ color: '#6c757d' }}>
-                    I'm a software engineer focused on building full-stack applications and AI-driven systems. My work involves designing backend services, developing scalable APIs, and integrating machine learning models into real-world products.
+                    I'm a software developer focused on building full-stack applications and intelligent systems that combine backend engineering with applied AI. My work involves designing scalable APIs, building responsive web applications, and integrating machine learning capabilities into real-world products.
                   </p>
                   <p className="text-lg leading-relaxed mb-4" style={{ color: '#6c757d' }}>
-                    I've worked on projects ranging from AI-powered sports analytics platforms to intelligent marketplaces, combining technologies like Python, FastAPI, modern web frameworks, and applied machine learning to create end-to-end systems.
+                    Through my internships, I've worked on automation systems and software tools aimed at improving operational efficiency and supporting production workflows. These experiences strengthened my ability to translate real-world problems into practical, reliable software solutions.
+                  </p>
+                  <p className="text-lg leading-relaxed mb-4" style={{ color: '#6c757d' }}>
+                    Alongside this, I enjoy developing AI-driven applications that move beyond experimentation and focus on usability and impact. My projects explore areas such as intelligent marketplaces, AI-powered analytics platforms, and systems that combine modern web development with machine learning.
                   </p>
                   <p className="text-lg leading-relaxed" style={{ color: '#6c757d' }}>
-                    I'm particularly interested in building platforms where AI is embedded directly into user workflows, enabling smarter automation and data-driven decision making.
+                    Currently pursuing a Master's in Computer Science at The George Washington University, I'm actively seeking opportunities in software engineering roles where I can contribute to building scalable systems, intelligent applications, and impactful technology products.
                   </p>
                 </div>
               </div>
