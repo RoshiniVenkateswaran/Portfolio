@@ -415,7 +415,7 @@ export default function ProjectsContent() {
   return (
     <motion.div 
       className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
-      style={{ backgroundColor: '#1a1a1a' }}
+      style={{ backgroundColor: '#000000' }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2 }}
