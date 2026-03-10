@@ -105,13 +105,14 @@ export default function SkillsContent() {
             }}
           >
             <Sparkles className="w-4 h-4 text-amber-400/80" />
-            <span className="text-sm font-medium text-white/80">Technical expertise</span>
+            <span className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Technical expertise</span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-5xl md:text-6xl font-bold mb-4 text-white"
+            className="text-5xl md:text-6xl font-bold mb-4"
+            style={{ color: 'var(--text-primary)' }}
           >
             Skills
           </motion.h1>
@@ -120,7 +121,7 @@ export default function SkillsContent() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-xl max-w-2xl mx-auto"
-            style={{ color: '#94a3b8' }}
+            style={{ color: 'var(--text-secondary)' }}
           >
             A blend of languages, systems, and tools that power full-stack and AI-driven work
           </motion.p>
@@ -167,15 +168,15 @@ export default function SkillsContent() {
                     whileHover={{ rotate: 6, scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                   >
-                    <Icon className="w-6 h-6 text-white/90" strokeWidth={1.8} />
+                    <Icon className="w-6 h-6" style={{ color: 'var(--text-primary)' }} strokeWidth={1.8} />
                   </motion.div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-semibold uppercase tracking-widest mb-3 text-white/70">
+                    <h3 className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: 'var(--text-secondary)' }}>
                       {category.title}
                     </h3>
                     <p
                       className="text-[15px] sm:text-base font-light leading-relaxed"
-                      style={{ color: '#b8c5d6' }}
+                      style={{ color: 'var(--text-secondary)' }}
                     >
                       {category.skills.join(' • ')}
                     </p>
@@ -200,7 +201,7 @@ export default function SkillsContent() {
               borderColor: 'rgba(255, 255, 255, 0.08)',
             }}
           >
-            <p className="leading-relaxed text-[15px]" style={{ color: '#94a3b8' }}>
+            <p className="leading-relaxed text-[15px]" style={{ color: 'var(--text-secondary)' }}>
               I'm always learning and expanding my skill set. Currently focusing on advanced AI/ML techniques,
               scalable system design, and creating more intuitive user experiences.
               I believe in the power of continuous learning and staying current with industry trends.

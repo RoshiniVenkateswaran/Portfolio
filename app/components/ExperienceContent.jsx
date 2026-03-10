@@ -89,7 +89,8 @@ export default function ExperienceContent() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-5xl md:text-6xl font-bold mb-4 text-white"
+            className="text-5xl md:text-6xl font-bold mb-4"
+            style={{ color: 'var(--text-primary)' }}
           >
             Experience
           </motion.h1>
@@ -98,7 +99,7 @@ export default function ExperienceContent() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-xl"
-            style={{ color: '#6c757d' }}
+            style={{ color: 'var(--text-secondary)' }}
           >
             My professional journey and growth
           </motion.p>
@@ -166,31 +167,31 @@ export default function ExperienceContent() {
                     <div className="relative z-10">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
                     <div>
-                      <h3 className="text-2xl font-bold text-white mb-1">
+                      <h3 className="text-2xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>
                         {exp.role}
                       </h3>
-                       <p className="text-xl text-white mb-2 font-semibold">
+                       <p className="text-xl mb-2 font-semibold" style={{ color: 'var(--text-primary)' }}>
                          {exp.company}
                        </p>
                     </div>
                     <div className="text-right sm:mt-0 mt-2">
-                      <div className="flex items-center gap-2 text-sm mb-1" style={{ color: '#6c757d' }}>
+                      <div className="flex items-center gap-2 text-sm mb-1" style={{ color: 'var(--text-secondary)' }}>
                         <Calendar className="w-4 h-4" />
                         <span>{exp.period}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-white/70 text-sm">
+                      <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
                         <MapPin className="w-4 h-4" />
                         <span>{exp.location}</span>
                       </div>
                     </div>
                   </div>
 
-                  <p className="mb-4 leading-relaxed" style={{ color: '#6c757d' }}>
+                  <p className="mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     {exp.description}
                   </p>
 
                   <div>
-                    <p className="text-white font-medium text-sm mb-3 flex items-center gap-2">
+                    <p className="font-medium text-sm mb-3 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
                       <svg className="absolute w-0 h-0">
                         <defs>
                           <linearGradient id={`expIconGradient-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
@@ -211,16 +212,17 @@ export default function ExperienceContent() {
                           transition={{ delay: index * 0.15 + achIndex * 0.1, duration: 0.4 }}
                           whileHover={{ x: 5 }}
                           className="text-sm flex items-start gap-2 group/item cursor-default"
-                          style={{ color: '#6c757d' }}
+                          style={{ color: 'var(--text-secondary)' }}
                         >
                           <motion.span
-                            className="text-white mt-1 text-lg"
+                            className="mt-1 text-lg"
+                            style={{ color: 'var(--text-primary)' }}
                             animate={{ rotate: [0, 360] }}
                             transition={{ duration: 1, delay: index * 0.15 + achIndex * 0.1 }}
                           >
                             •
                           </motion.span>
-                          <span className="group-hover/item:text-white transition-colors">{achievement}</span>
+                          <span className="transition-colors" style={{ color: 'var(--text-secondary)' }}>{achievement}</span>
                         </motion.li>
                       ))}
                     </ul>

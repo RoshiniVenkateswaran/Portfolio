@@ -72,18 +72,18 @@ function ProjectCard({ project, index }) {
             />
           </motion.div>
           <div className="flex-1">
-            <motion.h3 className="text-2xl font-bold mb-1 text-white transition-all" whileHover={{ x: 5 }}>
-              <span className="text-white">{project.name}</span>
+            <motion.h3 className="text-2xl font-bold mb-1 transition-all" style={{ color: 'var(--text-primary)' }} whileHover={{ x: 5 }}>
+              <span style={{ color: 'var(--text-primary)' }}>{project.name}</span>
             </motion.h3>
             <p className="text-sm mb-1">
               {project.id === 'prommuni_roommate_finder' || project.id === 'swapy_hacknyu' || project.id === 'pitchpulse_hacklytics' ? (
-                <span style={{ color: '#10b981' }}>{project.description}</span>
+                <span style={{ color: 'var(--accent)' }}>{project.description}</span>
               ) : (
-                <span style={{ color: '#6c757d' }}>{project.description}</span>
+                <span style={{ color: 'var(--text-secondary)' }}>{project.description}</span>
               )}
             </p>
             {(project.role || project.period) && (
-              <p className="text-xs mb-2" style={{ color: '#6c757d' }}>
+              <p className="text-xs mb-2" style={{ color: 'var(--text-secondary)' }}>
                 {project.role && `${project.role}`}
                 {project.role && project.period && ' • '}
                 {project.period && project.period}
@@ -93,14 +93,14 @@ function ProjectCard({ project, index }) {
         </div>
         <motion.p
           className="mb-6 leading-relaxed"
-          style={{ color: '#6c757d' }}
+          style={{ color: 'var(--text-secondary)' }}
           initial={{ opacity: 0.8 }}
           whileHover={{ opacity: 1 }}
         >
           {project.details}
         </motion.p>
         <div className="mb-6">
-          <p className="text-sm text-white font-medium mb-3">Tech Stack:</p>
+          <p className="text-sm font-medium mb-3" style={{ color: 'var(--text-primary)' }}>Tech Stack:</p>
           <div className="flex flex-wrap gap-2">
             {project.tech.map((tech, techIndex) => (
               <motion.span
@@ -113,7 +113,7 @@ function ProjectCard({ project, index }) {
                 style={{
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',
                   borderColor: 'rgba(255, 255, 255, 0.2)',
-                  color: '#FFFFFF',
+                            color: 'var(--text-primary)',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)'
@@ -139,7 +139,7 @@ function ProjectCard({ project, index }) {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'rgba(255, 255, 255, 0.3)', color: '#ffffff' }}
+                style={{ borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
                   e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
@@ -163,7 +163,7 @@ function ProjectCard({ project, index }) {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'rgba(255, 255, 255, 0.3)', color: '#ffffff' }}
+                style={{ borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
                   e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
@@ -191,7 +191,7 @@ function ProjectCard({ project, index }) {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'rgba(255, 255, 255, 0.3)', color: '#ffffff' }}
+                style={{ borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
                   e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
@@ -213,7 +213,7 @@ function ProjectCard({ project, index }) {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'rgba(255, 255, 255, 0.3)', color: '#ffffff' }}
+                style={{ borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
                   e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
@@ -238,7 +238,7 @@ function ProjectCard({ project, index }) {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
-              style={{ borderColor: 'rgba(255, 255, 255, 0.3)', color: '#ffffff' }}
+              style={{ borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
                 e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
@@ -260,7 +260,7 @@ function ProjectCard({ project, index }) {
           animate={cardInView ? { opacity: 1 } : {}}
           transition={{ delay: index * 0.15 + 0.3 }}
         >
-          <p className="text-sm italic flex items-start gap-2" style={{ color: '#6c757d' }}>
+          <p className="text-sm italic flex items-start gap-2" style={{ color: 'var(--text-secondary)' }}>
             <Sparkles className="w-4 h-4 gradient-icon mt-0.5 flex-shrink-0" style={{ stroke: `url(#iconGradient-${project.id})` }} />
             {project.narration[0]}
           </p>
@@ -432,7 +432,8 @@ export default function ProjectsContent() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-5xl md:text-6xl font-bold mb-4 text-white"
+            className="text-5xl md:text-6xl font-bold mb-4"
+            style={{ color: 'var(--text-primary)' }}
           >
             My work
           </motion.h1>
@@ -441,7 +442,7 @@ export default function ProjectsContent() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-xl max-w-2xl mx-auto"
-            style={{ color: '#6c757d' }}
+            style={{ color: 'var(--text-secondary)' }}
           >
             A collection of projects that showcase my passion for building intelligent, 
             human-centered technology solutions
@@ -470,7 +471,7 @@ export default function ProjectsContent() {
               style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.08)',
                 borderColor: 'rgba(255, 255, 255, 0.3)',
-                color: '#ffffff',
+                color: 'var(--text-primary)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'

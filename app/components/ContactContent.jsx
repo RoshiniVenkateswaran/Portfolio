@@ -88,7 +88,8 @@ export default function ContactContent() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-5xl md:text-6xl font-bold mb-4 text-white"
+            className="text-5xl md:text-6xl font-bold mb-4"
+            style={{ color: 'var(--text-primary)' }}
           >
             Let's Connect
           </motion.h1>
@@ -97,7 +98,7 @@ export default function ContactContent() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-xl max-w-2xl mx-auto"
-            style={{ color: 'rgba(255, 255, 255, 0.9)' }}
+            style={{ color: 'var(--text-secondary)' }}
           >
             I'm always open to discussing new opportunities, collaborations, or just having a conversation about technology
           </motion.p>
@@ -192,16 +193,17 @@ export default function ContactContent() {
                     transition={{ duration: 0.5 }}
                   >
                     {method.isLogo && method.LogoComponent ? (
-                      <method.LogoComponent className="w-6 h-6 text-white" />
+                      <method.LogoComponent className="w-6 h-6" style={{ color: 'var(--text-primary)' }} />
                     ) : (
                       <method.icon 
-                        className="w-6 h-6 text-white" 
+                        className="w-6 h-6"
+                        style={{ color: 'var(--text-primary)' }} 
                       />
                     )}
                   </motion.div>
                   <div className="flex-1">
-                          <p className="font-medium text-sm mb-1 group-hover:text-white" style={{ color: '#6c757d' }}>{method.label}</p>
-                          <p className="text-white text-lg">{method.value}</p>
+                          <p className="font-medium text-sm mb-1" style={{ color: 'var(--text-secondary)' }}>{method.label}</p>
+                          <p className="text-lg" style={{ color: 'var(--text-primary)' }}>{method.value}</p>
                   </div>
                   <motion.div
                     animate={{
@@ -213,7 +215,7 @@ export default function ContactContent() {
                       ease: "easeInOut"
                     }}
                   >
-                      <Send className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <Send className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--text-primary)' }} />
                   </motion.div>
                 </div>
               </motion.a>
@@ -236,7 +238,7 @@ export default function ContactContent() {
               backgroundColor: 'rgba(255, 255, 255, 0.05)',
             }}
           >
-            <p className="leading-relaxed relative z-10 text-lg" style={{ color: '#6c757d' }}>
+            <p className="leading-relaxed relative z-10 text-lg" style={{ color: 'var(--text-secondary)' }}>
               Whether you're interested in collaboration, have questions about my work, 
               or just want to connect, I'd love to hear from you. Let's build something amazing together!
             </p>
