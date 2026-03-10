@@ -122,10 +122,10 @@ export default function ContactContent() {
                 animate={methodInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: index * 0.08, duration: 0.4, ease: "easeOut" }}
                 whileHover={{ scale: 1.03, y: -5 }}
-                className="group relative bg-white/10 backdrop-blur-sm border rounded-xl p-6 shadow-lg hover:shadow-xl overflow-hidden cursor-pointer"
+                className="group relative backdrop-blur-sm border rounded-xl p-6 shadow-lg hover:shadow-xl overflow-hidden cursor-pointer"
                 style={{
-                  borderColor: 'rgba(255, 255, 255, 0.2)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  borderColor: 'var(--card-border)',
+                  backgroundColor: 'var(--card-bg)',
                   willChange: 'transform',
                   transition: 'border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease',
                 }}
@@ -232,10 +232,10 @@ export default function ContactContent() {
         >
           <motion.div
             whileHover={{ scale: 1.02, y: -5 }}
-            className="relative bg-white/10 backdrop-blur-sm border rounded-xl p-8 shadow-lg overflow-hidden"
-            style={{
-              borderColor: 'rgba(255, 255, 255, 0.2)',
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+            className="relative backdrop-blur-sm border rounded-xl p-8 shadow-lg overflow-hidden"
+          style={{
+              borderColor: 'var(--card-border)',
+              backgroundColor: 'var(--card-bg)',
             }}
           >
             <p className="leading-relaxed relative z-10 text-lg" style={{ color: 'var(--text-secondary)' }}>

@@ -22,7 +22,7 @@ function ProjectCard({ project, index }) {
       className="group relative bg-white/10 backdrop-blur-sm border rounded-xl p-6 transition-all shadow-lg hover:shadow-xl overflow-hidden"
       style={{
         borderColor: 'rgba(255, 255, 255, 0.2)',
-        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+        backgroundColor: 'var(--card-bg)',
         willChange: 'transform',
       }}
       onMouseEnter={(e) => {
@@ -469,7 +469,7 @@ export default function ProjectsContent() {
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all border"
               style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                backgroundColor: 'var(--card-bg)',
                 borderColor: 'rgba(255, 255, 255, 0.3)',
                 color: 'var(--text-primary)',
               }}

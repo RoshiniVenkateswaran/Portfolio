@@ -47,18 +47,18 @@ html[data-theme="dark"] {
   --scrollbar-thumb-hover: rgba(255, 255, 255, 0.35);
 }
 
-/* Theme: light - blueish white (same as home page) on all pages, no plain white */
+/* Theme: light - both blueish white (page) and white (cards/panels) on all pages */
 html[data-theme="light"] {
-  --page-bg: #e2e8f0;   /* slate-200, same blueish as home hero - visible on all pages */
-  --hero-bg: #cbd5e1;   /* slate-300, slightly deeper for hero sections */
-  --card-bg: rgba(255, 255, 255, 0.6);
+  --page-bg: #f1f5f9;   /* slate-100, blueish white - page background */
+  --hero-bg: #e2e8f0;   /* slate-200, blueish white for hero sections */
+  --card-bg: #ffffff;   /* white - cards and content panels */
   --card-border: rgba(0, 0, 0, 0.1);
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
   --nav-bg: transparent;
-  --nav-bg-scrolled: rgba(226, 232, 240, 0.95);  /* same blueish white */
-  --footer-bg: linear-gradient(180deg, #cbd5e1 0%, #94a3b8 100%);
+  --nav-bg-scrolled: rgba(241, 245, 249, 0.95);  /* blueish white */
+  --footer-bg: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);  /* blueish white */
   --footer-border: rgba(0, 0, 0, 0.08);
   --accent: #059669;
   --scrollbar-thumb: rgba(0, 0, 0, 0.2);

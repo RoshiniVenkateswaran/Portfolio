@@ -394,7 +394,7 @@ export default function AboutContent() {
 
               {/* Right Column: Bio */}
               <div>
-                <div className="bg-white/10 border rounded-lg p-6" style={{ borderColor: 'rgba(255, 255, 255, 0.2)', backgroundColor: 'rgba(255, 255, 255, 0.05)' }}>
+                <div className="border rounded-lg p-6" style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg)' }}>
                   <p className="text-lg leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
                     I'm a software developer focused on building full-stack applications and intelligent systems that combine backend engineering with applied AI. My work involves designing scalable APIs, building responsive web applications, and integrating machine learning capabilities into real-world products.
                   </p>

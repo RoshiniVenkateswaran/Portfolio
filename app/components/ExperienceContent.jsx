@@ -151,8 +151,8 @@ export default function ExperienceContent() {
                     whileHover={{ x: 5 }}
                     className="group relative bg-white/10 backdrop-blur-sm border rounded-xl p-6 transition-all shadow-lg hover:shadow-xl overflow-hidden"
                     style={{
-                      borderColor: 'rgba(255, 255, 255, 0.2)',
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      borderColor: 'var(--card-border)',
+                      backgroundColor: 'var(--card-bg)',
                       willChange: 'transform',
                     }}
                     onMouseEnter={(e) => {

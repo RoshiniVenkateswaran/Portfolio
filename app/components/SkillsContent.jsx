@@ -101,7 +101,7 @@ export default function SkillsContent() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-6"
             style={{
               borderColor: 'rgba(255, 255, 255, 0.12)',
-              backgroundColor: 'rgba(255, 255, 255, 0.04)',
+              backgroundColor: 'var(--card-bg)',
             }}
           >
             <Sparkles className="w-4 h-4 text-amber-400/80" />
@@ -144,7 +144,7 @@ export default function SkillsContent() {
                 whileHover={{ y: -4 }}
                 className="group relative rounded-2xl p-6 overflow-hidden transition-all duration-300"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                  backgroundColor: 'var(--card-bg)',
                   border: '1px solid rgba(255, 255, 255, 0.08)',
                   boxShadow: '0 4px 24px -4px rgba(0, 0, 0, 0.25)',
                 }}
@@ -197,7 +197,7 @@ export default function SkillsContent() {
           <div
             className="rounded-2xl p-6 max-w-3xl mx-auto border"
             style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.03)',
+              backgroundColor: 'var(--card-bg)',
               borderColor: 'rgba(255, 255, 255, 0.08)',
             }}
           >
