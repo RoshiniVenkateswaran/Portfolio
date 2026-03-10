@@ -200,7 +200,7 @@ export default function AboutContent() {
                       src="/images/Picture.png"
                       alt="Roshini Venkateswaran"
                       className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-2"
-                      style={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
+                      style={{ borderColor: 'var(--card-border)' }}
                       onError={(e) => {
                         console.error('Image failed to load:', '/images/Picture.png');
                       }}
@@ -228,19 +228,19 @@ export default function AboutContent() {
                 <div className="flex flex-col gap-4">
                   <motion.div
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className="inline-flex items-center gap-3 px-6 py-4 bg-white/10 border rounded-lg cursor-pointer"
+                    className="inline-flex items-center gap-3 px-6 py-4 border rounded-lg cursor-pointer shadow-sm"
                     style={{
-                      borderColor: 'rgba(255, 255, 255, 0.2)',
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                      transition: 'border-color 0.2s ease, background-color 0.2s ease',
+                      borderColor: 'var(--card-border)',
+                      backgroundColor: 'var(--card-bg-alt)',
+                      transition: 'border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                      e.currentTarget.style.borderColor = 'var(--card-border-strong)';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                      e.currentTarget.style.borderColor = 'var(--card-border)';
+                      e.currentTarget.style.boxShadow = '';
                     }}
                   >
                     <GraduationCap className="w-6 h-6" style={{ color: 'var(--text-primary)' }} />
@@ -254,19 +254,19 @@ export default function AboutContent() {
                   <div className="grid grid-cols-2 gap-4">
                     <motion.div
                       whileHover={{ scale: 1.02, y: -2 }}
-                      className="px-6 py-4 bg-white/10 border rounded-lg"
+                      className="px-6 py-4 border rounded-lg shadow-sm"
                       style={{
-                        borderColor: 'rgba(255, 255, 255, 0.2)',
-                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                        transition: 'border-color 0.2s ease, background-color 0.2s ease',
+                        borderColor: 'var(--card-border)',
+                        backgroundColor: 'var(--card-bg-alt)',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                        e.currentTarget.style.borderColor = 'var(--card-border-strong)';
+                        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                        e.currentTarget.style.borderColor = 'var(--card-border)';
+                        e.currentTarget.style.boxShadow = '';
                       }}
                     >
                       <p className="font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>Availability</p>
@@ -275,19 +275,19 @@ export default function AboutContent() {
                     
                     <motion.div
                       whileHover={{ scale: 1.02, y: -2 }}
-                      className="px-6 py-4 bg-white/10 border rounded-lg"
+                      className="px-6 py-4 border rounded-lg shadow-sm"
                       style={{
-                        borderColor: 'rgba(255, 255, 255, 0.2)',
-                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                        transition: 'border-color 0.2s ease, background-color 0.2s ease',
+                        borderColor: 'var(--card-border)',
+                        backgroundColor: 'var(--card-bg-alt)',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                        e.currentTarget.style.borderColor = 'var(--card-border-strong)';
+                        e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                        e.currentTarget.style.borderColor = 'var(--card-border)';
+                        e.currentTarget.style.boxShadow = '';
                       }}
                     >
                       <p className="font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>Experience</p>
@@ -301,19 +301,19 @@ export default function AboutContent() {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.02, y: -2 }}
-                    className="px-6 py-4 bg-white/10 border rounded-lg cursor-pointer"
+                    className="px-6 py-4 border rounded-lg cursor-pointer shadow-sm"
                     style={{
-                      borderColor: 'rgba(255, 255, 255, 0.2)',
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                      transition: 'border-color 0.2s ease, background-color 0.2s ease',
+                      borderColor: 'var(--card-border)',
+                      backgroundColor: 'var(--card-bg-alt)',
+                      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                      e.currentTarget.style.borderColor = 'var(--card-border-strong)';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                      e.currentTarget.style.borderColor = 'var(--card-border)';
+                      e.currentTarget.style.boxShadow = '';
                     }}
                   >
                     <div className="flex items-center gap-3">
@@ -330,19 +330,19 @@ export default function AboutContent() {
                     onClick={handleResumeDownload}
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-white/10 border rounded-lg cursor-pointer"
+                    className="w-full flex items-center justify-center gap-3 px-6 py-4 border rounded-lg cursor-pointer shadow-sm"
                     style={{
-                      borderColor: 'rgba(255, 255, 255, 0.2)',
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                      transition: 'border-color 0.2s ease, background-color 0.2s ease',
+                      borderColor: 'var(--card-border)',
+                      backgroundColor: 'var(--card-bg-alt)',
+                      transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                      e.currentTarget.style.borderColor = 'var(--card-border-strong)';
+                      e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                      e.currentTarget.style.borderColor = 'var(--card-border)';
+                      e.currentTarget.style.boxShadow = '';
                     }}
                   >
                     <Download className="w-5 h-5" style={{ color: 'var(--text-primary)' }} />
@@ -367,20 +367,19 @@ export default function AboutContent() {
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
                           whileHover={{ scale: 1.05, y: -2 }}
-                          className="px-3 py-1.5 bg-white/5 border rounded-full text-xs"
+                          className="px-3 py-1.5 border rounded-full text-xs"
                           style={{
-                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            borderColor: 'var(--card-border)',
+                            backgroundColor: 'var(--card-bg-alt)',
                             color: 'var(--text-secondary)',
                             transition: 'all 0.3s ease',
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                            e.currentTarget.style.borderColor = 'var(--card-border-strong)';
                             e.currentTarget.style.color = 'var(--text-primary)';
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                            e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                            e.currentTarget.style.borderColor = 'var(--card-border)';
                             e.currentTarget.style.color = 'var(--text-secondary)';
                           }}
                         >
@@ -394,7 +393,7 @@ export default function AboutContent() {
 
               {/* Right Column: Bio */}
               <div>
-                <div className="border rounded-lg p-6" style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg)' }}>
+                <div className="border rounded-lg p-6 shadow-md" style={{ borderColor: 'var(--card-border-strong)', backgroundColor: 'var(--card-bg)' }}>
                   <p className="text-lg leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
                     I'm a software developer focused on building full-stack applications and intelligent systems that combine backend engineering with applied AI. My work involves designing scalable APIs, building responsive web applications, and integrating machine learning capabilities into real-world products.
                   </p>
@@ -502,24 +501,24 @@ export default function AboutContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={certInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: index * 0.1, duration: 0.4 }}
-                        className="flex-shrink-0 bg-white/10 border rounded-xl overflow-hidden cursor-pointer group flex flex-col"
+                        className="flex-shrink-0 border rounded-xl overflow-hidden cursor-pointer group flex flex-col shadow-sm"
                 style={{
                           width: `calc((100% - ${(cardsPerPage - 1) * 24}px) / ${cardsPerPage})`,
                           minHeight: '280px',
-                          borderColor: 'rgba(255, 255, 255, 0.2)',
-                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                          borderColor: 'var(--card-border)',
+                          backgroundColor: 'var(--card-bg)',
                           transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)';
+                          e.currentTarget.style.borderColor = 'var(--card-border-strong)';
+                          e.currentTarget.style.boxShadow = '0 12px 24px -8px rgba(0, 0, 0, 0.15)';
                 }}
                 onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                          e.currentTarget.style.boxShadow = 'none';
+                          e.currentTarget.style.borderColor = 'var(--card-border)';
+                          e.currentTarget.style.boxShadow = '';
                         }}
                       >
-                        <div className="aspect-[4/3] bg-white/5 flex items-center justify-center overflow-hidden relative flex-1">
+                        <div className="aspect-[4/3] flex items-center justify-center overflow-hidden relative flex-1" style={{ backgroundColor: 'var(--card-bg-alt)' }}>
                           <img
                             src={encodeImagePath(cert.image)}
                             alt={cert.title}
@@ -641,21 +640,21 @@ export default function AboutContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={testimonialInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ delay: index * 0.1, duration: 0.4 }}
-                        className="flex-shrink-0 bg-white/10 border rounded-xl p-6 flex flex-col"
+                        className="flex-shrink-0 border rounded-xl p-6 flex flex-col shadow-sm"
                 style={{
                           width: `calc((100% - ${(testimonialCardsPerPage - 1) * 24}px) / ${testimonialCardsPerPage})`,
                           minHeight: '280px',
-                          borderColor: 'rgba(255, 255, 255, 0.2)',
-                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                          borderColor: 'var(--card-border)',
+                          backgroundColor: 'var(--card-bg)',
                           transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)';
+                          e.currentTarget.style.borderColor = 'var(--card-border-strong)';
+                          e.currentTarget.style.boxShadow = '0 12px 24px -8px rgba(0, 0, 0, 0.15)';
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                          e.currentTarget.style.boxShadow = 'none';
+                          e.currentTarget.style.borderColor = 'var(--card-border)';
+                          e.currentTarget.style.boxShadow = '';
                         }}
                       >
                         <Quote className="w-8 h-8 mb-4 flex-shrink-0" style={{ color: 'var(--text-muted)' }} />
@@ -663,7 +662,7 @@ export default function AboutContent() {
                           "{testimonial.quote}"
                         </p>
                         <div className="flex items-center gap-3 mt-auto">
-                          <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden" style={{ backgroundColor: 'var(--card-bg-alt)', border: '1px solid var(--card-border)' }}>
                             <img 
                               src={testimonial.image.includes('vinod') ? encodeURI(testimonial.image) : testimonial.image}
                               alt={testimonial.name}

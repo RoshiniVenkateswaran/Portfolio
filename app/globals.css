@@ -34,7 +34,9 @@ html[data-theme="dark"] {
   --page-bg: #000000;
   --hero-bg: #1a1a1a;
   --card-bg: rgba(255, 255, 255, 0.05);
+  --card-bg-alt: rgba(255, 255, 255, 0.08);
   --card-border: rgba(255, 255, 255, 0.2);
+  --card-border-strong: rgba(255, 255, 255, 0.35);
   --text-primary: #ffffff;
   --text-secondary: #6c757d;
   --text-muted: #9ca3af;
@@ -51,8 +53,10 @@ html[data-theme="dark"] {
 html[data-theme="light"] {
   --page-bg: #f1f5f9;   /* slate-100, blueish white - page background */
   --hero-bg: #e2e8f0;   /* slate-200, blueish white for hero sections */
-  --card-bg: #ffffff;   /* white - cards and content panels */
-  --card-border: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;   /* white - main cards and content panels */
+  --card-bg-alt: #e2e8f0;   /* slate-200 - secondary panels (differentiated) */
+  --card-border: rgba(0, 0, 0, 0.12);
+  --card-border-strong: rgba(0, 0, 0, 0.18);
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
