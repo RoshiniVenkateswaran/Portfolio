@@ -47,17 +47,17 @@ html[data-theme="dark"] {
   --scrollbar-thumb-hover: rgba(255, 255, 255, 0.35);
 }
 
-/* Theme: light */
+/* Theme: light - blueish white (same as home page) everywhere, no plain white */
 html[data-theme="light"] {
-  --page-bg: #e2e8f0;
-  --hero-bg: #e2e8f0;
+  --page-bg: #f1f5f9;   /* slate-100, blueish white */
+  --hero-bg: #e2e8f0;   /* slate-200, matches home hero */
   --card-bg: rgba(0, 0, 0, 0.04);
   --card-border: rgba(0, 0, 0, 0.1);
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
   --nav-bg: transparent;
-  --nav-bg-scrolled: rgba(248, 250, 252, 0.9);
+  --nav-bg-scrolled: rgba(241, 245, 249, 0.95);  /* same blueish white */
   --footer-bg: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
   --footer-border: rgba(0, 0, 0, 0.08);
   --accent: #059669;
