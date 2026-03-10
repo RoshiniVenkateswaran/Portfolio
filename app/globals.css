@@ -49,7 +49,7 @@ html[data-theme="dark"] {
 
 /* Theme: light */
 html[data-theme="light"] {
-  --page-bg: #f8fafc;
+  --page-bg: #e2e8f0;
   --hero-bg: #e2e8f0;
   --card-bg: rgba(0, 0, 0, 0.04);
   --card-border: rgba(0, 0, 0, 0.1);
