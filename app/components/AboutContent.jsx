@@ -585,13 +585,13 @@ export default function AboutContent() {
 
           {testimonials.length > 0 ? (
             <div className="relative">
-              {/* Navigation Buttons */}
+              {/* Navigation Buttons - sit in side margins so they don't clip content */}
               {testimonials.length > testimonialCardsPerPage && (
                 <>
                   <motion.button
                     onClick={prevTestimonials}
                     disabled={!canGoPrevTestimonial}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{
                       borderColor: 'rgba(255, 255, 255, 0.2)',
                     }}
@@ -606,8 +606,8 @@ export default function AboutContent() {
                   <motion.button
                     onClick={nextTestimonials}
                     disabled={!canGoNextTestimonial}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{
+                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{
                       borderColor: 'rgba(255, 255, 255, 0.2)',
                     }}
                   >
@@ -621,8 +621,8 @@ export default function AboutContent() {
                 </>
               )}
 
-              {/* Testimonials Carousel */}
-              <div className="overflow-hidden relative">
+              {/* Testimonials Carousel - inset so last card and arrows aren't clipped */}
+              <div className="overflow-hidden relative mx-14">
                 <motion.div
                   className="flex gap-6"
                   animate={{
