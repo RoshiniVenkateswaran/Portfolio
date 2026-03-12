@@ -10,7 +10,7 @@ export default function ExperienceContent() {
       company: 'Prommuni',
       role: 'Software Developer Intern',
       location: 'Germantown, MD',
-      period: 'Oct 2025 – Present',
+      period: 'Oct 2025 – Dec 2025',
       description: 'Building a cross-platform roommate-finder app in Flutter, focusing on scalable architecture and real-time features.',
       achievements: [
         'Built a cross-platform roommate-finder app in Flutter using MVVM + GetX to ensure scalability, maintainability, and clean state management',
@@ -139,7 +139,7 @@ export default function ExperienceContent() {
                     className="absolute left-6 w-4 h-4 rounded-full border-4 shadow-md"
                     style={{
                       borderColor: 'var(--card-border-strong)',
-                      backgroundColor: 'var(--accent)',
+                      backgroundColor: 'var(--experience-accent)',
                     }}
                     initial={{ scale: 0 }}
                     animate={expInView ? { scale: 1 } : {}}
@@ -153,18 +153,18 @@ export default function ExperienceContent() {
                     className="group relative backdrop-blur-sm border rounded-xl p-6 transition-all shadow-md hover:shadow-lg overflow-hidden border-l-4"
                     style={{
                       borderColor: 'var(--card-border)',
-                      borderLeftColor: 'var(--accent)',
+                      borderLeftColor: 'var(--experience-accent)',
                       backgroundColor: 'var(--card-bg)',
                       willChange: 'transform',
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.borderColor = 'var(--card-border-strong)';
-                      e.currentTarget.style.borderLeftColor = 'var(--accent)';
+                      e.currentTarget.style.borderLeftColor = 'var(--experience-accent)';
                       e.currentTarget.style.boxShadow = '0 12px 24px -8px rgba(0, 0, 0, 0.12)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.borderColor = 'var(--card-border)';
-                      e.currentTarget.style.borderLeftColor = 'var(--accent)';
+                      e.currentTarget.style.borderLeftColor = 'var(--experience-accent)';
                       e.currentTarget.style.boxShadow = '';
                     }}
                   >
@@ -182,8 +182,8 @@ export default function ExperienceContent() {
                         whileHover={{ x: 4 }}
                         transition={{ type: 'spring', stiffness: 400 }}
                       >
-                        <Building2 className="w-5 h-5 flex-shrink-0 transition-transform group-hover:scale-110" style={{ color: 'var(--accent)' }} />
-                        <p className="text-xl font-semibold" style={{ color: 'var(--accent)' }}>
+                        <Building2 className="w-5 h-5 flex-shrink-0 transition-transform group-hover:scale-110" style={{ color: 'var(--experience-accent)' }} />
+                        <p className="text-xl font-semibold" style={{ color: 'var(--experience-accent)' }}>
                           {exp.company}
                         </p>
                       </motion.div>
@@ -194,11 +194,11 @@ export default function ExperienceContent() {
                       transition={{ type: 'spring', stiffness: 400 }}
                     >
                       <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-                        <Calendar className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--accent)' }} />
+                        <Calendar className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--experience-accent)' }} />
                         <span>{exp.period}</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-muted)' }}>
-                        <MapPin className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--accent)' }} />
+                        <MapPin className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--experience-accent)' }} />
                         <span>{exp.location}</span>
                       </div>
                     </motion.div>
@@ -210,7 +210,7 @@ export default function ExperienceContent() {
 
                   <div>
                     <p className="font-medium text-sm mb-3 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-                      <Sparkles className="w-4 h-4" style={{ color: 'var(--accent)' }} />
+                      <Sparkles className="w-4 h-4" style={{ color: 'var(--experience-accent)' }} />
                       Key Achievements:
                     </p>
                     <ul className="space-y-2">
