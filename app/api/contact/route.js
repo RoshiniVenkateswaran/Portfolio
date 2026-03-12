@@ -49,7 +49,7 @@ export async function POST(request) {
   } catch (err) {
     console.error('Contact API error:', err)
     return NextResponse.json(
-      { error: err.message || 'Something went wrong.' },
+      { error: 'Unable to send message. Please try again or email me directly.' },
       { status: 500 }
     )
   }

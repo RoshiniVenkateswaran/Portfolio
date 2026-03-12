@@ -42,11 +42,11 @@ export default function ContactContent() {
       try {
         data = await res.json()
       } catch (_) {
-        data = { error: res.status === 503 ? 'Email is not configured. Add RESEND_API_KEY in Vercel (Project → Settings → Environment Variables).' : 'Something went wrong.' }
+        data = { error: res.status === 503 ? 'Email is not configured. Add RESEND_API_KEY in Vercel (Project → Settings → Environment Variables).' : 'Unable to send. Please try again or email me directly.' }
       }
       if (!res.ok) {
         setStatus('error')
-        const msg = data.error || (res.status === 503 ? 'Email is not configured. Add RESEND_API_KEY in your deployment environment.' : 'Failed to send message.')
+        const msg = data.error || (res.status === 503 ? 'Email is not configured. Add RESEND_API_KEY in your deployment environment.' : 'Unable to send. Please try again or email me directly.')
         setErrorMessage(msg)
         return
       }
@@ -54,7 +54,7 @@ export default function ContactContent() {
       setFormData({ name: '', email: '', message: '' })
     } catch (err) {
       setStatus('error')
-      setErrorMessage(err.message || 'Network error. Please try again.')
+      setErrorMessage('Unable to send. Please check your connection or email me directly.')
     }
   }
 
