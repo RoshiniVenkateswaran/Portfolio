@@ -146,7 +146,8 @@ export default function HomeContent() {
 
                 <div className="space-y-1" style={{ color: 'var(--text-primary)' }}>
                   <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
-                    Full-Stack Software Engineer 
+                    Full-Stack Software Engineer
+                    <br />
                     AI-Driven Systems
                   </p>
                 </div>
