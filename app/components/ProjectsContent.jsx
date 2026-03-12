@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { ExternalLink, Github, Smartphone, Bot, Wifi, Users, ArrowRight, Sparkles, Brain, TrendingUp, GraduationCap, Shield, Trophy, Monitor, ChevronDown } from 'lucide-react'
+import { ExternalLink, Github, Smartphone, Bot, Wifi, ArrowRight, Brain, TrendingUp, GraduationCap, Shield, Trophy, Monitor, ChevronDown } from 'lucide-react'
 
 const INITIAL_PROJECTS = 4
 const LOAD_MORE_COUNT = 4
@@ -49,16 +49,12 @@ function ProjectCard({ project, index }) {
       />
       <div className="relative z-10">
         <div className="flex items-start gap-4 mb-4">
-          <motion.div
-            whileHover={{ rotate: 360, scale: 1.2 }}
-            transition={{ duration: 0.5 }}
-            className="relative"
-          >
+          <div className="relative flex-shrink-0">
             <ProjectIcon
-              className="w-12 h-12 flex-shrink-0"
+              className="w-12 h-12"
               style={{ color: 'var(--text-primary)' }}
             />
-          </motion.div>
+          </div>
           <div className="flex-1">
             <motion.h3 className="text-2xl font-bold mb-1 transition-all" style={{ color: 'var(--text-primary)' }} whileHover={{ x: 5 }}>
               <span style={{ color: 'var(--text-primary)' }}>{project.name}</span>
@@ -117,132 +113,36 @@ function ProjectCard({ project, index }) {
             ))}
           </div>
         </div>
-        {project.id === 'prommuni_roommate_finder' && (project.appStoreLink || project.playStoreLink) && (
-          <div className="mb-4 flex flex-wrap gap-3">
-            {project.appStoreLink && (
-              <motion.a
-                href={project.appStoreLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--card-border-strong)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--card-border)'
-                }}
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.96-3.24-1.44-2.24-1.16-4.37-2.26-6.23-3.85C1.26 13.84 0 11.75 0 9.65c0-2.12 1.19-3.95 3-5.35 1.39-1.05 3.05-1.58 4.78-1.58 1.56 0 3.03.56 4.18 1.6 1.15-1.04 2.62-1.6 4.18-1.6 1.73 0 3.39.53 4.78 1.58 1.81 1.4 3 3.23 3 5.35 0 2.1-1.26 4.19-3.4 6.15-1.86 1.59-3.99 2.69-6.23 3.85-1.16.48-2.15.94-3.24 1.44-1.03.48-2.1.55-3.08-.4z" />
-                </svg>
-                <span className="text-sm">App Store</span>
-              </motion.a>
-            )}
-            {project.playStoreLink && (
-              <motion.a
-                href={project.playStoreLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--card-border-strong)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--card-border)'
-                }}
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.05L14.69,12L3.84,21.95C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.94C20.5,11.34 20.67,11.87 20.67,12.44C20.67,13.01 20.5,13.53 20.16,13.94L17.74,16.35L14.69,13.3L17.74,10.25L20.16,10.94M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                </svg>
-                <span className="text-sm">Play Store</span>
-              </motion.a>
-            )}
-          </div>
-        )}
-        {(project.id === 'swapy_hacknyu' || project.id === 'pitchpulse_hacklytics') && (project.link || project.githubLink) && (
-          <div className="mb-4 flex flex-wrap gap-3">
-            {project.link && (
-              <motion.a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--card-border-strong)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--card-border)'
-                }}
-              >
-                <ExternalLink className="w-5 h-5" />
-                <span className="text-sm">View on Devpost</span>
-              </motion.a>
-            )}
+        {(project.githubLink || project.link || project.appStoreLink || project.playStoreLink) && (
+          <div className="mt-4 flex items-center gap-3">
             {project.githubLink && (
-              <motion.a
+              <a
                 href={project.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg font-medium transition-all"
+                className="inline-flex items-center justify-center w-10 h-10 border rounded-lg transition-all hover:opacity-80"
                 style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--card-border-strong)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--card-border)'
-                }}
+                title="Code (GitHub)"
+                aria-label="View code on GitHub"
               >
                 <Github className="w-5 h-5" />
-                <span className="text-sm">View on GitHub</span>
-              </motion.a>
+              </a>
+            )}
+            {(project.link || project.appStoreLink || project.playStoreLink) && (
+              <a
+                href={project.link || project.appStoreLink || project.playStoreLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-10 h-10 border rounded-lg transition-all hover:opacity-80"
+                style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
+                title="Demo"
+                aria-label="View demo"
+              >
+                <ExternalLink className="w-5 h-5" />
+              </a>
             )}
           </div>
         )}
-        {project.id !== 'swapy_hacknyu' && project.id !== 'pitchpulse_hacklytics' && project.githubLink && (
-          <div className="mb-4 flex flex-wrap gap-3">
-            <motion.a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg font-medium transition-all"
-              style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--card-border-strong)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--card-border)'
-              }}
-            >
-              <Github className="w-5 h-5" />
-              <span className="text-sm">View on GitHub</span>
-            </motion.a>
-          </div>
-        )}
-        <motion.div
-          className="mt-4 pt-4 border-t"
-          style={{ borderColor: 'var(--card-border)' }}
-          initial={{ opacity: 0 }}
-          animate={cardInView ? { opacity: 1 } : {}}
-          transition={{ delay: index * 0.15 + 0.3 }}
-        >
-          <p className="text-sm italic flex items-start gap-2" style={{ color: 'var(--text-secondary)' }}>
-            <Sparkles className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--text-primary)' }} />
-            {project.narration[0]}
-          </p>
-        </motion.div>
         <motion.div
           className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
           animate={{ x: [0, 5, 0] }}
@@ -263,7 +163,7 @@ export default function ProjectsContent() {
       name: 'Swapy — AI-Driven Multi-Hop Barter Marketplace',
       description: '2nd Place Winner @ HACKnyu',
       details: 'Built an AI-powered campus barter system using Google Gemini 2.0 for semantic item analysis and fair valuation. Developed a graph-based matching system with DFS cycle detection to enable complex multi-hop trades. Delivered a real-time trends dashboard with demand, supply, and scarcity metrics.',
-      narration: ['Won 2nd place at HACKnyu Fall 2025 in the Sustainability category. Built a complete AI-driven value network that turns unused campus goods into a smart, circular, cashless economy.'],
+      narration: ['Built a complete AI-driven value network that turns unused campus goods into a smart, circular, cashless economy.'],
       icon: Trophy,
       tech: ['Next.js 14', 'Google Gemini 2.0', 'Firebase', 'TypeScript', 'Graph Algorithms', 'AI/ML', 'OpenRouter', 'Computer Vision'],
       role: 'Team Member',
@@ -276,7 +176,7 @@ export default function ProjectsContent() {
       name: 'PitchPulse — AI Sports Injury Prediction Platform',
       description: 'Hacklytics @ Georgia Tech',
       details: 'AI-powered system that predicts injury risk and generates tactical recovery plans using computer vision vitals extraction, workload analytics, and a RAG-based decision engine. Built FastAPI backend, RAG pipeline, and Flutter mobile interface for real-time athlete monitoring.',
-      narration: ['Submitted to Hacklytics @ Georgia Tech. Combines CV vitals, workload analytics, and RAG for injury prediction and recovery planning.'],
+      narration: ['Combines CV vitals, workload analytics, and RAG for injury prediction and recovery planning.'],
       icon: Trophy,
       tech: ['Python', 'FastAPI', 'Flutter', 'Vector DB', 'Generative AI'],
       period: 'Feb 2026',
