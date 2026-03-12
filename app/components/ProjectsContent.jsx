@@ -180,7 +180,7 @@ export default function ProjectsContent() {
       categories: ['ai', 'mobile'],
       name: 'PitchPulse - AI Sports Injury Prediction Platform',
       description: 'Hacklytics @ Georgia Tech',
-      details: 'AI-powered system that predicts injury risk and generates tactical recovery plans using computer vision vitals extraction, workload analytics, and a RAG-based decision engine. Built FastAPI backend, RAG pipeline, and Flutter mobile interface for real-time athlete monitoring.',
+      details: 'AI-powered system that predicts injury risk and generates tactical recovery plans using computer vision vitals extraction, workload analytics, and a RAG-based decision engine. Built FastAPI backend, RAG pipeline, and Flutter mobile interface for real-time athlete monitoring and actionable insights for coaches.',
       narration: ['Combines CV vitals, workload analytics, and RAG for injury prediction and recovery planning.'],
       icon: Trophy,
       tech: ['Python', 'FastAPI', 'Flutter', 'Vector DB', 'Generative AI', 'RAG', 'Computer Vision', 'Workload Analytics', 'Dart', 'REST APIs'],
