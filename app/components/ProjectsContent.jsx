@@ -186,6 +186,7 @@ export default function ProjectsContent() {
       tech: ['Python', 'FastAPI', 'Flutter', 'Vector DB', 'Generative AI', 'RAG', 'Computer Vision', 'Workload Analytics', 'Dart', 'REST APIs'],
       period: 'Feb 2026',
       link: 'https://devpost.com/software/pitchpulse-32pbyx',
+      githubLink: 'https://github.com/RoshiniVenkateswaran/PitchPulseDB',
     },
     {
       id: 'prommuni_roommate_finder',
