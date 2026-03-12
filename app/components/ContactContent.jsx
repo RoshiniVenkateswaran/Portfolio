@@ -1,8 +1,8 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Mail, Linkedin, Github, FileText, Send, Eye } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { Mail, Linkedin, Github, FileText, Send, Eye, MessageSquare, Loader2 } from 'lucide-react'
 
 // LinkedIn Logo SVG Component
 const LinkedInLogo = ({ className }) => (
@@ -19,11 +19,38 @@ const GitHubLogo = ({ className }) => (
 );
 
 export default function ContactContent() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState(null) // 'sending' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('')
+
   const handleResumeView = (e) => {
     e.preventDefault();
-    // Open resume in a new tab
     window.open('/resume.pdf', '_blank');
   };
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('sending')
+    setErrorMessage('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) {
+        setStatus('error')
+        setErrorMessage(data.error || 'Failed to send message.')
+        return
+      }
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+    } catch (err) {
+      setStatus('error')
+      setErrorMessage(err.message || 'Something went wrong.')
+    }
+  }
 
   const contactMethods = [
     {
@@ -102,6 +129,117 @@ export default function ContactContent() {
           >
             I'm always open to discussing new opportunities, collaborations, or just having a conversation about technology
           </motion.p>
+        </motion.div>
+
+        {/* Contact Me Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mb-16"
+        >
+          <div
+            className="border rounded-xl p-6 sm:p-8 shadow-lg"
+            style={{
+              borderColor: 'var(--card-border)',
+              backgroundColor: 'var(--card-bg)',
+            }}
+          >
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
+              <MessageSquare className="w-6 h-6" />
+              Contact Me
+            </h2>
+            <form onSubmit={handleContactSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="contact-name" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-secondary)' }}>
+                  Name
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData((d) => ({ ...d, name: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-lg border bg-transparent focus:outline-none focus:ring-2 transition-colors"
+                  style={{
+                    borderColor: 'var(--card-border)',
+                    color: 'var(--text-primary)',
+                  }}
+                  placeholder="Your name"
+                  disabled={status === 'sending'}
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-email" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-secondary)' }}>
+                  Email
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData((d) => ({ ...d, email: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-lg border bg-transparent focus:outline-none focus:ring-2 transition-colors"
+                  style={{
+                    borderColor: 'var(--card-border)',
+                    color: 'var(--text-primary)',
+                  }}
+                  placeholder="your@email.com"
+                  disabled={status === 'sending'}
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-message" className="block text-sm font-medium mb-1.5" style={{ color: 'var(--text-secondary)' }}>
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  required
+                  rows={5}
+                  value={formData.message}
+                  onChange={(e) => setFormData((d) => ({ ...d, message: e.target.value }))}
+                  className="w-full px-4 py-3 rounded-lg border bg-transparent focus:outline-none focus:ring-2 transition-colors resize-y min-h-[120px]"
+                  style={{
+                    borderColor: 'var(--card-border)',
+                    color: 'var(--text-primary)',
+                  }}
+                  placeholder="Your message..."
+                  disabled={status === 'sending'}
+                />
+              </div>
+              {status === 'error' && (
+                <p className="text-sm" style={{ color: '#dc2626' }}>
+                  {errorMessage}
+                </p>
+              )}
+              {status === 'success' && (
+                <p className="text-sm" style={{ color: 'var(--accent)' }}>
+                  Message sent! I&apos;ll get back to you soon.
+                </p>
+              )}
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors disabled:opacity-60"
+                style={{
+                  backgroundColor: 'var(--accent)',
+                  color: '#ffffff',
+                }}
+              >
+                {status === 'sending' ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    Send Message
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
         </motion.div>
 
         {/* Contact Methods */}
