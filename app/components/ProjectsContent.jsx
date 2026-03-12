@@ -345,7 +345,7 @@ export default function ProjectsContent() {
             className="text-xl max-w-2xl mx-auto"
             style={{ color: 'var(--text-secondary)' }}
           >
-            Things I’ve built - from apps to AI tool
+            Things I’ve built - from apps to AI tools
           </motion.p>
         </motion.div>
 
