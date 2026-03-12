@@ -1,7 +1,5 @@
-import { Resend } from 'resend'
 import { NextResponse } from 'next/server'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'roshiniv@gwu.edu'
 
 export async function POST(request) {
@@ -16,7 +14,8 @@ export async function POST(request) {
       )
     }
 
-    if (!process.env.RESEND_API_KEY) {
+    const apiKey = process.env.RESEND_API_KEY
+    if (!apiKey) {
       console.error('RESEND_API_KEY is not set')
       return NextResponse.json(
         { error: 'Email service is not configured. Please set RESEND_API_KEY.' },
@@ -24,6 +23,8 @@ export async function POST(request) {
       )
     }
 
+    const { Resend } = await import('resend')
+    const resend = new Resend(apiKey)
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: CONTACT_EMAIL,
