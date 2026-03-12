@@ -48,10 +48,8 @@ export async function POST(request) {
     return NextResponse.json({ success: true, id: data?.id })
   } catch (err) {
     console.error('Contact API error:', err)
-    return NextResponse.json(
-      { error: 'Unable to send message. Please try again or email me directly.' },
-      { status: 500 }
-    )
+    const msg = err?.message || 'Unable to send. Please try again or email me directly.'
+    return NextResponse.json({ error: msg }, { status: 500 })
   }
 }
 

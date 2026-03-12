@@ -111,7 +111,7 @@ export default function ExperienceContent() {
           <motion.div
             className="absolute left-8 top-0 bottom-0 w-0.5"
             style={{
-              background: 'linear-gradient(180deg, #FFFFFF, rgba(255, 255, 255, 0.5), #FFFFFF)',
+              backgroundColor: 'var(--card-border)',
               originY: 0,
             }}
             initial={{ scaleY: 0 }}
@@ -136,9 +136,10 @@ export default function ExperienceContent() {
                 >
                   {/* Animated Timeline Dot */}
                   <motion.div
-                    className="absolute left-6 w-4 h-4 rounded-full border-4 border-white shadow-lg"
+                    className="absolute left-6 w-4 h-4 rounded-full border-4 shadow-md"
                     style={{
-                      backgroundColor: '#FFFFFF',
+                      borderColor: 'var(--card-border-strong)',
+                      backgroundColor: 'var(--accent)',
                     }}
                     initial={{ scale: 0 }}
                     animate={expInView ? { scale: 1 } : {}}
@@ -149,19 +150,22 @@ export default function ExperienceContent() {
                   {/* Content */}
                   <motion.div
                     whileHover={{ x: 5 }}
-                    className="group relative bg-white/10 backdrop-blur-sm border rounded-xl p-6 transition-all shadow-lg hover:shadow-xl overflow-hidden"
+                    className="group relative backdrop-blur-sm border rounded-xl p-6 transition-all shadow-md hover:shadow-lg overflow-hidden border-l-4"
                     style={{
                       borderColor: 'var(--card-border)',
+                      borderLeftColor: 'var(--accent)',
                       backgroundColor: 'var(--card-bg)',
                       willChange: 'transform',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                      e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)';
+                      e.currentTarget.style.borderColor = 'var(--card-border-strong)';
+                      e.currentTarget.style.borderLeftColor = 'var(--accent)';
+                      e.currentTarget.style.boxShadow = '0 12px 24px -8px rgba(0, 0, 0, 0.12)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                      e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                      e.currentTarget.style.borderColor = 'var(--card-border)';
+                      e.currentTarget.style.borderLeftColor = 'var(--accent)';
+                      e.currentTarget.style.boxShadow = '';
                     }}
                   >
                     <div className="relative z-10">
@@ -192,15 +196,7 @@ export default function ExperienceContent() {
 
                   <div>
                     <p className="font-medium text-sm mb-3 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-                      <svg className="absolute w-0 h-0">
-                        <defs>
-                          <linearGradient id={`expIconGradient-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#FFFFFF" />
-                            <stop offset="100%" stopColor="#FFFFFF" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                      <Sparkles className="w-4 h-4 gradient-icon" style={{ stroke: `url(#expIconGradient-${index})` }} />
+                      <Sparkles className="w-4 h-4" style={{ color: 'var(--accent)' }} />
                       Key Achievements:
                     </p>
                     <ul className="space-y-2">

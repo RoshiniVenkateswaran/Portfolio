@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { ExternalLink, Github, Smartphone, Bot, Wifi, ArrowRight, Brain, TrendingUp, GraduationCap, Shield, Trophy, Monitor, ChevronDown } from 'lucide-react'
+import { ExternalLink, Github, Smartphone, Bot, Wifi, Brain, TrendingUp, GraduationCap, Shield, Trophy, Monitor, ChevronDown } from 'lucide-react'
 
 const INITIAL_PROJECTS = 4
 const LOAD_MORE_COUNT = 4
@@ -143,13 +143,6 @@ function ProjectCard({ project, index }) {
             )}
           </div>
         )}
-        <motion.div
-          className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
-          animate={{ x: [0, 5, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <ArrowRight className="w-5 h-5" style={{ color: 'var(--text-primary)' }} />
-        </motion.div>
       </div>
     </motion.div>
   )
@@ -158,8 +151,8 @@ function ProjectCard({ project, index }) {
 const FILTERS = [
   { key: 'all', label: 'All' },
   { key: 'mobile', label: 'Mobile Development' },
-  { key: 'ai', label: 'AI' },
-  { key: 'web', label: 'Web' },
+  { key: 'ai', label: 'AI/ML' },
+  { key: 'web', label: 'Web Development' },
   { key: 'data', label: 'Data Science' },
   { key: 'iot', label: 'IoT' },
 ]
@@ -190,7 +183,7 @@ export default function ProjectsContent() {
       details: 'AI-powered system that predicts injury risk and generates tactical recovery plans using computer vision vitals extraction, workload analytics, and a RAG-based decision engine. Built FastAPI backend, RAG pipeline, and Flutter mobile interface for real-time athlete monitoring.',
       narration: ['Combines CV vitals, workload analytics, and RAG for injury prediction and recovery planning.'],
       icon: Trophy,
-      tech: ['Python', 'FastAPI', 'Flutter', 'Vector DB', 'Generative AI'],
+      tech: ['Python', 'FastAPI', 'Flutter', 'Vector DB', 'Generative AI', 'RAG', 'Computer Vision', 'Workload Analytics', 'Dart', 'REST APIs'],
       period: 'Feb 2026',
       link: 'https://devpost.com/software/pitchpulse-32pbyx',
     },
@@ -352,8 +345,7 @@ export default function ProjectsContent() {
             className="text-xl max-w-2xl mx-auto"
             style={{ color: 'var(--text-secondary)' }}
           >
-            A collection of projects that showcase my passion for building intelligent, 
-            human-centered technology solutions
+            Things I’ve built - from apps to AI tool
           </motion.p>
         </motion.div>
 
