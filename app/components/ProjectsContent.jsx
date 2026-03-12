@@ -114,7 +114,7 @@ function ProjectCard({ project, index }) {
           </div>
         </div>
         {(project.githubLink || project.link || project.appStoreLink || project.playStoreLink) && (
-          <div className="mt-4 flex items-center gap-3">
+          <div className="mt-4 pt-4 border-t flex items-center gap-3" style={{ borderColor: 'var(--card-border)' }}>
             {project.githubLink && (
               <a
                 href={project.githubLink}
@@ -160,20 +160,20 @@ export default function ProjectsContent() {
   const projects = [
     {
       id: 'swapy_hacknyu',
-      name: 'Swapy — AI-Driven Multi-Hop Barter Marketplace',
+      name: 'Swapy - AI-Driven Multi-Hop Barter Marketplace',
       description: '2nd Place Winner @ HACKnyu',
       details: 'Built an AI-powered campus barter system using Google Gemini 2.0 for semantic item analysis and fair valuation. Developed a graph-based matching system with DFS cycle detection to enable complex multi-hop trades. Delivered a real-time trends dashboard with demand, supply, and scarcity metrics.',
       narration: ['Built a complete AI-driven value network that turns unused campus goods into a smart, circular, cashless economy.'],
       icon: Trophy,
       tech: ['Next.js 14', 'Google Gemini 2.0', 'Firebase', 'TypeScript', 'Graph Algorithms', 'AI/ML', 'OpenRouter', 'Computer Vision'],
-      role: 'Team Member',
+      role: 'Team Lead',
       period: 'Nov 2025',
       link: 'https://lnkd.in/gMP_i8Vu',
       githubLink: 'https://github.com/RoshiniVenkateswaran/swapy',
     },
     {
       id: 'pitchpulse_hacklytics',
-      name: 'PitchPulse — AI Sports Injury Prediction Platform',
+      name: 'PitchPulse - AI Sports Injury Prediction Platform',
       description: 'Hacklytics @ Georgia Tech',
       details: 'AI-powered system that predicts injury risk and generates tactical recovery plans using computer vision vitals extraction, workload analytics, and a RAG-based decision engine. Built FastAPI backend, RAG pipeline, and Flutter mobile interface for real-time athlete monitoring.',
       narration: ['Combines CV vitals, workload analytics, and RAG for injury prediction and recovery planning.'],
@@ -191,7 +191,7 @@ export default function ProjectsContent() {
       icon: Smartphone,
       tech: ['Flutter', 'GetX', 'Supabase', 'Mapbox', 'iOS', 'Android', 'Real-time Chat', 'Geolocation', 'Firebase', 'GitHub Actions', 'CI/CD'],
       role: 'Software Developer Intern',
-      period: 'Oct 2025 – Present',
+      period: 'Oct 2025 – Dec 2025',
       appStoreLink: 'https://apps.apple.com/us/app/prommuni/id6747644654',
       playStoreLink: 'https://play.google.com/store/apps/details?id=com.prommuni.app&pcampaignid=web_share',
     },
@@ -313,7 +313,7 @@ export default function ProjectsContent() {
             className="text-5xl md:text-6xl font-bold mb-4"
             style={{ color: 'var(--text-primary)' }}
           >
-            My work
+            Projects
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
