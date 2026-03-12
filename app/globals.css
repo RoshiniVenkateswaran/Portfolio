@@ -71,9 +71,13 @@ html[data-theme="light"] {
   --scrollbar-thumb-hover: rgba(0, 0, 0, 0.35);
 }
 
-/* About section: green left accent in dark theme only */
+/* About section: green left accent in dark theme, blue/slate in light */
 html[data-theme="dark"] .about-bio-block {
   border-left-color: var(--accent) !important;
+}
+
+html[data-theme="light"] .about-bio-block {
+  border-left-color: var(--experience-accent) !important;
 }
 
 /* Natural scrollbar - theme-aware */
