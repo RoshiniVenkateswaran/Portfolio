@@ -38,17 +38,23 @@ export default function ContactContent() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-      const data = await res.json().catch(() => ({}))
+      let data = {}
+      try {
+        data = await res.json()
+      } catch (_) {
+        data = { error: res.status === 503 ? 'Email is not configured. Add RESEND_API_KEY in Vercel (Project → Settings → Environment Variables).' : 'Something went wrong.' }
+      }
       if (!res.ok) {
         setStatus('error')
-        setErrorMessage(data.error || 'Failed to send message.')
+        const msg = data.error || (res.status === 503 ? 'Email is not configured. Add RESEND_API_KEY in your deployment environment.' : 'Failed to send message.')
+        setErrorMessage(msg)
         return
       }
       setStatus('success')
       setFormData({ name: '', email: '', message: '' })
     } catch (err) {
       setStatus('error')
-      setErrorMessage(err.message || 'Something went wrong.')
+      setErrorMessage(err.message || 'Network error. Please try again.')
     }
   }
 

@@ -41,7 +41,8 @@ export async function POST(request) {
 
     if (error) {
       console.error('Resend error:', error)
-      return NextResponse.json({ error: error.message || 'Failed to send email.' }, { status: 500 })
+      const msg = typeof error === 'object' && error?.message ? error.message : 'Failed to send email.'
+      return NextResponse.json({ error: msg }, { status: 500 })
     }
 
     return NextResponse.json({ success: true, id: data?.id })
