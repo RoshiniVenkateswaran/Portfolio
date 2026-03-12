@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Briefcase, Calendar, MapPin, Sparkles } from 'lucide-react'
+import { Building2, Calendar, MapPin, Sparkles } from 'lucide-react'
 
 export default function ExperienceContent() {
   const experiences = [
@@ -169,25 +169,39 @@ export default function ExperienceContent() {
                     }}
                   >
                     <div className="relative z-10">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                    <div>
-                      <h3 className="text-2xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-3">
+                    <div className="flex-1">
+                      <h3
+                        className="text-2xl font-bold mb-2 transition-colors"
+                        style={{ color: 'var(--text-primary)' }}
+                      >
                         {exp.role}
                       </h3>
-                       <p className="text-xl mb-2 font-semibold" style={{ color: 'var(--text-primary)' }}>
-                         {exp.company}
-                       </p>
+                      <motion.div
+                        className="flex items-center gap-2"
+                        whileHover={{ x: 4 }}
+                        transition={{ type: 'spring', stiffness: 400 }}
+                      >
+                        <Building2 className="w-5 h-5 flex-shrink-0 transition-transform group-hover:scale-110" style={{ color: 'var(--accent)' }} />
+                        <p className="text-xl font-semibold" style={{ color: 'var(--accent)' }}>
+                          {exp.company}
+                        </p>
+                      </motion.div>
                     </div>
-                    <div className="text-right sm:mt-0 mt-2">
-                      <div className="flex items-center gap-2 text-sm mb-1" style={{ color: 'var(--text-secondary)' }}>
-                        <Calendar className="w-4 h-4" />
+                    <motion.div
+                      className="text-right sm:mt-0 space-y-1.5 flex flex-col items-end sm:items-end"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: 'spring', stiffness: 400 }}
+                    >
+                      <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-muted)' }}>
+                        <Calendar className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--accent)' }} />
                         <span>{exp.period}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
-                        <MapPin className="w-4 h-4" />
+                      <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-muted)' }}>
+                        <MapPin className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--accent)' }} />
                         <span>{exp.location}</span>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
 
                   <p className="mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
