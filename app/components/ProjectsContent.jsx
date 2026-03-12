@@ -21,16 +21,16 @@ function ProjectCard({ project, index }) {
       whileHover={{ y: -8, scale: 1.02 }}
       className="group relative bg-white/10 backdrop-blur-sm border rounded-xl p-6 transition-all shadow-lg hover:shadow-xl overflow-hidden"
       style={{
-        borderColor: 'rgba(255, 255, 255, 0.2)',
+        borderColor: 'var(--card-border)',
         backgroundColor: 'var(--card-bg)',
         willChange: 'transform',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)'
+        e.currentTarget.style.borderColor = 'var(--card-border-strong)'
         e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.3)'
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
+        e.currentTarget.style.borderColor = 'var(--card-border)'
         e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
       }}
     >
@@ -54,21 +54,9 @@ function ProjectCard({ project, index }) {
             transition={{ duration: 0.5 }}
             className="relative"
           >
-            <svg className="absolute w-0 h-0">
-              <defs>
-                <linearGradient id={`iconGradient-${project.id}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#FFFFFF" />
-                  <stop offset="100%" stopColor="#FFFFFF" />
-                </linearGradient>
-              </defs>
-            </svg>
             <ProjectIcon
               className="w-12 h-12 flex-shrink-0"
-              style={{
-                stroke: `url(#iconGradient-${project.id})`,
-                fill: 'none',
-                color: 'transparent',
-              }}
+              style={{ color: 'var(--text-primary)' }}
             />
           </motion.div>
           <div className="flex-1">
@@ -111,17 +99,17 @@ function ProjectCard({ project, index }) {
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="px-3 py-1.5 border rounded-full text-xs font-medium transition-all cursor-default"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  borderColor: 'rgba(255, 255, 255, 0.2)',
-                            color: 'var(--text-primary)',
+                  backgroundColor: 'var(--card-bg-alt)',
+                  borderColor: 'var(--card-border)',
+                  color: 'var(--text-primary)',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)'
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)'
+                  e.currentTarget.style.borderColor = 'var(--card-border-strong)'
+                  e.currentTarget.style.backgroundColor = 'var(--card-bg)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
+                  e.currentTarget.style.borderColor = 'var(--card-border)'
+                  e.currentTarget.style.backgroundColor = 'var(--card-bg-alt)'
                 }}
               >
                 {tech}
@@ -138,15 +126,13 @@ function ProjectCard({ project, index }) {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
+                className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg font-medium transition-all"
+                style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
+                  e.currentTarget.style.borderColor = 'var(--card-border-strong)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'
-                  e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 1)'
+                  e.currentTarget.style.borderColor = 'var(--card-border)'
                 }}
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -162,15 +148,13 @@ function ProjectCard({ project, index }) {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
+                className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg font-medium transition-all"
+                style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
+                  e.currentTarget.style.borderColor = 'var(--card-border-strong)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'
-                  e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 1)'
+                  e.currentTarget.style.borderColor = 'var(--card-border)'
                 }}
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -190,15 +174,13 @@ function ProjectCard({ project, index }) {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
+                className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg font-medium transition-all"
+                style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
+                  e.currentTarget.style.borderColor = 'var(--card-border-strong)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'
-                  e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 1)'
+                  e.currentTarget.style.borderColor = 'var(--card-border)'
                 }}
               >
                 <ExternalLink className="w-5 h-5" />
@@ -212,15 +194,13 @@ function ProjectCard({ project, index }) {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
-                style={{ borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
+                className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg font-medium transition-all"
+                style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
+                  e.currentTarget.style.borderColor = 'var(--card-border-strong)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'
-                  e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 1)'
+                  e.currentTarget.style.borderColor = 'var(--card-border)'
                 }}
               >
                 <Github className="w-5 h-5" />
@@ -237,15 +217,13 @@ function ProjectCard({ project, index }) {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-black border rounded-lg font-medium transition-all"
-              style={{ borderColor: 'var(--card-border)', color: 'var(--text-primary)' }}
+              className="inline-flex items-center gap-2 px-4 py-2 border rounded-lg font-medium transition-all"
+              style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--card-bg-alt)', color: 'var(--text-primary)' }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)'
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
+                e.currentTarget.style.borderColor = 'var(--card-border-strong)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)'
-                e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 1)'
+                e.currentTarget.style.borderColor = 'var(--card-border)'
               }}
             >
               <Github className="w-5 h-5" />
@@ -255,13 +233,13 @@ function ProjectCard({ project, index }) {
         )}
         <motion.div
           className="mt-4 pt-4 border-t"
-          style={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
+          style={{ borderColor: 'var(--card-border)' }}
           initial={{ opacity: 0 }}
           animate={cardInView ? { opacity: 1 } : {}}
           transition={{ delay: index * 0.15 + 0.3 }}
         >
           <p className="text-sm italic flex items-start gap-2" style={{ color: 'var(--text-secondary)' }}>
-            <Sparkles className="w-4 h-4 gradient-icon mt-0.5 flex-shrink-0" style={{ stroke: `url(#iconGradient-${project.id})` }} />
+            <Sparkles className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: 'var(--text-primary)' }} />
             {project.narration[0]}
           </p>
         </motion.div>
@@ -270,7 +248,7 @@ function ProjectCard({ project, index }) {
           animate={{ x: [0, 5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ArrowRight className="w-5 h-5 gradient-icon" style={{ stroke: `url(#iconGradient-${project.id})` }} />
+          <ArrowRight className="w-5 h-5" style={{ color: 'var(--text-primary)' }} />
         </motion.div>
       </div>
     </motion.div>
@@ -284,7 +262,7 @@ export default function ProjectsContent() {
       id: 'swapy_hacknyu',
       name: 'Swapy — AI-Driven Multi-Hop Barter Marketplace',
       description: '2nd Place Winner @ HACKnyu',
-      details: 'Built an AI-powered campus barter system that understands items, values them fairly, and unlocks multi-hop trades. Implemented Google Gemini 2.0 Flash for deep semantic analysis of items, extracting subcategory, materials, condition, and brand attributes. Developed a hybrid AI + deterministic valuation engine that generates fair, consistent prices. Created a graph-based matching system using DFS cycle detection to enable complex 3-way and 4-way trades that were previously impossible. Built real-time trends intelligence dashboard with 6-score metrics (demand, supply, scarcity, velocity, popularity, saturation) powered by AI semantic understanding.',
+      details: 'Built an AI-powered campus barter system using Google Gemini 2.0 for semantic item analysis and fair valuation. Developed a graph-based matching system with DFS cycle detection to enable complex multi-hop trades. Delivered a real-time trends dashboard with demand, supply, and scarcity metrics.',
       narration: ['Won 2nd place at HACKnyu Fall 2025 in the Sustainability category. Built a complete AI-driven value network that turns unused campus goods into a smart, circular, cashless economy.'],
       icon: Trophy,
       tech: ['Next.js 14', 'Google Gemini 2.0', 'Firebase', 'TypeScript', 'Graph Algorithms', 'AI/ML', 'OpenRouter', 'Computer Vision'],
@@ -296,9 +274,9 @@ export default function ProjectsContent() {
     {
       id: 'pitchpulse_hacklytics',
       name: 'PitchPulse — AI Sports Injury Prediction Platform',
-      description: 'Hacklytics 2026: Golden Byte',
-      details: 'AI-powered system that predicts injury risk and generates tactical recovery plans using computer vision vitals extraction, workload analytics, and a RAG-based decision engine. Built FastAPI backend for sports science analytics and workload modeling. Designed RAG pipeline combining vector search and generative AI recommendations. Integrated computer vision vitals extraction via mobile camera. Developed Flutter mobile interface for real-time athlete monitoring.',
-      narration: ['Submitted to Hacklytics 2026: Golden Byte. Combines CV vitals, workload analytics, and RAG for injury prediction and recovery planning.'],
+      description: 'Hacklytics @ Georgia Tech',
+      details: 'AI-powered system that predicts injury risk and generates tactical recovery plans using computer vision vitals extraction, workload analytics, and a RAG-based decision engine. Built FastAPI backend, RAG pipeline, and Flutter mobile interface for real-time athlete monitoring.',
+      narration: ['Submitted to Hacklytics @ Georgia Tech. Combines CV vitals, workload analytics, and RAG for injury prediction and recovery planning.'],
       icon: Trophy,
       tech: ['Python', 'FastAPI', 'Flutter', 'Vector DB', 'Generative AI'],
       period: 'Feb 2026',
@@ -308,7 +286,7 @@ export default function ProjectsContent() {
       id: 'prommuni_roommate_finder',
       name: 'Prommuni - Roommate Finder',
       description: 'Live on Stores',
-      details: 'Built a cross-platform roommate-finder app in Flutter using MVVM + GetX architecture to ensure scalability, maintainability, and clean state management. Implemented Firebase authentication, session storage, and real-time chat, ensuring secure, low-latency communication for 500+ test users. Integrated Mapbox SDK with geolocation, dynamic radius search, and location pinning, improving roommate matching accuracy by 40%. Implemented reusable UI components and modular APIs, reducing code duplication by 30% and standardizing development practices. Optimized API calls, caching, and rendering pipelines, reducing map load time by 30% and boosting app responsiveness.',
+      details: 'Built a cross-platform roommate-finder app in Flutter with GetX and Firebase auth. Integrated Mapbox for geolocation and dynamic search, improving match accuracy. Implemented real-time chat, reusable UI components, and optimized rendering for 500+ test users.',
       narration: ['Live on App Store and Google Play Store'],
       icon: Smartphone,
       tech: ['Flutter', 'GetX', 'Supabase', 'Mapbox', 'iOS', 'Android', 'Real-time Chat', 'Geolocation', 'Firebase', 'GitHub Actions', 'CI/CD'],
@@ -321,7 +299,7 @@ export default function ProjectsContent() {
       id: 'lora_historical_narratives',
       name: 'LoRA Fine-tuning for Historical Narratives',
       description: 'LLM Adaptation & Creative Storytelling',
-      details: 'Fine-tuned pre-trained LLMs (Mistral-7B) using LoRA, enabling creative historical narratives with "what-if" scenarios. Curated and preprocessed a domain-specific historical dataset from Wikipedia for storytelling fine-tuning. Applied low-rank adaptation to efficiently fine-tune large models with minimal computational resources. Generated context-aware, interactive narratives using prompt engineering, embeddings, and evaluation of coherence and creativity.',
+      details: 'Fine-tuned Mistral-7B with LoRA for creative historical narratives and "what-if" scenarios. Curated a Wikipedia-based dataset and applied low-rank adaptation for efficient training. Generated context-aware stories using prompt engineering and coherence evaluation.',
       narration: ['Developed an innovative approach to historical storytelling using advanced LLM fine-tuning techniques.'],
       icon: Brain,
       tech: ['Mistral-7B', 'LoRA', 'Python', 'LLM Fine-tuning', 'Wikipedia Dataset', 'Historical Narratives'],
@@ -331,7 +309,7 @@ export default function ProjectsContent() {
       id: 'amazon_retail_forecasting',
       name: 'Amazon Retail Sales Forecasting',
       description: 'Machine Learning & Predictive Analytics',
-      details: 'Led the development of a machine learning model using Python and XGBoost to forecast Amazon retail sales. Engineered a predictive solution that provided granular SKU-level insights, achieving a Mean Absolute Error (MAE) of 119. Developed and implemented robust data pipelines for data preprocessing and feature engineering. Presented findings, demonstrating the model\'s value in optimizing logistics and inventory.',
+      details: 'Led development of an XGBoost-based ML model to forecast Amazon retail sales with SKU-level insights (MAE 119). Built data pipelines for preprocessing and feature engineering. Presented findings for logistics and inventory optimization.',
       narration: ['Led a team to develop a machine learning solution for retail sales forecasting with significant business impact.'],
       icon: Brain,
       tech: ['Python', 'XGBoost', 'Machine Learning', 'Data Preprocessing', 'Feature Engineering', 'Predictive Analytics'],
@@ -343,7 +321,7 @@ export default function ProjectsContent() {
       id: 'botify_medica',
       name: 'Botify – AI-Powered Chatbot Assistant',
       description: 'AI Chatbot for Healthcare (Medica Internship)',
-      details: 'Developed Botify, a prototype AI chatbot for Medica\'s website, assisting members, providers, and visitors with conversational support. Built responsive frontend UI with HTML, CSS, JavaScript, including a floating chat icon for seamless user access. Implemented backend with Flask, integrating Mistral 7B Instruct LLM and FAISS search for context-aware responses. Processed website data using BeautifulSoup and Sentence Transformers, enabling accurate embeddings and fast, relevant answer retrieval.',
+      details: 'Developed an AI chatbot for Medica\'s website with Flask and Mistral 7B. Built a responsive UI with floating chat and used FAISS plus Sentence Transformers for context-aware answers from scraped site data.',
       narration: ['Created an intelligent chatbot solution that enhances customer support through AI-powered conversational interfaces.'],
       icon: Bot,
       tech: ['Flask', 'Mistral 7B', 'FAISS', 'BeautifulSoup', 'Sentence Transformers', 'HTML/CSS/JavaScript'],
@@ -355,7 +333,7 @@ export default function ProjectsContent() {
       id: 'expends_mobile',
       name: 'Expends – Expense Tracking App',
       description: 'Cross-Platform Mobile Application',
-      details: 'Built cross-platform expense tracker using Flutter, GetX, Laravel, MySQL, enabling seamless multi-device functionality. Developed RESTful APIs for real-time expense synchronization, improving data reliability and consistency. Enhanced UI/UX with Rive animations and smooth navigation, boosting user engagement and retention. Implemented dashboards, categorization, and reports, helping users track finances and analyze spending efficiently.',
+      details: 'Built a cross-platform expense tracker with Flutter, GetX, Laravel, and MySQL. Delivered RESTful APIs for real-time sync, Rive animations, and dashboards with categorization and reports for spending analysis.',
       narration: ['Delivered a comprehensive expense tracking solution with beautiful animations and robust backend infrastructure.'],
       icon: TrendingUp,
       tech: ['Flutter', 'GetX', 'Laravel', 'MySQL', 'RESTful APIs', 'Rive Animations'],
@@ -367,7 +345,7 @@ export default function ProjectsContent() {
       id: 'university_admit_predictor',
       name: 'University Admit Eligibility Predictor',
       description: 'Data Science & Predictive Analytics',
-      details: 'Analyzed large datasets and applied regression algorithms to predict student admission eligibility to universities. Designed and implemented an interactive dashboard for visualizing eligibility scores and key admission factors. Provided stakeholders with a data-driven tool to better understand and compare admission requirements.',
+      details: 'Applied regression on large datasets to predict university admission eligibility. Built an interactive dashboard to visualize scores and admission factors, helping students and institutions compare requirements.',
       narration: ['Developed a predictive analytics solution that helps students and institutions make informed admission decisions.'],
       icon: GraduationCap,
       tech: ['Python', 'Regression Algorithms', 'Data Visualization', 'Dashboard', 'Machine Learning'],
@@ -378,7 +356,7 @@ export default function ProjectsContent() {
       id: 'face_mask_detection',
       name: 'Face Mask Detection with OpenCV',
       description: 'Computer Vision & Deep Learning',
-      details: 'Led the design and development of a real-time mask detection system using OpenCV and deep learning models. Achieved 93% detection accuracy, enabling effective monitoring of compliance with mask mandates. Deployed the solution in university settings, reducing manual monitoring efforts by 60% and improving safety enforcement.',
+      details: 'Led development of a real-time mask detection system with OpenCV and deep learning (93% accuracy). Deployed in university settings, cutting manual monitoring by 60% and improving safety enforcement.',
       narration: ['Created an AI-powered safety solution that combines computer vision with practical deployment strategies.'],
       icon: Shield,
       tech: ['OpenCV', 'Deep Learning', 'Computer Vision', 'Python', 'Real-time Detection'],
@@ -389,7 +367,7 @@ export default function ProjectsContent() {
       id: 'iot_bus_tracker',
       name: 'IoT Bus Tracker',
       description: 'IoT & Systems Thinking',
-      details: 'Developed a comprehensive IoT solution for real-time bus tracking and monitoring using GPS modules and IoT sensors. Built a responsive web dashboard with HTML and CSS that displays live bus locations, estimated arrival times, and route information. Implemented basic backend processing to handle sensor data, calculate optimal routes, and manage real-time communication between buses and the central system. Integrated GPS tracking modules with IoT sensors to monitor bus status, passenger capacity, and environmental conditions. Designed an intuitive user interface that allows passengers to track buses in real-time and receive notifications about delays or route changes.',
+      details: 'Built an IoT solution for real-time bus tracking with GPS and sensors. Delivered a web dashboard showing live locations, arrival times, and routes. Implemented backend processing for sensor data and passenger notifications.',
       narration: ['Built an innovative IoT system that connects physical sensors with digital interfaces, revolutionizing public transportation tracking.'],
       icon: Wifi,
       tech: ['IoT Sensors', 'GPS Modules', 'HTML', 'CSS', 'Real-time Tracking', 'Web Dashboard'],
@@ -398,7 +376,7 @@ export default function ProjectsContent() {
       id: 'portfolio_website',
       name: 'Portfolio Website',
       description: 'Modern React Portfolio',
-      details: 'Built a modern, professional portfolio website showcasing projects, experience, and skills with a sleek dark theme and smooth animations. Implemented responsive design with React 18, Vite, and Tailwind CSS, ensuring optimal viewing across all devices. Created interactive components using Framer Motion for scroll-based animations and glassmorphism effects. Developed a multi-page application with React Router, featuring project showcases, experience timeline, skills display, and contact information. Optimized performance with efficient rendering and smooth transitions.',
+      details: 'Built a modern portfolio with React, Vite, and Tailwind CSS. Implemented responsive design, Framer Motion animations, and a multi-page layout with projects, experience, skills, and contact. Optimized rendering and transitions.',
       narration: ['A showcase of modern web development practices, combining beautiful design with smooth user experience.'],
       icon: Monitor,
       tech: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'React Router', 'JavaScript'],
