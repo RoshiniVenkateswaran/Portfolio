@@ -393,7 +393,7 @@ export default function AboutContent() {
 
               {/* Right Column: Bio */}
               <div>
-                <div className="border rounded-lg p-6 shadow-md" style={{ borderColor: 'var(--card-border-strong)', backgroundColor: 'var(--card-bg-alt)' }}>
+                <div className="about-bio-block border rounded-lg p-6 shadow-md border-l-4" style={{ borderColor: 'var(--card-border-strong)', borderLeftColor: 'var(--card-border-strong)', backgroundColor: 'var(--card-bg-alt)' }}>
                   <p className="text-lg leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
                     I'm a software developer focused on building full-stack applications and intelligent systems that combine backend engineering with applied AI. My work involves designing scalable APIs, building responsive web applications, and integrating machine learning capabilities into real-world products.
                   </p>
