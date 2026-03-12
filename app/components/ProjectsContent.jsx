@@ -155,11 +155,22 @@ function ProjectCard({ project, index }) {
   )
 }
 
+const FILTERS = [
+  { key: 'all', label: 'All' },
+  { key: 'mobile', label: 'Mobile Development' },
+  { key: 'ai', label: 'AI' },
+  { key: 'web', label: 'Web' },
+  { key: 'data', label: 'Data Science' },
+  { key: 'iot', label: 'IoT' },
+]
+
 export default function ProjectsContent() {
   const [visibleCount, setVisibleCount] = useState(INITIAL_PROJECTS)
+  const [activeFilter, setActiveFilter] = useState('all')
   const projects = [
     {
       id: 'swapy_hacknyu',
+      categories: ['ai', 'web'],
       name: 'Swapy - AI-Driven Multi-Hop Barter Marketplace',
       description: '2nd Place Winner @ HACKnyu',
       details: 'Built an AI-powered campus barter system using Google Gemini 2.0 for semantic item analysis and fair valuation. Developed a graph-based matching system with DFS cycle detection to enable complex multi-hop trades. Delivered a real-time trends dashboard with demand, supply, and scarcity metrics.',
@@ -173,6 +184,7 @@ export default function ProjectsContent() {
     },
     {
       id: 'pitchpulse_hacklytics',
+      categories: ['ai', 'mobile'],
       name: 'PitchPulse - AI Sports Injury Prediction Platform',
       description: 'Hacklytics @ Georgia Tech',
       details: 'AI-powered system that predicts injury risk and generates tactical recovery plans using computer vision vitals extraction, workload analytics, and a RAG-based decision engine. Built FastAPI backend, RAG pipeline, and Flutter mobile interface for real-time athlete monitoring.',
@@ -184,6 +196,7 @@ export default function ProjectsContent() {
     },
     {
       id: 'prommuni_roommate_finder',
+      categories: ['mobile'],
       name: 'Prommuni - Roommate Finder',
       description: 'Live on Stores',
       details: 'Built a cross-platform roommate-finder app in Flutter with GetX and Firebase auth. Integrated Mapbox for geolocation and dynamic search, improving match accuracy. Implemented real-time chat, reusable UI components, and optimized rendering for 500+ test users.',
@@ -197,6 +210,7 @@ export default function ProjectsContent() {
     },
     {
       id: 'lora_historical_narratives',
+      categories: ['ai'],
       name: 'LoRA Fine-tuning for Historical Narratives',
       description: 'LLM Adaptation & Creative Storytelling',
       details: 'Fine-tuned Mistral-7B with LoRA for creative historical narratives and "what-if" scenarios. Curated a Wikipedia-based dataset and applied low-rank adaptation for efficient training. Generated context-aware stories using prompt engineering and coherence evaluation.',
@@ -207,6 +221,7 @@ export default function ProjectsContent() {
     },
     {
       id: 'amazon_retail_forecasting',
+      categories: ['ai', 'data'],
       name: 'Amazon Retail Sales Forecasting',
       description: 'Machine Learning & Predictive Analytics',
       details: 'Led development of an XGBoost-based ML model to forecast Amazon retail sales with SKU-level insights (MAE 119). Built data pipelines for preprocessing and feature engineering. Presented findings for logistics and inventory optimization.',
@@ -219,6 +234,7 @@ export default function ProjectsContent() {
     },
     {
       id: 'botify_medica',
+      categories: ['ai', 'web'],
       name: 'Botify – AI-Powered Chatbot Assistant',
       description: 'AI Chatbot for Healthcare (Medica Internship)',
       details: 'Developed an AI chatbot for Medica\'s website with Flask and Mistral 7B. Built a responsive UI with floating chat and used FAISS plus Sentence Transformers for context-aware answers from scraped site data.',
@@ -231,6 +247,7 @@ export default function ProjectsContent() {
     },
     {
       id: 'expends_mobile',
+      categories: ['mobile'],
       name: 'Expends – Expense Tracking App',
       description: 'Cross-Platform Mobile Application',
       details: 'Built a cross-platform expense tracker with Flutter, GetX, Laravel, and MySQL. Delivered RESTful APIs for real-time sync, Rive animations, and dashboards with categorization and reports for spending analysis.',
@@ -243,6 +260,7 @@ export default function ProjectsContent() {
     },
     {
       id: 'university_admit_predictor',
+      categories: ['data'],
       name: 'University Admit Eligibility Predictor',
       description: 'Data Science & Predictive Analytics',
       details: 'Applied regression on large datasets to predict university admission eligibility. Built an interactive dashboard to visualize scores and admission factors, helping students and institutions compare requirements.',
@@ -254,6 +272,7 @@ export default function ProjectsContent() {
     },
     {
       id: 'face_mask_detection',
+      categories: ['ai'],
       name: 'Face Mask Detection with OpenCV',
       description: 'Computer Vision & Deep Learning',
       details: 'Led development of a real-time mask detection system with OpenCV and deep learning (93% accuracy). Deployed in university settings, cutting manual monitoring by 60% and improving safety enforcement.',
@@ -265,6 +284,7 @@ export default function ProjectsContent() {
     },
     {
       id: 'iot_bus_tracker',
+      categories: ['iot'],
       name: 'IoT Bus Tracker',
       description: 'IoT & Systems Thinking',
       details: 'Built an IoT solution for real-time bus tracking with GPS and sensors. Delivered a web dashboard showing live locations, arrival times, and routes. Implemented backend processing for sensor data and passenger notifications.',
@@ -274,6 +294,7 @@ export default function ProjectsContent() {
     },
     {
       id: 'portfolio_website',
+      categories: ['web'],
       name: 'Portfolio Website',
       description: 'Modern React Portfolio',
       details: 'Built a modern portfolio with React, Vite, and Tailwind CSS. Implemented responsive design, Framer Motion animations, and a multi-page layout with projects, experience, skills, and contact. Optimized rendering and transitions.',
@@ -286,9 +307,18 @@ export default function ProjectsContent() {
 
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, margin: "-100px" })
-  const visibleProjects = projects.slice(0, visibleCount)
-  const hasMore = visibleCount < projects.length
+  const filteredProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter((p) => p.categories && p.categories.includes(activeFilter))
+  const visibleProjects = activeFilter === 'all'
+    ? filteredProjects.slice(0, visibleCount)
+    : filteredProjects
+  const hasMore = activeFilter === 'all' && visibleCount < projects.length
   const loadMore = () => setVisibleCount((prev) => Math.min(prev + LOAD_MORE_COUNT, projects.length))
+  const setFilter = (key) => {
+    setActiveFilter(key)
+    if (key === 'all') setVisibleCount(INITIAL_PROJECTS)
+  }
 
   return (
     <motion.div 
@@ -325,6 +355,29 @@ export default function ProjectsContent() {
             A collection of projects that showcase my passion for building intelligent, 
             human-centered technology solutions
           </motion.p>
+        </motion.div>
+
+        <motion.div
+          className="flex flex-wrap justify-center gap-2 mb-12"
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.3, duration: 0.4 }}
+        >
+          {FILTERS.map(({ key, label }) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => setFilter(key)}
+              className="px-4 py-2 rounded-lg text-sm font-medium transition-all border"
+              style={{
+                borderColor: activeFilter === key ? 'var(--accent)' : 'var(--card-border)',
+                backgroundColor: activeFilter === key ? 'var(--accent)' : 'var(--card-bg-alt)',
+                color: activeFilter === key ? '#ffffff' : 'var(--text-primary)',
+              }}
+            >
+              {label}
+            </button>
+          ))}
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
