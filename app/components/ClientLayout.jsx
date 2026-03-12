@@ -3,7 +3,6 @@
 import { ThemeProvider } from '../context/ThemeContext'
 import Navigation from './Navigation'
 import Footer from './Footer'
-import ScrollProgress from './ScrollProgress'
 
 export default function ClientLayout({ children }) {
   return (
@@ -18,7 +17,6 @@ export default function ClientLayout({ children }) {
           </linearGradient>
         </defs>
       </svg>
-      <ScrollProgress />
       <Navigation />
       <div style={{ minHeight: '100vh' }}>
         {children}
