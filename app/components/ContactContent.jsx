@@ -40,7 +40,12 @@ export default function ContactContent() {
       })
       let data = {}
       try {
-        data = await res.json()
+        const text = await res.text()
+        try {
+          data = text ? JSON.parse(text) : {}
+        } catch (_) {
+          data = { error: text || (res.status === 503 ? 'Email is not configured. Add RESEND_API_KEY in Vercel.' : 'Server error. Check Vercel function logs.') }
+        }
       } catch (_) {
         data = { error: res.status === 503 ? 'Email is not configured. Add RESEND_API_KEY in Vercel (Project → Settings → Environment Variables).' : 'Unable to send. Please try again or email me directly.' }
       }

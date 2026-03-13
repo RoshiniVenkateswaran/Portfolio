@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 
+// When using onboarding@resend.dev, CONTACT_EMAIL must match the email you used to sign up for Resend (e.g. roshiniv@gwmail.gwu.edu).
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'roshiniv@gwu.edu'
 
 export async function POST(request) {
@@ -51,16 +52,24 @@ export async function POST(request) {
 
     if (error) {
       console.error('Resend error:', error)
-      const msg = typeof error === 'object' && error?.message ? error.message : 'Failed to send email.'
+      const msg = getErrorMessage(error, 'Resend rejected the email.')
       return NextResponse.json({ error: msg }, { status: 500 })
     }
 
     return NextResponse.json({ success: true, id: data?.id })
   } catch (err) {
     console.error('Contact API error:', err)
-    const msg = err?.message || 'Unable to send. Please try again or email me directly.'
+    const msg = getErrorMessage(err, 'Unable to send. Please try again or email me directly.')
     return NextResponse.json({ error: msg }, { status: 500 })
   }
+}
+
+function getErrorMessage(err, fallback) {
+  if (err?.message) return String(err.message)
+  if (typeof err === 'string') return err
+  if (err?.error?.message) return String(err.error.message)
+  if (err?.errors?.[0]?.message) return String(err.errors[0].message)
+  return fallback
 }
 
 function escapeHtml(text) {
