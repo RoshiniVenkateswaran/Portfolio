@@ -7,9 +7,19 @@ export async function POST(request) {
     const body = await request.json()
     const { name, email, message } = body
 
-    if (!name?.trim() || !email?.trim() || !message?.trim()) {
+    const nameStr = name?.trim()
+    const emailStr = email?.trim()
+    const messageStr = message?.trim()
+    if (!nameStr || !emailStr || !messageStr) {
       return NextResponse.json(
         { error: 'Name, email, and message are required.' },
+        { status: 400 }
+      )
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(emailStr)) {
+      return NextResponse.json(
+        { error: 'Please enter a valid email address.' },
         { status: 400 }
       )
     }
@@ -28,14 +38,14 @@ export async function POST(request) {
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: CONTACT_EMAIL,
-      replyTo: email,
-      subject: `Portfolio: Message from ${name}`,
+      replyTo: emailStr,
+      subject: `Portfolio: Message from ${escapeHtml(nameStr)}`,
       html: `
         <h2>New message from your portfolio</h2>
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Name:</strong> ${escapeHtml(nameStr)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(emailStr)}</p>
         <p><strong>Message:</strong></p>
-        <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
+        <p>${escapeHtml(messageStr).replace(/\n/g, '<br>')}</p>
       `,
     })
 
