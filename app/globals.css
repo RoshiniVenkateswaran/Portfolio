@@ -67,8 +67,14 @@ html[data-theme="light"] {
   --footer-border: rgba(0, 0, 0, 0.08);
   --accent: #059669;
   --experience-accent: #0f172a;
+  --contact-accent: #1e3a8a;  /* dark blue for contact page in light theme */
   --scrollbar-thumb: rgba(0, 0, 0, 0.2);
   --scrollbar-thumb-hover: rgba(0, 0, 0, 0.35);
+}
+
+/* Contact page: green accent in dark theme, dark blue in light */
+html[data-theme="dark"] {
+  --contact-accent: #10b981;
 }
 
 /* About section: green left accent in dark theme, blue/slate in light */

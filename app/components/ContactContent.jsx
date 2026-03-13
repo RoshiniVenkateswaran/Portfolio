@@ -129,7 +129,7 @@ export default function ContactContent() {
                   transition: 'border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--accent)';
+                  e.currentTarget.style.borderColor = 'var(--contact-accent)';
                   e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.2)';
                   e.currentTarget.style.transform = 'translateY(-4px)';
                 }}
@@ -181,7 +181,7 @@ export default function ContactContent() {
                       transition: 'border-color 0.2s ease, background-color 0.2s ease',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'var(--accent)';
+                      e.currentTarget.style.borderColor = 'var(--contact-accent)';
                       e.currentTarget.style.backgroundColor = 'var(--card-border)';
                     }}
                     onMouseLeave={(e) => {
@@ -212,7 +212,7 @@ export default function ContactContent() {
                       ease: "easeInOut"
                     }}
                   >
-                      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--accent)' }} />
+                      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--contact-accent)' }} />
                   </motion.div>
                 </div>
               </motion.a>
@@ -234,7 +234,7 @@ export default function ContactContent() {
               borderColor: 'var(--card-border)',
               backgroundColor: 'var(--card-bg)',
               borderLeftWidth: '4px',
-              borderLeftColor: 'var(--accent)',
+              borderLeftColor: 'var(--contact-accent)',
             }}
           >
             <p className="leading-relaxed relative z-10 text-lg" style={{ color: 'var(--text-secondary)' }}>
