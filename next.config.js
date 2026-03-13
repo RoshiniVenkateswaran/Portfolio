@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // No output: 'export' — API routes (e.g. /api/contact) require a server
+  output: 'export',
   images: {
     unoptimized: true,
   },
