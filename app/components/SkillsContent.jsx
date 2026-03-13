@@ -2,15 +2,14 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Code, Server, Brain, Layout, Cloud, Users, Sparkles } from 'lucide-react'
+import { Code, Server, Brain, Layout, Cloud, Sparkles } from 'lucide-react'
 
 const categoryIcons = {
   Languages: Code,
   Backend: Server,
   'AI Systems': Brain,
   Frontend: Layout,
-  Infrastructure: Cloud,
-  'Soft Skills': Users,
+  'Infrastructure & Tools': Cloud,
 }
 
 export default function SkillsContent() {
@@ -23,7 +22,7 @@ export default function SkillsContent() {
     },
     {
       title: 'Backend',
-      skills: ['FastAPI', 'REST APIs', 'System Architecture', 'SQL', 'MySQL', 'Node.js', 'Database Design'],
+      skills: ['FastAPI', 'REST APIs', 'System Architecture', 'SQL', 'MySQL', 'Node.js', 'Database Design', 'Distributed Systems', 'Microservices'],
       accent: 'from-emerald-500/20 to-teal-600/20',
       borderGlow: 'rgba(16, 185, 129, 0.15)',
     },
@@ -51,16 +50,10 @@ export default function SkillsContent() {
       borderGlow: 'rgba(6, 182, 212, 0.15)',
     },
     {
-      title: 'Infrastructure',
-      skills: ['Firebase', 'Supabase', 'Cloudflare', 'Git', 'Cloud Services', 'Xcode', 'Android Studio'],
+      title: 'Infrastructure & Tools',
+      skills: ['AWS', 'Firebase', 'Supabase', 'Cloudflare', 'Git', 'Jira', 'VS Code', 'Xcode', 'Android Studio', 'Cloud Services'],
       accent: 'from-rose-500/20 to-pink-600/20',
       borderGlow: 'rgba(244, 63, 94, 0.15)',
-    },
-    {
-      title: 'Soft Skills',
-      skills: ['Team Collaboration', 'Problem Solving', 'Communication', 'Agile Methodology', 'Project Management'],
-      accent: 'from-slate-500/20 to-zinc-600/20',
-      borderGlow: 'rgba(100, 116, 139, 0.15)',
     },
   ]
 

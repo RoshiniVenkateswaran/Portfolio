@@ -188,8 +188,6 @@ export default function ContactContent() {
                       e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
                       e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
                     }}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
                   >
                     {method.isLogo && method.LogoComponent ? (
                       <method.LogoComponent className="w-6 h-6" style={{ color: 'var(--text-primary)' }} />
