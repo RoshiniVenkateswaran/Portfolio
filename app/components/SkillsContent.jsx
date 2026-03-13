@@ -2,14 +2,15 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Code, Server, Brain, Layout, Cloud, Sparkles } from 'lucide-react'
+import { Code, Server, Brain, Layout, Cloud, Settings, Sparkles } from 'lucide-react'
 
 const categoryIcons = {
   Languages: Code,
   Backend: Server,
   'AI Systems': Brain,
   Frontend: Layout,
-  'Infrastructure & Tools': Cloud,
+  Infrastructure: Cloud,
+  Tools: Settings,
 }
 
 export default function SkillsContent() {
@@ -50,10 +51,16 @@ export default function SkillsContent() {
       borderGlow: 'rgba(6, 182, 212, 0.15)',
     },
     {
-      title: 'Infrastructure & Tools',
-      skills: ['AWS', 'Firebase', 'Supabase', 'Cloudflare', 'Git', 'Jira', 'VS Code', 'Xcode', 'Android Studio', 'Cloud Services'],
+      title: 'Infrastructure',
+      skills: ['AWS', 'Firebase', 'Supabase', 'Cloudflare', 'Cloud Services', 'Xcode', 'Android Studio'],
       accent: 'from-rose-500/20 to-pink-600/20',
       borderGlow: 'rgba(244, 63, 94, 0.15)',
+    },
+    {
+      title: 'Tools',
+      skills: ['Git', 'Jira', 'VS Code'],
+      accent: 'from-slate-500/20 to-zinc-600/20',
+      borderGlow: 'rgba(100, 116, 139, 0.15)',
     },
   ]
 

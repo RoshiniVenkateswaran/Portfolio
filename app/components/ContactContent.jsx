@@ -129,12 +129,12 @@ export default function ContactContent() {
                   transition: 'border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.6)';
+                  e.currentTarget.style.borderColor = 'var(--accent)';
                   e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.2)';
                   e.currentTarget.style.transform = 'translateY(-4px)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                  e.currentTarget.style.borderColor = 'var(--card-border)';
                   e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
@@ -176,17 +176,17 @@ export default function ContactContent() {
                   <motion.div
                     className="p-4 border rounded-xl"
                     style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                      borderColor: 'rgba(255, 255, 255, 0.3)',
+                      backgroundColor: 'var(--card-bg-alt)',
+                      borderColor: 'var(--card-border)',
                       transition: 'border-color 0.2s ease, background-color 0.2s ease',
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.6)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                      e.currentTarget.style.borderColor = 'var(--accent)';
+                      e.currentTarget.style.backgroundColor = 'var(--card-border)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                      e.currentTarget.style.borderColor = 'var(--card-border)';
+                      e.currentTarget.style.backgroundColor = 'var(--card-bg-alt)';
                     }}
                   >
                     {method.isLogo && method.LogoComponent ? (
@@ -212,7 +212,7 @@ export default function ContactContent() {
                       ease: "easeInOut"
                     }}
                   >
-                      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--text-primary)' }} />
+                      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: 'var(--accent)' }} />
                   </motion.div>
                 </div>
               </motion.a>
@@ -233,6 +233,8 @@ export default function ContactContent() {
           style={{
               borderColor: 'var(--card-border)',
               backgroundColor: 'var(--card-bg)',
+              borderLeftWidth: '4px',
+              borderLeftColor: 'var(--accent)',
             }}
           >
             <p className="leading-relaxed relative z-10 text-lg" style={{ color: 'var(--text-secondary)' }}>
