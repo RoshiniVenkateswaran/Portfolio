@@ -85,11 +85,12 @@ export default function HomeContent() {
   ]
 
   const featuredProject = {
-    name: 'PitchPulse — AI Sports Injury Prediction Platform',
-    description: 'Hacklytics @ Georgia Tech',
-    tagline: 'AI-powered system that predicts injury risk and generates tactical recovery plans using computer vision vitals extraction, workload analytics, and a RAG-based decision engine.',
-    tech: ['Python', 'FastAPI', 'Flutter', 'Vector DB', 'Generative AI'],
-    link: '/projects'
+    name: 'SNAPback — Nutrition & Cashback for SNAP Families',
+    description: '1st Place @ George Hacks',
+    tagline:
+      'Flutter app for SNAP and WIC households: receipt photos become culturally-aware nutrition scores with Gemini 2.5 Flash, tiered cashback, and a monthly health gate—Firebase and Cloud Functions keep dashboards and history live.',
+    tech: ['Flutter', 'Firebase', 'Google Gemini', 'Cloud Functions', 'Dart'],
+    link: '/projects',
   }
 
   return (

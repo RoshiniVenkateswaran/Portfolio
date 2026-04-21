@@ -32,6 +32,7 @@ export default function SkillsContent() {
       skills: [
         'Computer Vision',
         'Generative AI',
+        'Google Gemini',
         'RAG Pipelines',
         'Vector Databases',
         'NLP',
@@ -52,7 +53,7 @@ export default function SkillsContent() {
     },
     {
       title: 'Infrastructure',
-      skills: ['AWS', 'Firebase', 'Supabase', 'Cloudflare', 'Cloud Services', 'Xcode', 'Android Studio'],
+      skills: ['AWS', 'Firebase', 'Cloud Functions', 'Supabase', 'Cloudflare', 'Cloud Services', 'Xcode', 'Android Studio'],
       accent: 'from-rose-500/20 to-pink-600/20',
       borderGlow: 'rgba(244, 63, 94, 0.15)',
     },
