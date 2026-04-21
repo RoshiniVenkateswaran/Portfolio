@@ -60,7 +60,7 @@ function ProjectCard({ project, index }) {
               <span style={{ color: 'var(--text-primary)' }}>{project.name}</span>
             </motion.h3>
             <p className="text-sm mb-1">
-              {project.id === 'prommuni_roommate_finder' || project.id === 'swapy_hacknyu' || project.id === 'pitchpulse_hacklytics' ? (
+              {project.id === 'prommuni_roommate_finder' || project.id === 'swapy_hacknyu' || project.id === 'pitchpulse_hacklytics' || project.id === 'snapback_george_hacks' ? (
                 <span style={{ color: 'var(--accent)' }}>{project.description}</span>
               ) : (
                 <span style={{ color: 'var(--text-secondary)' }}>{project.description}</span>
@@ -187,6 +187,37 @@ export default function ProjectsContent() {
       period: 'Feb 2026',
       link: 'https://devpost.com/software/pitchpulse-32pbyx',
       githubLink: 'https://github.com/RoshiniVenkateswaran/PitchPulseDB',
+    },
+    {
+      id: 'snapback_george_hacks',
+      categories: ['mobile', 'ai'],
+      name: 'SNAPback – Nutrition & Cashback for SNAP Families',
+      description: '1st Place @ George Hacks',
+      details:
+        'Flutter app for SNAP and WIC households: snap a grocery receipt for culturally-aware nutrition scores (24 cuisines) against a USDA rubric via Gemini 2.5 Flash multimodal. Firebase Auth, Firestore, and Storage with Node 20 Cloud Functions enforce tiered cashback, monthly caps, and a health-score gate before redemption. Live dashboards and recipe suggestions update in real time.',
+      narration: [
+        'Receipt-to-guidance pipeline with behavioral incentives for sustained healthier shopping.',
+      ],
+      icon: Trophy,
+      tech: [
+        'Flutter',
+        'Dart',
+        'Provider',
+        'go_router',
+        'Firebase Auth',
+        'Cloud Firestore',
+        'Cloud Storage',
+        'Cloud Functions',
+        'Node 20',
+        'Gemini 2.5 Flash',
+        'JSON Schema',
+        'fl_chart',
+        'google_nav_bar',
+      ],
+      role: 'Team Lead',
+      period: 'Feb 2026',
+      // Replace with your SNAPback submission URL from Devpost when you have it.
+      link: 'https://devpost.com/software/snapback',
     },
     {
       id: 'prommuni_roommate_finder',
