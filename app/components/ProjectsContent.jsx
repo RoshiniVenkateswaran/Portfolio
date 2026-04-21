@@ -216,8 +216,8 @@ export default function ProjectsContent() {
       ],
       role: 'Team Lead',
       period: 'Feb 2026',
-      // Replace with your SNAPback submission URL from Devpost when you have it.
-      link: 'https://devpost.com/software/snapback',
+      link: 'https://devpost.com/software/snapback-2s1lb7',
+      githubLink: 'https://github.com/RoshiniVenkateswaran/SNAPback',
     },
     {
       id: 'prommuni_roommate_finder',
