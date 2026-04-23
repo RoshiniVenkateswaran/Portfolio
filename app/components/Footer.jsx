@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { ExternalLink } from 'lucide-react'
 
 // LinkedIn Logo SVG Component
 const LinkedInLogo = ({ className }) => (
@@ -23,17 +24,9 @@ const MediumLogo = ({ className }) => (
   </svg>
 )
 
-// External-link icon (square + arrow) for LeetCode slot — matches common “open in new tab” glyph
+// Lucide icon so the box + arrow render correctly (one merged <path> stroke often reads as a lone diagonal at w-5 h-5)
 const ExternalLinkLogo = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-    <path
-      d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-      stroke="currentColor"
-      strokeWidth="2.25"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
+  <ExternalLink className={className} strokeWidth={2.25} aria-hidden />
 )
 
 export default function Footer() {
