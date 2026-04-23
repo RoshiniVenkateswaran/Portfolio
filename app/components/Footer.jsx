@@ -23,10 +23,16 @@ const MediumLogo = ({ className }) => (
   </svg>
 )
 
-// LeetCode logo (Simple Icons full mark: fold + code window)
-const LeetCodeLogo = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-    <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 5.526l5.417 5.436a1.375 1.375 0 0 0 1.958 0L19.55 5.526a1.374 1.374 0 0 0 0-1.957L13.62.438A1.374 1.374 0 0 0 12.483 0h-1zm3.123 6.44a1.375 1.375 0 0 0-.962.438L2.561 20.078a1.375 1.375 0 0 0 0 1.956l5.452 5.457a1.375 1.375 0 0 0 1.958 0L23.44 8.334a1.375 1.375 0 0 0 0-1.954l-5.453-5.457a1.375 1.375 0 0 0-.961-.438v-.001zM8.857 3.466a.675.675 0 0 0-.663.663v5.685a.675.675 0 0 0 .663.663h5.685a.675.675 0 0 0 .663-.663V4.129a.675.675 0 0 0-.663-.663H8.857zm6.55 4.682L13.54 12.5l1.867 2.352a.675.675 0 0 1-.53 1.095h-1.734a.673.673 0 0 1-.53-.262l-.983-1.236-.983 1.236a.673.673 0 0 1-.53.262h-1.734a.675.675 0 0 1-.53-1.095l1.867-2.352-1.867-2.352a.675.675 0 0 1 .53-1.095h1.734a.673.673 0 0 1 .53.262l.983 1.236.983-1.236a.673.673 0 0 1 .53-.262h1.734a.675.675 0 0 1 .53 1.095z" />
+// Arrow icon for LeetCode link (stroke matches icon weight at w-5 h-5)
+const ArrowLogo = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+    <path
+      d="M7 17 17 7M17 7H10M17 7v7"
+      stroke="currentColor"
+      strokeWidth="2.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 )
 
@@ -45,7 +51,7 @@ export default function Footer() {
     {
       href: 'https://leetcode.com/u/roshv01/',
       label: 'LeetCode',
-      LogoComponent: LeetCodeLogo,
+      LogoComponent: ArrowLogo,
     },
     {
       href: 'https://medium.com/@roshiniv',
